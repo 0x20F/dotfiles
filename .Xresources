@@ -15,7 +15,7 @@ rofi.color-urgent: #001d1f21, #dddc322f, #007289da, #dddc322f, #ddffffff
 *background: #880C0C13
 ! *background: #282828
 ! soft contrast: *background: #32302f
-*foreground: #ffffff
+*foreground: #ccffffff
 ! Black + DarkGrey
 *color0:  #282828
 *color8:  #928374
