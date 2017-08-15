@@ -59,3 +59,13 @@ mpv
 .gnome
 .config/google-chrome
 .config/transmission-remote-gtk
+.local
+.steam
+.pki
+.pulse-cookie
+.steampath
+.steampid
+.gnupg
+.gnome
+.icons
+.config/spotify

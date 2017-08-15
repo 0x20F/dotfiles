@@ -91,7 +91,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 set $workspace1 "1: "
-set $workspace2 "2: "
+set $workspace2 "2: "
 set $workspace3 "3: "
 set $workspace4 "4: "
 set $workspace5 "5: "
@@ -236,6 +236,6 @@ exec xset s noblank
 exec --no-startup-id nm-applet
 
 client.focused #7289da #7289da #ffffff #dddddd
-client.focused_inactive #7289da #0c0c13 #888888 #292d2e
-client.unfocused #0c0c13 #0c0c13 #00888888 #292d2e
+client.focused_inactive #7289da #0c0c13 #00888888 #00292d2e
+client.unfocused #00c0c0c13 #000c0c13 #00888888 #00292d2e
 client.urgent #2f343a #900000 #00ffffff #900000
