@@ -35,10 +35,6 @@ bindsym $mod+Return exec termite
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -190,6 +186,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+# Colors are out of date, and barely used in the config.
+# THIS NEEDS AN UPDATE
 set $bg-color               #222222
 set $bg-color2 	            #2f343f
 set $inactive-bg-color      #222222
@@ -200,13 +199,10 @@ set $inactive-text-color    #839496
 set $inactive-text-color2   #6839496
 set $urgent-bg-color        #E53935
 
-# window colors
-#                       border              background         text                 indicator
 
-
-
-#bindsym $mod+d exec rofi -show run -lines 5 -bw 3 -font "System San Francisco Display 14"
+# basic Rofi config, with default colors, work in progress.
 bindsym $mod+d exec rofi -show run -lines 10 -eh 1 -width 100 -padding 800 -opacity "85" -bw 0 -fg "#dd7289da"  -hlfg "#ddffffff" -font "System San Francisco Display 18" -no-show-match -separator-style solid -hide-scrollbar
+
 
 bindsym --release Print exec "gnome-screenshot -i"
 new_window 1pixel
@@ -214,20 +210,27 @@ new_window 1pixel
 # run the lock script
 bindsym $mod+o exec ~/.config/lock/lock.sh
 
+# set window gaps
 gaps inner 10
 gaps outer 7
 
+# execute the must have programs
 exec kmix
 exec compton -f
 
+# ---------------------------------------------------------
+#
+#          The Lines Below are set for my monitors
+#               Make sure to change these!
+#
+#----------------------------------------------------------
 # xrandr line is used for changing the order of my monitors
 exec xrandr --output DVI-I-3 --left-of DVI-I-2
 # rendering the polybar on both monitors
 exec ~/.config/polybar/launch.sh
 
-# Background apps, pick your poison
+# Background apps, pick your poison (feh, nitrogen)
 exec_always feh --bg-scale --no-xinerama ~/wallpapers/1473964924920.jpg
-# exec_always nitrogen --restore
 
 exec xset s off
 exec xset -dpms
@@ -235,6 +238,7 @@ exec xset s noblank
 
 exec --no-startup-id nm-applet
 
+# Window border colors and backgrounds
 client.focused #7289da #7289da #ffffff #dddddd
 client.focused_inactive #7289da #0c0c13 #00888888 #00292d2e
 client.unfocused #00c0c0c13 #000c0c13 #00888888 #00292d2e
