@@ -9,7 +9,7 @@ rofi.color-urgent: #001d1f21, #dddc322f, #007289da, #dddc322f, #ddffffff
 
 
 ! ------------------------------------------------------------------------------
-! ColorScheme
+! ColorScheme / Color scheme still needs thinking
 !-------------------------------------------------------------------------------
 *accent: #7289da
 *background: #880C0C13
