@@ -1,21 +1,23 @@
 ![GitHub Dotfiles Logo](http://i.imgur.com/4jOz46V.png)
 
-# Installed things
-
+# Things needed for all configs to work
 - i3-gaps
-- rofi
 - i3lock
-- polybar
-- arc-dark (gtk-engine-murrine [on arch])
-- paper-icons
-- arc-dark-firefox
-- font awesome
+- rofi
+- termite
 - feh
+- font-awesome
+- polybar
+- termite terminal
+- arc-dark (the gtk theme)
+
+
+# Installed things for my basic Arch config...
+
+- paper-icons
 - git
 - lxappearance
-- termite terminal
 - make
-- pywal
 - base-devel
 - kmix (for sound)
 - yaourt
@@ -24,12 +26,14 @@
 - grub-customizer
 - thunar
 - tumbler (for thumbnails in thunar)
+- chrome-beta
+- discord
 
 # Good information to remember
-## Termite Config file
+### Termite Config file
     cp /etc/xdg/termite/config ~/.config/termite/config
 
-## Yaourt install
+### Yaourt install
 ```
 sudo nano /etc/pacman.conf
 
@@ -40,7 +44,7 @@ Server = http://repo.archlinux.fr/$arch
 sudo pacman -Sy yaourt
 ```
 
-## Setting keyboard layout (to swedish)
+### Setting keyboard layout (to swedish)
 ```
 localectl set-locale LANG="sv_SE.UTF-8"
 localectl set-keymap se
