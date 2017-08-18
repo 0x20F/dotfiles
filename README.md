@@ -9,7 +9,6 @@
 - font-awesome
 - polybar
 - termite terminal
-- arc-dark (the gtk theme)
 
 
 # Installed things for my basic Arch config...
@@ -28,6 +27,7 @@
 - tumbler (for thumbnails in thunar)
 - chrome-beta
 - discord
+- arc-dark (the gtk theme)
 
 # Good information to remember
 ### Termite Config file
