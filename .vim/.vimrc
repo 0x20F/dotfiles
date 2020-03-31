@@ -36,15 +36,15 @@ let g:lightline = { 'colorscheme': 'wombat' }
 
 " Pathogen packages
 " ========================
-"   - fugitive          : git on steroids
-"   - delimitMate       : autoclose quotes, parenthesis, etc.
-"   - NERDTree          : directory tree 
-"   - fzf               : fuzzy file searching
+"   - tpope/vim-fugitive            : git on steroids
+"   - raimondi/delimitMate          : autoclose quotes, parenthesis, etc.
+"   - preservim/NERDTree            : directory tree 
+"   - junegunn/fzf                  : fuzzy file searching
 "       - fzf.git
 "       - fzf.vim.git
-"       - ripgrep       : for fuzzy searching inside files
-"   - polyglot          : multiple language color highlighting
-"   - lightline         : bar at the bottom 
+"       - ripgrep (BurntSushi)      : for fuzzy searching inside files
+"   - sheerun/polyglot              : multiple language color highlighting
+"   - itchyny/lightline.vim         : bar at the bottom 
 "
 " ------------------------
 "  pathogen path        : .vim/autoload
@@ -69,6 +69,7 @@ nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 nnoremap <C-h> <C-W>h
 
+nnoremap <silent> ,<space> :noh<CR>
 nnoremap <C-W>v :vsplit<CR>
 nnoremap <C-W>h :split<CR>
 
