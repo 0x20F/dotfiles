@@ -82,4 +82,4 @@ nmap <F3> :NERDTreeToggle<CR>
 
 
 
-i
+
