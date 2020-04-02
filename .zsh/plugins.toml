@@ -1,0 +1,15 @@
+# Useful plugins
+[plugins] 
+highlight = { github = "zsh-users/zsh-syntax-highlighting" }
+suggestions = { github = "zsh-users/zsh-autosuggestions" }
+exa-aliases = { github = "darrintisdale/zsh-aliases-exa" }
+
+
+
+# Import oh-my-zsh and use some specific plugins from it
+[plugins.oh-my-zsh] 
+github = "robbyrussell/oh-my-zsh"
+use = [ 
+    "plugins/colored-man-pages/*.zsh",
+    "plugins/git/*.zsh"
+]

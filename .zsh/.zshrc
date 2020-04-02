@@ -1,35 +1,18 @@
-export ZSH="$HOME/.oh-my-zsh"       # Path to 'oh-my-zsh'
-source "$HOME/antigen/antigen.zsh"  # Load antigen for plugins
+export ZSH="$HOME/.oh-my-zsh"       # Path to 'oh-my-zsh' -> symlink to dotfiles repo
 ZSH_THEME="avit"                    # Theme (duh)
-
-
-
-
-# Plugins
-# ========================= 
-# standard plugins  : ~/.oh-my-zsh/plugins/*
-# custom plugins    : ~/.oh-my-zsh/cystom/plugins/*
-#
-# - Too many plugins WILL slow down shell startup!
-#
-antigen use oh-my-zsh # Use the oh-my-zsh library
-
-# Packages from default repo (robbyrussell)
-antigen bundle git
-antigen bundle colored-man-pages
-
-# Custom bundles
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle DarrinTisdale/zsh-aliases-exa # 'exa' aliases, fully replaces 'ls'
-
-antigen apply
 
 
 
 
 # Load oh-my-zsh as well
 source "$ZSH/oh-my-zsh.sh"
+
+
+
+
+# Run 'sheldon' to download 'oh-my-zsh' and other plugins
+source <(sheldon source)
+
 
 
 
