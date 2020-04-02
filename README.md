@@ -4,6 +4,8 @@
 
 
 # TODO: 
+* separate `init` script for every module? .zsh has an `init` that only links
+.zsh files and installs .zsh plugins, same for all the others
 * setup script
     * install rustup, cargo
     * install sheldon
