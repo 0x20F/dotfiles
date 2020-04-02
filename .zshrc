@@ -43,7 +43,7 @@ alias rdrestart="rundocker restart --no-post-checkout"
 alias cat="bat" # Rust equivalent
 # Override some exa aliases from the zsh package
 alias ls="exa"
-alias l="exa -halm"
+alias l="exa -halm --git"
 
 
 
