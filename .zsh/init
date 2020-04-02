@@ -1,0 +1,21 @@
+#!/bin/bash
+
+
+# Download & install plugins
+# Sheldon is temporary until I write a simple thing that can clone for me
+echo "Downloading zsh plugins"
+sheldon source
+
+
+
+
+# Symlink downloaded '.oh-my-zsh' to '~/.oh-my-zsh'
+echo "Linking oh-my-zsh"
+ln -sfn $PWD/repositories/github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
+
+
+
+
+# Symlink '.zshrc' to '~/.zshrc'
+echo "Linking .zshrc"
+ln -sfn $PWD/.zshrc ~/.zshrc
