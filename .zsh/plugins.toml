@@ -1,6 +1,6 @@
 # Useful plugins
 [plugins] 
-highlight = { github = "zsh-users/zsh-syntax-highlighting" }
+highlights = { github = "zsh-users/zsh-syntax-highlighting" }
 suggestions = { github = "zsh-users/zsh-autosuggestions" }
 exa-aliases = { github = "darrintisdale/zsh-aliases-exa" }
 
