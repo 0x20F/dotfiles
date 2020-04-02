@@ -1,5 +1,6 @@
-export ZSH="$HOME/.oh-my-zsh"   # Path to 'oh-my-zsh'
-ZSH_THEME="avit"                # Theme (duh)
+export ZSH="$HOME/.oh-my-zsh"       # Path to 'oh-my-zsh'
+source "$HOME/antigen/antigen.zsh"  # Load antigen for plugins
+ZSH_THEME="avit"                    # Theme (duh)
 
 
 
@@ -9,15 +10,25 @@ ZSH_THEME="avit"                # Theme (duh)
 # standard plugins  : ~/.oh-my-zsh/plugins/*
 # custom plugins    : ~/.oh-my-zsh/cystom/plugins/*
 #
-# - Too many plugins WILL slow down shell startup
-plugins=(
-    git 
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    colored-man-pages
-)
+# - Too many plugins WILL slow down shell startup!
+#
+antigen use oh-my-zsh # Use the oh-my-zsh library
 
-source $ZSH/oh-my-zsh.sh
+# Packages from default repo (robbyrussell)
+antigen bundle git
+antigen bundle colored-man-pages
+
+# Custom bundles
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+
+antigen apply
+
+
+
+
+# Load oh-my-zsh as well
+source "$ZSH/oh-my-zsh.sh"
 
 
 
