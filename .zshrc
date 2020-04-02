@@ -21,6 +21,7 @@ antigen bundle colored-man-pages
 # Custom bundles
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle DarrinTisdale/zsh-aliases-exa # 'exa' aliases, fully replaces 'ls'
 
 antigen apply
 
@@ -39,10 +40,10 @@ alias server="node ~/repo/moscow/server.js"
 alias mozzie="php ~/repo/journal_sys/bin/mozart.php"
 alias rdrestart="rundocker restart --no-post-checkout"
 
-# Rust equivalents (they look nicer)
-alias cat="bat"
+alias cat="bat" # Rust equivalent
+# Override some exa aliases from the zsh package
 alias ls="exa"
-alias l="exa -alm --git"
+alias l="exa -halm"
 
 
 
@@ -73,3 +74,8 @@ function banner {
 export PATH="/usr/local/opt/php@7.2/bin:$PATH"
 export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+
+
+
+
+
