@@ -14,6 +14,7 @@ plugins=(
     git 
     zsh-autosuggestions
     zsh-syntax-highlighting
+    colored-man-pages
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -29,6 +30,7 @@ alias rdrestart="rundocker restart --no-post-checkout"
 
 # Rust equivalents (they look nicer)
 alias cat="bat"
+alias ls="exa"
 alias l="exa -alm --git"
 
 
