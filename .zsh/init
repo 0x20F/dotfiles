@@ -2,7 +2,6 @@
 
 
 # Download & install plugins
-# Sheldon is temporary until I write a simple thing that can clone for me
 echo "Downloading zsh plugins"
 sheldon source
 
