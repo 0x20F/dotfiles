@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"       # Path to 'oh-my-zsh' -> symlink to dotfiles repo
-ZSH_THEME="avit"
+ZSH_THEME="robbyrussell"
 
 
 
