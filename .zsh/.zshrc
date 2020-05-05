@@ -10,19 +10,10 @@ source "$ZSH/oh-my-zsh.sh"
 
 
 
-# Load antigen
-source "$HOME/antigen/antigen.zsh"
+# Load plugins
+source <(antibody init)
 
-antigen use oh-my-zsh
-
-antigen bundle git
-antigen bundle colored-man-pages
-
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle darrintisdale/zsh-aliases-exa
-
-antigen apply
+antibody bundle < ~/.zsh_plugins.txt
 
 
 
