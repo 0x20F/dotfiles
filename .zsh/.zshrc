@@ -1,5 +1,15 @@
+plugins=(
+    git 
+    colored-man-pages 
+    zsh-syntax-highlighting 
+    zsh-autosuggestions
+)
+
+
+
+
 export ZSH="$HOME/.oh-my-zsh"       # Path to 'oh-my-zsh' -> symlink to dotfiles repo
-ZSH_THEME="avit"
+ZSH_THEME="robbyrussell"
 
 
 
@@ -7,14 +17,6 @@ ZSH_THEME="avit"
 # Load oh-my-zsh as well
 source "$ZSH/oh-my-zsh.sh"
 
-
-
-
-# Load plugins
-echo "[i] Loading plugins..."
-
-source <(antibody init)
-antibody bundle < ~/.zsh_plugins.txt
 
 
 
