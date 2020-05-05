@@ -11,6 +11,8 @@ source "$ZSH/oh-my-zsh.sh"
 
 
 # Load plugins
+echo "[i] Loading plugins..."
+
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins.txt
 
