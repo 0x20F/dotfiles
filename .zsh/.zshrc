@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"       # Path to 'oh-my-zsh' -> symlink to dotfiles repo
-ZSH_THEME="robbyrussell"
+ZSH_THEME="avit"
 
 
 
@@ -10,25 +10,19 @@ source "$ZSH/oh-my-zsh.sh"
 
 
 
-plugins=(
-    git
-    colored-man-pages
-    zsh-syntax-highlighting
-    zsh-autosuggestions
-)
 # Load antigen
-#source "$HOME/antigen/antigen.zsh"
+source "$HOME/antigen/antigen.zsh"
 
-#antigen use oh-my-zsh
+antigen use oh-my-zsh
 
-#antigen bundle git
-#antigen bundle colored-man-pages
+antigen bundle git
+antigen bundle colored-man-pages
 
-#antigen bundle zsh-users/zsh-syntax-highlighting
-#antigen bundle zsh-users/zsh-autosuggestions
-#antigen bundle darrintisdale/zsh-aliases-exa
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle darrintisdale/zsh-aliases-exa
 
-#antigen apply
+antigen apply
 
 
 
