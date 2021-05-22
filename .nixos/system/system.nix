@@ -3,7 +3,7 @@
 {
 	# System hostname
 	networking.hostName = "palace";
-	networking.wireless.enable = true; // Wifi via 'wpa_supplicant'.
+	networking.wireless.enable = true; # Wifi via 'wpa_supplicant'.
 	
 
 	# Zsh setup
