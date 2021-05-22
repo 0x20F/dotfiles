@@ -1,6 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... }: 
 
 {
+	# System hostname
+	networking.hostName = "palace";
+	networking.wireless.enable = true; // Wifi via 'wpa_supplicant'.
+	
+
 	# Zsh setup
 	programs.zsh = {
 		# Enable zsh
