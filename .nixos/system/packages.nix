@@ -9,7 +9,7 @@
 		exa bat
 
 		# Shell tools
-		vim tmux git
+		vim tmux git htop
 
 		# Shell
 		zsh oh-my-zsh
