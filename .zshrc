@@ -25,7 +25,7 @@ source "$ZSH/oh-my-zsh.sh"
 alias cat="bat"
 alias ls="exa"
 alias l="exa -halm --git"
-alias tmux="tmux -f ~/.config/.tmux.conf"
+alias tmux="tmux -f ~/.config/tmux.conf"
 
 
 

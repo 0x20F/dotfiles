@@ -1,4 +1,4 @@
 #!/bin/sh
 
 # Link the tmux config so it matches the one in the alias
-ln -s "$(realpath ./.tmux.conf)" ~/.config/
+ln -s "$(realpath ./tmux.conf)" ~/.config/
