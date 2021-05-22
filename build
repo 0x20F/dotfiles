@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Link shell config
+unlink ~/.zshrc
+ln -s "$(realpath .zshrc)" ~
