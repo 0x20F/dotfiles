@@ -12,7 +12,6 @@ ZSH_THEME="robbyrussell"
 
 
 
-
 # Load oh-my-zsh as well
 source "$ZSH/oh-my-zsh.sh"
 

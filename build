@@ -1,5 +1,13 @@
 #!/bin/sh
 
+
+
+# Link the profile with all the magic variables
+source ./.zprofile
+ln -s $(realpath .zprofile) ~/.zprofile
+
+
+
 # Link shell config
 unlink ~/.zshrc
-ln -s "$(realpath .zshrc)" ~
+ln -s "$DOTS/.zshrc" ~
