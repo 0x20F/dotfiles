@@ -18,9 +18,26 @@
 		'';
 	};
 
+
 	# Add some extra packages
 	programs.zsh.ohMyZsh.customPkgs = with pkgs; [
 		zsh-autosuggestions
 		zsh-syntax-highlighting
 	];
+
+	
+	# Enable the OpenSSH daemon.
+	services.openssh.enable = true;
+
+
+	# Set the time zone.
+	time.timeZone = "Europe/Stockholm";
+
+
+	# Internationalisation properties.
+	i18n.defaultLocale = "en_US.UTF-8";
+	console = {
+		font ="Lat2-Terminus16";
+		keyMap = "sv-latin1";	
+	};
 }
