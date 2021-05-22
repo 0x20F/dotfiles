@@ -1,5 +1,0 @@
-robbyrussell/oh-my-zsh path:plugins/git
-robbyrussell/oh-my-zsh path:plugins/colored-man-pages
-
-zsh-users/zsh-syntax-highlighting
-zsh-users/zsh-autosuggestions
