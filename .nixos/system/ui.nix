@@ -20,5 +20,9 @@
 				polybar  # Highly customisable menu bar
 			];
 		};
-	};	
+	};
+
+	# Enable sound.
+	sound.enable = true;
+	hardware.pulseaudio.enable = true;
 }
