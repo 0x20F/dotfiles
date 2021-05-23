@@ -18,6 +18,7 @@
 				i3lock   # Simple and clean lock screen
 				compton  # Compositor (window shadows and transparency)
 				polybar  # Highly customisable menu bar
+				feh	 # Light weight image viewer + wallpaper
 			];
 		};
 	};
