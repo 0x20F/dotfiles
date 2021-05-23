@@ -4,6 +4,7 @@
 
 # Link the profile with all the magic variables
 source ./.zprofile
+unlink ~/.zprofile
 ln -s $(realpath .zprofile) ~/.zprofile
 
 
@@ -11,3 +12,15 @@ ln -s $(realpath .zprofile) ~/.zprofile
 # Link shell config
 unlink ~/.zshrc
 ln -s "$DOTS/.zshrc" ~
+
+
+
+# Link everything important in the
+# .config directory
+# ------------------------------------------------
+
+# tmux
+unlink ~/.tmux.conf
+ln -s "$DOTS/.config/.tmux.conf" ~
+
+
