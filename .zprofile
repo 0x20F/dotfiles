@@ -2,4 +2,4 @@
 
 # PATHS
 export DOTS=$HOME/dots
-export STYLE=$HOME/.styles
+export STYLES=$DOTS/.styles
