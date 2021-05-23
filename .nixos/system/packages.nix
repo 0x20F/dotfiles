@@ -10,6 +10,7 @@
 
 		# Shell tools
 		vim tmux git htop
+		lolcat figlet jq
 
 		# Shell
 		zsh oh-my-zsh
