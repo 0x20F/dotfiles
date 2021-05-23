@@ -21,6 +21,6 @@ ln -s "$DOTS/.zshrc" ~
 
 # tmux
 unlink ~/.tmux.conf
-ln -s "$DOTS/.config/tmux.conf" ~/.tmux.conf
+ln -s "$DOTS/.config/tmux/tmux.conf" ~/.tmux.conf
 
 
