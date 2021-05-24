@@ -16,7 +16,7 @@
 
 		# Shell tools
 		vim tmux git htop
-		lolcat figlet jq
+		lolcat figlet jq psmisc
 
 		# Shell
 		zsh oh-my-zsh
