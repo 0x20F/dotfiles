@@ -16,6 +16,8 @@ ZSH_THEME="robbyrussell"
 source "$ZSH/oh-my-zsh.sh"
 
 
+# Source the normal .profile
+source "./.profile"
 
 
 
