@@ -3,9 +3,9 @@
 
 
 # Link the profile with all the magic variables
-source ./.zprofile
-unlink ~/.zprofile
-ln -s $(realpath .zprofile) ~/.zprofile
+source ./.profile
+unlink ~/.profile
+ln -s $(realpath .profile) ~/.profile
 
 
 
