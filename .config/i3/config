@@ -60,18 +60,15 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
-
-set $workspace1 "1: "
-set $workspace2 "2: "
-set $workspace3 "3: "
-set $workspace4 "4: "
-set $workspace5 "5: "
-set $workspace6 "6: "
-set $workspace7 "7: "
-set $workspace8 "8: "
-set $workspace9 "9: "
+set $workspace1 "ABC"
+set $workspace2 "DEF"
+set $workspace3 "GHI"
+set $workspace4 "JKL"
+set $workspace5 "MNO"
+set $workspace6 "PQR"
+set $workspace7 "STU"
+set $workspace8 "VWX"
+set $workspace9 "YZ0"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -154,13 +151,10 @@ new_window 1pixel
 gaps inner 10
 gaps outer 7
 
-# ---------------------------------------------------------
-#
-#          The Lines Below are set for my monitors
-#               Make sure to change these!
-#
-#----------------------------------------------------------
-# xrandr line is used for changing the order of my monitors
+
+# Turn on polybar
+exec "$DOTS/.config/polybar/launch"
+
 
 # Background apps, pick your poison (feh, nitrogen)
 # exec_always feh --bg-scale --no-xinerama ~/wallpapers/1473964924920.jpg
