@@ -14,8 +14,5 @@
 
 		# Shell
 		zsh oh-my-zsh
-
-		# Desktop
-		scrot
 	];
 }
