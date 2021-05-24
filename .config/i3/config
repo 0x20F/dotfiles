@@ -141,10 +141,10 @@ set $urgent-bg-color        #E53935
 
 
 # basic Rofi config, with default colors, work in progress.
-bindsym $mod+d exec rofi -show run -lines 10 -eh 1 -width 100 -padding 800 -opacity "85" -bw 0 -fg "#dd7289da"  -hlfg "#ddffffff" -font "System San Francisco Display 18" -no-show-match -separator-style solid -hide-scrollbar
+bindsym $mod+d exec rofi -show run
 
 
-bindsym --release Print exec "gnome-screenshot -i"
+#bindsym --release Print exec "gnome-screenshot -i"
 new_window 1pixel
 
 # run the lock script
