@@ -124,18 +124,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-# Colors are out of date, and barely used in the config.
-# THIS NEEDS AN UPDATE
-set $bg-color               #222222
-set $bg-color2 	            #2f343f
-set $inactive-bg-color      #222222
-set $inactive-bg-color2     #2f343f
-set $text-color             #EBDBB2
-set $text-color2            #f3f4f5
-set $inactive-text-color    #839496
-set $inactive-text-color2   #6839496
-set $urgent-bg-color        #E53935
-
 
 # basic Rofi config, with default colors, work in progress.
 bindsym $mod+d exec rofi -show run
@@ -151,9 +139,11 @@ new_window 1pixel
 gaps inner 10
 gaps outer 7
 
+for_window [class=".*"] border pixel 1
+
 
 # Turn on polybar
-exec "$DOTS/.config/polybar/launch"
+exec "$DOTS/.scripts/polybar/launch"
 
 
 # Background apps, pick your poison (feh, nitrogen)
