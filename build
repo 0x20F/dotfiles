@@ -27,6 +27,13 @@ ln -s "$DOTS/.config/tmux/tmux.conf" ~/.tmux.conf
 rm -rf ~/.config/i3
 ln -s "$DOTS/.config/i3" ~/.config
 
+# bspwm
+# sxhkd
+rm -rf ~/.config/bspwm
+rm -rf ~/.config/sxhkd
+ln -s "$DOTS/.config/bspwm" ~/.config
+ln -s "$DOTS/.config/sxhkd" ~/.config
+
 # polybar
 rm -rf ~/.config/polybar
 ln -s "$DOTS/.config/polybar" ~/.config

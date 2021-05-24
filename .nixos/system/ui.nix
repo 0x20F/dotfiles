@@ -13,23 +13,21 @@
 			xterm.enable = false;
 		};
 
+
 		displayManager = {
-			defaultSession = "none+i3";
+			defaultSession = "none+bspwm";
 		};
 
-		windowManager.i3 = {
-			enable = true;
-			package = pkgs.i3-gaps;
-			extraPackages = with pkgs; [
-				i3lock    # Simple and clean lock screen
-			];
-		};
+
+		windowManager.bspwm.enable = true;
 	};
+
 
 	services.compton = {
 		enable = true;
 		shadow = true;
 	};
+
 
 	# Enable sound.
 	sound.enable = true;
