@@ -3,6 +3,7 @@
 # Path constants
 export DOTS=$HOME/dots
 export STYLES=$DOTS/.styles
+export PACKAGES=$DOTS/.nixos/system/packages.nix
 
 
 
