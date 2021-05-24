@@ -4,10 +4,17 @@
 	# Enable the X11 windowing system
 	services.xserver = {
 		enable = true;
-		autorun = false;
+		autorun = true;
+
+		autoRepeatDelay = 200;
+			autoRepeatInterval = 25;
 
 		desktopManager = {
 			xterm.enable = false;
+		};
+
+		displayManager = {
+			defaultSession = "none+i3";
 		};
 
 		windowManager.i3 = {
@@ -16,11 +23,15 @@
 			extraPackages = with pkgs; [
 				rofi	 # Application launcher/custom menus
 				i3lock   # Simple and clean lock screen
-				compton  # Compositor (window shadows and transparency)
 				polybar  # Highly customisable menu bar
 				feh	 # Light weight image viewer + wallpaper
 			];
 		};
+	};
+
+	services.compton = {
+		enable = true;
+		shadow = true;
 	};
 
 	# Enable sound.
