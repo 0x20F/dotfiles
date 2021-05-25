@@ -3,6 +3,9 @@
 # Set environment
 export BSPWM_CONFIG="$HOME/.config/bspwm"
 
+# Get the globals
+source "$HOME/.profile"
+
 export WS1="ABC"
 export WS2="DEF"
 export WS3="GHE"
@@ -134,24 +137,12 @@ bspc monitor --reset-desktops $WS1 $WS2 $WS3 $WS4 $WS5 $WS6 $WS7 $WS8 $WS9 $WS0
 # Set wallpaper
 # hsetroot -solid "$brightblack"
 
-# Load session
-# shellcheck source=/dev/null
-. "$BSPWM_CONFIG/restore.cfg"
-if [ -e "$BSPWM_STATE" ] ; then
-	bspc wm --load-state "$BSPWM_STATE"
-	bspc wm --adopt-orphans
-	rm "$BSPWM_STATE"
-fi
 
 # Launch keybinding daemon
 sxhkd -c "$HOME/.config/sxhkd/sxhkdrc" &
 
-# Autostart
-# "$BSPWM_CONFIG/autostart" &
 
-# Read panel configuration and launch it
-# shellcheck source=/dev/null
-# . "${XDG_CONFIG_HOME:-$HOME/.config}/lemonbar/panel.cfg" && panel \
-#     | lemonbar -a 50 -g "${BARWIDTH}x${BARHEIGHT}+${EDGEWIDTH}+${EDGEWIDTH}" \
-#     -f "$PANEL_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" \
-#     -u "$UNDERLINE_WIDTH" | sh &
+# Launch polybar
+$DOTS/.scripts/polybar/launch
+
+
