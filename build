@@ -23,10 +23,6 @@ ln -s "$DOTS/.zshrc" ~
 unlink ~/.tmux.conf
 ln -s "$DOTS/.config/tmux/tmux.conf" ~/.tmux.conf
 
-# i3
-rm -rf ~/.config/i3
-ln -s "$DOTS/.config/i3" ~/.config
-
 # bspwm
 # sxhkd
 rm -rf ~/.config/bspwm
