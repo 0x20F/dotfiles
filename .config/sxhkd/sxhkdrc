@@ -160,7 +160,7 @@ alt + @button{1-3}
 #
 
 # Launch rofi
-alt + r
+alt + space
 	rofi -show run
 
 # Toggle visibility of systray

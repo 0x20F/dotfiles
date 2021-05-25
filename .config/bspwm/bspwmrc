@@ -14,7 +14,7 @@ export WS8="VWX"
 export WS9="YZ0"
 export WS0="AAA"
 
-bspc config border_width        5
+bspc config border_width        1
 bspc config window_gap          8
 bspc config top_padding         0
 
