@@ -31,7 +31,7 @@ bspc monitor --reset-desktops $WS1 $WS2 $WS3 $WS4 $WS5 $WS6 $WS7 $WS8 $WS9 $WS0
 
 
 # Set the wallpaper
-feh --bg-fill $DOTS/.wallpapers/main.jpg
+feh --bg-fill $WALLPAPERS/main.jpg
 
 
 # Use monocle layout on desktop 1
