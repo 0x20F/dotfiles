@@ -38,7 +38,7 @@ font-1 = "Lat2-Terminus16:size=10;2"
 font-2 = "Lat2-Terminus16:size=12:weight=bold;2"
 font-3 = "Lat2-Terminus16:size=13;2"
 
-modules-left = menu0 i3
+modules-left = menu0 workspaces
 modules-center = date
 modules-right = cpu wireless
 
@@ -46,8 +46,8 @@ tray-position = right
 tray-detached = false
 tray-max-size = 16
 
-[module/i3]
-type = internal/i3
+[module/workspaces]
+type = internal/bspwm
 
 pin-workspaces = true
 index-sort = true
