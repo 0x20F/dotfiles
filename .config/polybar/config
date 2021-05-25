@@ -10,6 +10,10 @@ secondary = #e60053
 underline = #7289DA
 alert = #bd2c40
 
+[constants]
+padding = 2
+
+
 [bar/main]
 monitor = ${env:MONITOR}
 ; for dual monitors
@@ -24,12 +28,6 @@ fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
-
-line-size = 3
-line-color = #f00
-
-padding-left = 1
-padding-right = 1
 
 module-margin = 1
 
@@ -58,30 +56,31 @@ reverse-scroll = false
 
 fuzzy-match = true
 
-format = <label-mode><label-state>
+format = <label-state> <label-mode>
 
-label-mode-padding = 2
 label-mode-underline = ${colors.underline}
+label-mode-padding = ${constants.padding}
 
 label-focused = %name%
 label-focused-foreground = #ffffff
 label-focused-underline = ${colors.underline}
-label-focused-padding = 2
-
 
 label-unfocused = %name%
-label-unfocused-padding = 2
 
 label-visible = %name%
 label-visible-underline = #1A1A21
-label-visible-padding = 2
-
 
 label-urgent = %name%
 label-urgent-foreground = #ffffff
 label-urgent-background = ${colors.underline}
-label-urgent-padding = 2
 
+label-dimmed-padding = ${constants.padding}
+label-focused-padding = ${constants.padding}
+label-empty-padding = ${constants.padding}
+label-urgent-padding = ${constants.padding}
+label-occupied-padding = ${constants.padding}
+label-visible-padding = ${constants.padding}
+label-unfocused-padding = ${constants.padding}
 
 [module/cpu]
 format-label = internal/cpu
