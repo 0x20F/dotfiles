@@ -22,5 +22,6 @@
 		polybar compton scrot
 		firefox-devedition-bin-unwrapped
 		# google-chrome - add later, it's 64bit, windows VM won't run that
+		vlc
 	];
 }
