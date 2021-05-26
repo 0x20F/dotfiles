@@ -17,6 +17,6 @@
 
 		# Graphical Interface
 		feh rofi alacritty
-		polybar scrot
+		polybar compton scrot
 	];
 }

@@ -23,11 +23,6 @@
 	};
 
 
-	services.compton = {
-		enable = true;
-		shadow = true;
-	};
-
 
 	# Enable sound.
 	sound.enable = true;
