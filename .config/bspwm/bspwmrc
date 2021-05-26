@@ -33,6 +33,11 @@ bspc monitor --reset-desktops $WS1 $WS2 $WS3 $WS4 $WS5 $WS6 $WS7 $WS8 $WS9 $WS0
 # Set the wallpaper
 feh --bg-fill $WALLPAPERS/main.jpg
 
+
+# Launch polybar
+$DOTS/.scripts/polybar/launch
+
+
 # Start the compositor
 compton --respect-prop-shadow
 
@@ -148,9 +153,5 @@ compton --respect-prop-shadow
 
 # Launch keybinding daemon
 sxhkd -c "$HOME/.config/sxhkd/sxhkdrc" &
-
-
-# Launch polybar
-$DOTS/.scripts/polybar/launch
 
 
