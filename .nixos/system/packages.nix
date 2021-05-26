@@ -23,7 +23,7 @@
 		firefox-devedition-bin-unwrapped
 		# google-chrome - add later, it's 64bit, windows VM won't run that
 		vlc
-		
 		xfce.thunar xfce.gvfs xfce.tumbler
+		# obsidian - add later, it's 64bit, windows VM won't run that
 	];
 }
