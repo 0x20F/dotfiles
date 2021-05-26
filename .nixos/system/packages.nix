@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+	nixpkgs.config.allowUnfree = true;
+
 	environment.systemPackages = with pkgs; [
 		# Internet
 		wget curl
@@ -18,5 +20,6 @@
 		# Graphical Interface
 		feh rofi alacritty
 		polybar compton scrot
+		firefox-devedition-bin-unwrapped
 	];
 }
