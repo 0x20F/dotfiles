@@ -33,6 +33,9 @@ bspc monitor --reset-desktops $WS1 $WS2 $WS3 $WS4 $WS5 $WS6 $WS7 $WS8 $WS9 $WS0
 # Set the wallpaper
 feh --bg-fill $WALLPAPERS/main.jpg
 
+# Start the compositor
+compton --respect-prop-shadow
+
 
 # Use monocle layout on desktop 1
 # bspc desktop '^1' --layout monocle
