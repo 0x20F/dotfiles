@@ -7,8 +7,6 @@ source ./.profile
 unlink ~/.profile
 ln -s $(realpath .profile) ~/.profile
 
-
-
 # Link shell config
 unlink ~/.zshrc
 ln -s "$DOTS/.zshrc" ~

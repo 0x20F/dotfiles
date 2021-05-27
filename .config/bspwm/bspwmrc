@@ -1,14 +1,7 @@
 #!/bin/sh
 
-# Set environment
-export BSPWM_CONFIG="$HOME/.config/bspwm"
-
 # Get the globals
 source "$HOME/.profile"
-
-# Re-exports for 'sxhkd'
-export SCRIPTS="$DOTS/.scripts/"
-
 
 export WS1="ABC"
 export WS2="DEF"
