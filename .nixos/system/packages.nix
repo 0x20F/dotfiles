@@ -25,5 +25,6 @@
 		vlc
 		xfce.thunar xfce.gvfs xfce.tumbler
 		# obsidian - add later, it's 64bit, windows VM won't run that
+		i3lock-color
 	];
 }
