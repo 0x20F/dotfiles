@@ -5,25 +5,35 @@ set -euo pipefail
 # Dimensions
 width=$(xrandr --query | grep ' connected' | grep -o '[0-9][0-9]*x[0-9][0-9]*[^ ]*' | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/' |cut -d "x" -f 1 |head -n1)
 height=$(xrandr --query | grep ' connected' | grep -o '[0-9][0-9]*x[0-9][0-9]*[^ ]*' | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/' |cut -d "x" -f 2 |head -n1)
-half_width=$((width / 2))
-half_height=$((height / 2))
+half_width=$(( width / 2 ))
+half_height=$(( height / 2 ))
+
+indicator_offset=30
+user_radius=50
+
+user_w=100
+user_h=100
+user_x=$(( half_width - user_radius ))
+user_y=$(( half_height - (user_radius + indicator_offset) ))
 
 
 # Helpers
 cache=$HOME/.cache/lockscreen
 cropuser=$cache/$USER-pic-crop.png
 pictures=$HOME/.pictures
-FONT="FiraCode Nerd Font"
+font="FiraCode Nerd Font"
+
 
 
 
 cropuser() {
 	userpic=$pictures/profile.png
+	dimensions="$((user_w))x$((user_h))"
 
-	convert $userpic -resize 100x100 -gravity center \( \
-		-size 100x100 xc:Black 		\
+	convert $userpic -resize $dimensions -gravity center \( \
+		-size $dimensions xc:Black 		\
 		-fill White 			\
-			-draw "circle 50 50 50 1" 	\
+			-draw "circle $user_radius $user_radius $user_radius 1" 	\
 		-alpha Copy			\
 		\) -compose CopyOpacity -composite -trim $cropuser
 }
@@ -47,10 +57,8 @@ genbg() {
 		cropuser
 	fi
 
-	cropuser
-
 	blurbg
-	composite -geometry "+$((half_width - 50))+$((half_height - 80))" $cropuser $cache/screenshot-blur.png $cache/screenshot-pic-blur.png
+	composite -geometry "+$((user_x))+$((user_y))" $cropuser $cache/screenshot-blur.png $cache/screenshot-pic-blur.png
 }
 
 
@@ -76,16 +84,16 @@ lock() {
 		--separatorcolor=81a1c1			\
 		--verifcolor=88c0d0			\
 		--wrongcolor=bf616a			\
-		--indpos="w/2:h/2-30"			\
+		--indpos="w/2:h/2-$indicator_offset"	\
 		--timecolor=e5e9f0			\
 		--timepos="w/2:h/2+55"			\
 		--timestr="%I:%M %p"			\
 		--datecolor=e5e9f0			\
-		--time-font="$FONT"			\
-		--date-font="$FONT"			\
-		--verif-font="$FONT"			\
-		--wrong-font="$FONT"			\
-		--greeter-font="$FONT:style=Bold"	\
+		--time-font="$font"			\
+		--date-font="$font"			\
+		--verif-font="$font"			\
+		--wrong-font="$font"			\
+		--greeter-font="$font:style=Bold"	\
 		--greetertext="$USER"			\
 		--greetercolor=8fbcbb			\
 		--greeterpos="w/2:h/2+40"		\
