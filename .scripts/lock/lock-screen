@@ -12,12 +12,13 @@ half_height=$((height / 2))
 # Helpers
 cache=$HOME/.cache/lockscreen
 cropuser=$cache/$USER-pic-crop.png
+pictures=$HOME/.pictures
 FONT="FiraCode Nerd Font"
 
 
 
 cropuser() {
-	userpic=$STYLES/profile.png
+	userpic=$pictures/profile.png
 
 	convert $userpic -resize 174x174 -gravity Center \( \
 		-size 174x174 xc:Black 		\
@@ -45,6 +46,8 @@ genbg() {
 		mkdir $HOME/.cache/lockscreen
 		cropuser
 	fi
+
+	cropuser
 
 	blurbg
 	composite -geometry "+$((half_width - 87))+$((half_height - 138))" $cropuser $cache/screenshot-blur.png $cache/screenshot-pic-blur.png
@@ -93,7 +96,7 @@ lock() {
 		--verifsize=10				\
 		--wrongsize=10				\
 		--modsize=9				\
-		--modifpos="w/2:h/2-15"
+		--modifpos="w/2:h/2-15" --no-verify
 }
 
 
