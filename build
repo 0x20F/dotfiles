@@ -37,3 +37,6 @@ ln -s "$DOTS/.config/polybar" ~/.config
 # compton
 rm -rf ~/.config/compton.conf
 ln -s "$DOTS/.config/compton" ~/.config
+
+
+

@@ -17,7 +17,7 @@ FONT="FiraCode Nerd Font"
 
 
 cropuser() {
-	userpic=$PICTURES/profile.png
+	userpic=$STYLES/profile.png
 
 	convert $userpic -resize 174x174 -gravity Center \( \
 		-size 174x174 xc:Black 		\
