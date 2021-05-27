@@ -18,6 +18,10 @@ super + Return
 ctrl + q
 	bspc node --close
 
+# Lock screen
+super + shift + l
+	$SCRIPTS/lock/lock-screen
+
 # Navigate layouts
 super + {_,shift + }space
 	bspc desktop --layout {next,prev}
