@@ -19,7 +19,7 @@
 
 		# Graphical Interface
 		feh rofi alacritty
-		polybar compton scrot
+		polybar compton maim imagemagick
 		firefox-devedition-bin-unwrapped
 		# google-chrome - add later, it's 64bit, windows VM won't run that
 		vlc
