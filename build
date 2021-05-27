@@ -39,4 +39,9 @@ rm -rf ~/.config/compton.conf
 ln -s "$DOTS/.config/compton" ~/.config
 
 
+# Extra directories
+# ------------------------------------------------
 
+# pictures
+unlink ~/.pictures
+ln -s "$DOTS/.pictures" ~
