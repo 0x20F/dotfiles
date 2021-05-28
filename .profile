@@ -6,6 +6,7 @@ export STYLES=$DOTS/.styles
 export PACKAGES=$DOTS/.nixos/system/packages.nix
 export WALLPAPERS=$STYLES/wallpapers
 export SCRIPTS=$DOTS/.scripts
+export BINARIES=$HOME/.local/bin
 
 
 
@@ -22,7 +23,4 @@ export YELLOW='\033[1;33m'
 
 
 
-# Useful helper functions
-function notify() {
-	$SCRIPTS/notifications/send-notification $@
-}
+export PATH=$PATH:$BINARIES
