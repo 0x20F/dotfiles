@@ -13,12 +13,13 @@
 		# Shell tools
 		vim tmux git htop
 		lolcat figlet jq psmisc
+		libnotify
 
 		# Shell
 		zsh oh-my-zsh
 
 		# Graphical Interface
-		feh rofi alacritty
+		feh rofi alacritty dunst
 		polybar compton maim imagemagick
 		firefox-devedition-bin-unwrapped
 		# google-chrome - add later, it's 64bit, windows VM won't run that
