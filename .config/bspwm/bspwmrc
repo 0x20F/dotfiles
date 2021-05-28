@@ -39,6 +39,10 @@ $DOTS/.scripts/polybar/launch
 compton --respect-prop-shadow
 
 
+# Start the notification daemon
+dunst -c $HOME/.config/dunstrc &
+
+
 # Use monocle layout on desktop 1
 # bspc desktop '^1' --layout monocle
 
