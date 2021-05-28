@@ -188,7 +188,7 @@ super + alt + {_,shift + }{Left,Down,Up,Right}
 
 # make sxhkd reload its configuration files:
 super + Escape
-	pkill -USR1 -x sxhkd; $SCRIPTS/notifications/send --app-name='sxhkd' 'Reloaded config'
+	pkill -USR1 -x sxhkd; send --app-name='sxhkd' 'Reloaded config'
 
 # reload bspwmrc
 super + shift + e
