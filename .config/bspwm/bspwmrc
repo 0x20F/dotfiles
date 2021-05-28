@@ -36,11 +36,11 @@ $DOTS/.scripts/polybar/launch
 
 
 # Start the compositor
-compton --respect-prop-shadow
+compton --respect-prop-shadow &
 
 
 # Start the notification daemon
-dunst -c $HOME/.config/dunstrc &
+dunst -conf "$HOME/.config/dunst/dunstrc" &
 
 
 # Use monocle layout on desktop 1
@@ -156,3 +156,4 @@ dunst -c $HOME/.config/dunstrc &
 sxhkd -c "$HOME/.config/sxhkd/sxhkdrc" &
 
 
+$SCRIPTS/notifications/send --app-name="bspwm" "Done loading WM setup"
