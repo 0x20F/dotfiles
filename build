@@ -47,3 +47,16 @@ ln -s "$DOTS/.config/dunst" ~/.config
 # pictures
 unlink ~/.pictures
 ln -s "$DOTS/.pictures" ~
+
+
+# Scripts that should be public
+# ------------------------------------------------
+
+if [[ ! -d "$BINARIES" ]]; then
+	mkdir -p "$BINARIES"
+fi
+
+
+# notifications
+unlink $BINARIES/send
+ln -s "$SCRIPTS/notifications/send" $BINARIES
