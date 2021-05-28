@@ -33,8 +33,8 @@ rm -rf ~/.config/polybar
 ln -s "$DOTS/.config/polybar" ~/.config
 
 # compton
-rm -rf ~/.config/compton
-ln -s "$DOTS/.config/compton" ~/.config
+rm -rf ~/.config/picom
+ln -s "$DOTS/.config/picom" ~/.config
 
 # dunst
 rm -rf ~/.config/dunst

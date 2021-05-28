@@ -36,7 +36,7 @@ $DOTS/.scripts/polybar/launch
 
 
 # Start the compositor
-compton --respect-prop-shadow &
+picom &
 
 
 # Start the notification daemon
