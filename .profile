@@ -19,3 +19,10 @@ export BLUE='\033[0;34m'
 export PURPLE='\033[0;35m'
 export CYAN='\033[0;36m'
 export YELLOW='\033[1;33m'
+
+
+
+# Useful helper functions
+function notify() {
+	$SCRIPTS/notifications/send-notification $@
+}
