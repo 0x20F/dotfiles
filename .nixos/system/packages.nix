@@ -13,10 +13,12 @@
 		# Shell tools
 		vim tmux git htop
 		lolcat figlet jq psmisc
-		libnotify
 
 		# Shell
 		zsh oh-my-zsh
+
+		# Libs
+		glib
 
 		# Graphical Interface
 		feh rofi alacritty dunst
