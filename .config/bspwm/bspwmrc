@@ -156,4 +156,4 @@ dunst -conf "$HOME/.config/dunst/dunstrc" &
 sxhkd -c "$HOME/.config/sxhkd/sxhkdrc" &
 
 
-send --app-name="bspwm" "Done loading WM setup"
+dunstify --appname="bspwm" "Done loading WM setup"
