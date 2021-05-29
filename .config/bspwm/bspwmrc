@@ -152,8 +152,4 @@ dunst -conf "$HOME/.config/dunst/dunstrc" &
 # hsetroot -solid "$brightblack"
 
 
-# Launch keybinding daemon
-sxhkd -c "$HOME/.config/sxhkd/sxhkdrc" &
-
-
 dunstify --appname="bspwm" "Done loading WM setup"
