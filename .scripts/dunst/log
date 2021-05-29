@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Follow in the steps of mighty barbarossa
+# Cleanup to ensure each field is on a separate line
+appname=$(echo "$1" | sed '/^$/d')
+summary=$(echo "$2" | sed '/^$/d' | xargs)
+body=$(echo "$3" | sed '/^$/d' | xargs)
+icon=$(echo "$4" | sed '/^$/d')
+urgency=$(echo "$5" | sed '/^$/d')
+timestamp=$(date +"%I:%M %p") # For now
+
+echo -en "$timestamp\n$urgency\n$icon\n$body\n$summary\n$appname\n" >> /tmp/dunstlog

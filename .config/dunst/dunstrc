@@ -64,6 +64,9 @@
     startup_notification = true
     force_xinerama = false
 
+[log]
+    script = ~/dots/.scripts/dunst/log # Replace with 'ix' constant later
+
 [urgency_low]
     background = colors.background
     foreground = "#81a1c1"
