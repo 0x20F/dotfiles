@@ -13,6 +13,7 @@
 		# Shell tools
 		vim tmux git htop
 		lolcat figlet jq psmisc
+		python3
 
 		# Shell
 		zsh oh-my-zsh
