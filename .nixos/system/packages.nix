@@ -1,9 +1,15 @@
 { config, pkgs, ... }:
 
+let
+	# Personal scripts that need to be global 
+	scripts = pkgs.callPackage ./scripts.nix { };
+in
 {
 	nixpkgs.config.allowUnfree = true;
 
 	environment.systemPackages = with pkgs; [
+		scripts.ix
+
 		# Internet
 		wget curl
 
