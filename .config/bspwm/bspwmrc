@@ -3,11 +3,9 @@
 
 #: ix-config
 #: to: $HOME/.config/bspwm
+#: prefix: &
 #: access: 777
 
-
-# Get the globals
-source "$HOME/.profile"
 
 export WS1="ABC"
 export WS2="DEF"
@@ -34,11 +32,11 @@ bspc monitor --reset-desktops $WS1 $WS2 $WS3 $WS4 $WS5 $WS6 $WS7 $WS8 $WS9 $WS0
 
 
 # Set the wallpaper
-feh --bg-fill $WALLPAPERS/main.jpg
+feh --bg-fill &{{ paths.wallpapers }}/main.jpg
 
 
 # Launch polybar
-$DOTS/.scripts/polybar/launch
+&{{ paths.scripts }}/polybar/launch
 
 
 # Start the compositor

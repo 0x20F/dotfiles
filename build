@@ -2,53 +2,6 @@
 
 
 
-# Link the profile with all the magic variables
-source ./.profile
-unlink ~/.profile
-ln -s $(realpath .profile) ~/.profile
-
-# Link shell config
-unlink ~/.zshrc
-ln -s "$DOTS/.zshrc" ~
-
-
-
-# Link everything important in the
-# .config directory
-# ------------------------------------------------
-
-# tmux
-unlink ~/.tmux.conf
-ln -s "$DOTS/.config/tmux/tmux.conf" ~/.tmux.conf
-
-# bspwm
-# sxhkd
-rm -rf ~/.config/bspwm
-rm -rf ~/.config/sxhkd
-ln -s "$DOTS/.config/bspwm" ~/.config
-ln -s "$DOTS/.config/sxhkd" ~/.config
-
-# polybar
-rm -rf ~/.config/polybar
-ln -s "$DOTS/.config/polybar" ~/.config
-
-# compton
-rm -rf ~/.config/picom
-ln -s "$DOTS/.config/picom" ~/.config
-
-# dunst
-rm -rf ~/.config/dunst
-ln -s "$DOTS/.config/dunst" ~/.config
-
-
-# Extra directories
-# ------------------------------------------------
-
-# pictures
-unlink ~/.pictures
-ln -s "$DOTS/.pictures" ~
-
-
 # Scripts that should be public
 # ------------------------------------------------
 
