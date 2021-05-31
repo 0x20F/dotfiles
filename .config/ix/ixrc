@@ -1,0 +1,14 @@
+#: ix-config
+#: to: $HOME/.config/ix
+
+
+[paths]
+dotfiles = $$HOME/dots
+pictures = $$HOME/.pictures
+binaries = $$HOME/.local/bin
+
+styles = ${dotfiles}/.styles
+packages = ${dotfiles}/.nixos/system/packages.nix
+scripts = ${dotfiles}/.scripts
+
+wallpapers = ${styles}/wallpapers
