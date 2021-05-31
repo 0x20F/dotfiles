@@ -1,3 +1,8 @@
+#: ix-config
+#: to: $HOME
+
+
+
 plugins=(
     git 
     colored-man-pages 
