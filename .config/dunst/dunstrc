@@ -1,3 +1,7 @@
+#: ix-config
+#: to: $HOME/.config/dunst
+
+
 [colors]
     background = "#2e3440"
     frame = "#3b4252"

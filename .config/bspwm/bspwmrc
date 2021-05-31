@@ -1,5 +1,11 @@
 #!/bin/sh
 
+
+#: ix-config
+#: to: $HOME/.config/bspwm
+#: access: 777
+
+
 # Get the globals
 source "$HOME/.profile"
 

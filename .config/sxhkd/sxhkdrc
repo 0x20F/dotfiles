@@ -2,6 +2,11 @@
 # bspwm hotkeys
 #
 
+#: ix-config
+#: to: $HOME/.config/sxhkd
+
+
+
 # Exit bspwm
 # super + alt + Escape
 #	$BSPWM_CONFIG/scripts/dmenu-logout

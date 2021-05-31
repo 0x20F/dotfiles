@@ -1,3 +1,7 @@
+#: ix-config
+#: to: $HOME/.config/polybar
+
+
 [colors]
 background = #00181b21
 background-alt = #1D1F21
