@@ -5,6 +5,8 @@
 	services.xserver = {
 		enable = true;
 		autorun = true;
+		
+		layout = "se";		
 
 		autoRepeatDelay = 200;
 			autoRepeatInterval = 25;
