@@ -22,7 +22,7 @@ source "$ZSH/oh-my-zsh.sh"
 
 
 # Source the normal .profile
-source "./.profile"
+source "$HOME/.profile"
 
 
 
