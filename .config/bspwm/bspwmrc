@@ -9,11 +9,11 @@
 
 # [+] Workspaces
 # ---------------------
-export WS1="OEM"
-export WS2="NET"
-export WS3="HUB"
-export WS4="MKV"
-export WS5="HCK"
+export WS1="001"
+export WS2="002"
+export WS3="003"
+export WS4="004"
+export WS5="005"
 
 bspc config border_width        1
 bspc config window_gap          8
