@@ -1,3 +1,7 @@
+#: ix-config
+#: to: $HOME
+#: as: .vimrc
+
 syntax on
 filetype plugin indent on
 
@@ -34,7 +38,7 @@ let g:lightline = { 'colorscheme': 'wombat' }
 
 
 
-" Pathogen packages
+" Used packages
 " ========================
 "   - tpope/vim-fugitive        : git on steroids
 "   - raimondi/delimitMate      : autoclose quotes, parenthesis, etc.
@@ -47,12 +51,17 @@ let g:lightline = { 'colorscheme': 'wombat' }
 "   - itchyny/lightline.vim     : bar at the bottom 
 "
 " ------------------------
-"  pathogen path        : .vim/autoload
-"  pathogen bundle      : .vim/bundle 
-"
-execute pathogen#infect()
-call pathogen#helptags()
+call plug#begin('~/.vim/bundle')
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'raimondi/delimitMate'
+Plug 'preservim/NERDTree'
+Plug 'tpope/vim-fugitive'
+Plug 'sheerun/vim-polyglot'
+Plug 'itchyny/lightline.vim'
+
+call plug#end()
 
 
 
