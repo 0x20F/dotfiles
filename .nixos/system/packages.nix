@@ -19,7 +19,7 @@ in
 		# Shell tools
 		vim tmux git htop
 		lolcat figlet jq psmisc
-		python3
+		python3 xorg.xev
 
 		# Shell
 		zsh oh-my-zsh
