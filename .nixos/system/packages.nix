@@ -14,7 +14,7 @@ in
 		wget curl
 
 		# Shell replacements
-		exa bat
+		exa bat ripgrep fzf
 
 		# Shell tools
 		vim tmux git htop
