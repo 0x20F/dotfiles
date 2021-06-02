@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+PADDINGS="40% 0 0 46%"
+
+ROFI_OPTIONS=(-theme $HOME/.config/rofi/rofi_icon -theme-str "*{accent: #e53714; spacing: $PADDINGS;}")
+
+
+
+power_off="A"
+reboot="B"
+lock="C"
+suspend="D"
+log_out="E"
+
+options="$power_off\n$reboot\n$lock\n$suspend\n$log_out"
+chosen="$(echo -e "$options" | rofi "${ROFI_OPTIONS[@]}" -dmenu -selected-row 2)"
+
+YESNO="\n"
+
+case $chosen in
+    $power_off)
+        [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" -theme-str "*{accent: #e53714;}" -dmenu -i -p "Are you shure you want to proceed?") ==  ] && systemctl poweroff
+        ;;
+    $reboot)
+        [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" -theme-str "*{accent: #e53714;}" -dmenu -i -p "Are you shure you want to proceed?") ==  ] && systemctl reboot
+        ;;
+    $lock)
+        # TODO: Don't hardcode the path like this
+	    exec  /home/snowwhite/dots/.scripts/lock/lock-screen
+        ;;
+    $suspend)
+	    [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" -theme-str "*{accent: #e53714;}" -dmenu -i -p "Are you shure you want to proceed?") ==  ] && systemctl suspend
+        ;;
+    $log_out)
+	    [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" -theme-str "*{accent: #e53714;}" -dmenu -i -p "Are you shure you want to proceed?") ==  ] && bspc quit
+        ;;
+esac
