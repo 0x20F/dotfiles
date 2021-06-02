@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 PADDINGS="40% 0 0 46%"
-
-ROFI_OPTIONS=(-theme $HOME/.config/rofi/rofi_icon -theme-str "*{accent: #e53714; spacing: $PADDINGS;}")
+ROFI_OPTIONS=(-theme $( ix -f paths.styles )/rofi/icons -theme-str "*{accent: #e53714; spacing: $PADDINGS;}")
 
 
 
