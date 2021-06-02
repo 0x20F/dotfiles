@@ -25,8 +25,7 @@ case $chosen in
         [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" -theme-str "*{accent: #e53714;}" -dmenu -i -p "Are you shure you want to proceed?") ==  ] && systemctl reboot
         ;;
     $lock)
-        # TODO: Don't hardcode the path like this
-	    exec  /home/snowwhite/dots/.scripts/lock/lock-screen
+        exec  $( ix -f paths.scripts )/lock/lock-screen
         ;;
     $suspend)
 	    [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" -theme-str "*{accent: #e53714;}" -dmenu -i -p "Are you shure you want to proceed?") ==  ] && systemctl suspend
