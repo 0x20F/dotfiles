@@ -37,6 +37,9 @@ let g:lightline = { 'colorscheme': 'wombat' }
 
 
 
+au BufNewFile,BufRead /*.rasi setf css
+
+
 
 " Used packages
 " ========================
