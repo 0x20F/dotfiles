@@ -2,7 +2,7 @@
 
 PADDINGS="40% 0 0 46%"
 ROFI_OPTIONS=(-theme $( ix -f paths.styles )/rofi/icons -theme-str "*{accent: #e53714; spacing: $PADDINGS;}")
-
+CONFIRMATION_OPTIONS=(-theme-str "*{ accent: #e53714; }" -dmenu -i -p "Are you sure you want to proceed?")
 
 
 power_off="A"
@@ -14,22 +14,22 @@ log_out="E"
 options="$power_off\n$reboot\n$lock\n$suspend\n$log_out"
 chosen="$(echo -e "$options" | rofi "${ROFI_OPTIONS[@]}" -dmenu -selected-row 2)"
 
-YESNO="\n"
+YESNO="Yes\nNo"
 
 case $chosen in
     $power_off)
-        [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" -theme-str "*{accent: #e53714;}" -dmenu -i -p "Are you shure you want to proceed?") ==  ] && systemctl poweroff
+        [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" "${CONFIRMATION_OPTIONS[@]}") ==  ] && systemctl poweroff
         ;;
     $reboot)
-        [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" -theme-str "*{accent: #e53714;}" -dmenu -i -p "Are you shure you want to proceed?") ==  ] && systemctl reboot
+        [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" "${CONFIRMATION_OPTIONS[@]}") ==  ] && systemctl reboot
         ;;
     $lock)
         exec  $( ix -f paths.scripts )/lock/lock-screen
         ;;
     $suspend)
-	    [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" -theme-str "*{accent: #e53714;}" -dmenu -i -p "Are you shure you want to proceed?") ==  ] && systemctl suspend
+	    [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" "${CONFIRMATION_OPTIONS[@]}") ==  ] && systemctl suspend
         ;;
     $log_out)
-	    [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" -theme-str "*{accent: #e53714;}" -dmenu -i -p "Are you shure you want to proceed?") ==  ] && bspc quit
+	    [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" "${CONFIRMATION_OPTIONS[@]}") ==  ] && bspc quit
         ;;
 esac
