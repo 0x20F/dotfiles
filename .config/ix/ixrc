@@ -3,9 +3,11 @@
 
 
 [paths]
-dotfiles = $$HOME/dots
-pictures = $$HOME/.pictures
-binaries = $$HOME/.local/bin
+home = /home/snowwhite
+
+dotfiles = ${home}/dots
+pictures = ${home}/.pictures
+binaries = ${home}/.local/bin
 
 styles = ${dotfiles}/.styles
 packages = ${dotfiles}/.nixos/system/packages.nix
