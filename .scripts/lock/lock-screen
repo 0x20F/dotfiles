@@ -21,7 +21,7 @@ user_y=$(( half_height - (user_radius + indicator_offset) ))
 cache=$HOME/.cache/lockscreen
 cropuser=$cache/$USER-pic-crop.png
 pictures=$HOME/.pictures
-font="FiraCode Nerd Font"
+font="JetBrainsMono Nerd Font"
 
 
 
