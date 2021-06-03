@@ -4,12 +4,12 @@
 
 * {
 	accent: #FFFFFF;
-    spacing: 40% 0 0 32%;
+    spacing: 40% 0 0 22%;
 
     foreground:         		@accent;
     background:         		rgba(0, 0, 0, 0.90);
     transparent:				rgba(0, 0, 0, 0);
-    background-light:      		rgba(255, 255, 255, 0.20);
+    background-light:      		#181b21; // Change with unreal theme
 
     normal-background: 			@transparent;
     normal-foreground: 			@foreground;
@@ -35,7 +35,7 @@
     border-color:                @background;
     separatorcolor:              @foreground;
     background-color:            @transparent;
-    font:  "Hurmit Nerd Font Mono 30";
+    font:  "JetBrainsMono Nerd Font";
 }
 
 
@@ -57,10 +57,11 @@
 }
 
 #element {
-    padding: 2%;
+    padding: 20px 50px;
     background-color: @background-light;
     text-color: @foreground;
-    border-radius: 6px;
+    border-radius: 1px;
+    font-size: 16px;
 }
 
 #element.selected {

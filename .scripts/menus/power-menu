@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 
-PADDINGS="40% 0 0 46%"
-ROFI_OPTIONS=(-theme $( ix -f paths.styles )/rofi/icons -theme-str "*{accent: #e53714; spacing: $PADDINGS;}")
-CONFIRMATION_OPTIONS=(-theme-str "*{ accent: #e53714; }" -dmenu -i -p "Are you sure you want to proceed?")
+#PADDINGS="50% 0 0 50%"
+ROFI_OPTIONS=(-theme $( ix -f paths.styles )/rofi/icons)
+CONFIRMATION_OPTIONS=(-dmenu -i -p "Are you sure you want to proceed?")
 
 
-power_off="A"
-reboot="B"
-lock="C"
-suspend="D"
-log_out="E"
+power_off=""
+reboot=""
+lock=""
+suspend=""
+log_out=""
 
 options="$power_off\n$reboot\n$lock\n$suspend\n$log_out"
 chosen="$(echo -e "$options" | rofi "${ROFI_OPTIONS[@]}" -dmenu -selected-row 2)"
 
-YESNO="Yes\nNo"
+YESNO="\n"
 
 case $chosen in
     $power_off)
