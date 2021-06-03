@@ -58,7 +58,7 @@ reverse-scroll = false
 
 fuzzy-match = true
 
-format = <label-state> <label-mode>
+format = <label-state>
 
 label-mode-underline = ${colors.underline}
 label-mode-padding = ${constants.padding}
