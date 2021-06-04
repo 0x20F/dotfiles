@@ -3,68 +3,42 @@
 
 
 * {
-	accent: #FFFFFF;
-    spacing: 40% 0 0 22%;
+    background-dark: #151515;
+    background-light: #242424;
 
-    foreground:         		@accent;
-    background:         		rgba(0, 0, 0, 0.90);
-    transparent:				rgba(0, 0, 0, 0);
-    background-light:      		#181b21; // Change with unreal theme
-
-    normal-background: 			@transparent;
-    normal-foreground: 			@foreground;
-    urgent-background: 			@transparent;
-    urgent-foreground:			@foreground;
-    active-background: 			@transparent;
-    active-foreground:			@foreground;
-
-    selected-normal-background:  @foreground;
-    selected-normal-foreground:  @background;
-    selected-urgent-background:  @foreground;
-    selected-urgent-foreground:  @background;
-    selected-active-background:  @foreground;
-    selected-active-foreground:  @background;
-
-    alternate-normal-background: @transparent;
-    alternate-normal-foreground: @foreground;
-    alternate-active-background: @transparent;
-    alternate-active-foreground: @active-foreground;
-    alternate-urgent-background: @transparent;
-    alternate-urgent-foreground: @urgent-foreground;
-
-    border-color:                @background;
-    separatorcolor:              @foreground;
-    background-color:            @transparent;
-    font:  "JetBrainsMono Nerd Font";
+    text-light: #BEBEBE;
+    text-selected: #29BBFF;
 }
 
 
 #window {
-    background-color: @background;
-    width: 100%;
-    height: 100%;
-    children: [ horibox ];
-    padding: @spacing;
-}
-
-#horibox {
+    border-radius: 3px;
+    background-color: transparent;
+    // Some concoction of all 5 elements + padding 
+    width: 615px;
     children: [ listview ];
 }
 
+
 #listview {
+    background-color: @background-dark;
+    padding: 10px;
+    orientation: center;
     layout: horizontal;
+    border-radius: 3px;
     spacing: 1%;
 }
 
 #element {
     padding: 20px 50px;
     background-color: @background-light;
-    text-color: @foreground;
-    border-radius: 1px;
+    text-color: @text-light;
+    border-radius: 3px;
     font-size: 16px;
+    horizontal-align: 1;
 }
 
 #element.selected {
-    background-color: @accent;
-    text-color: @background;
+    background-color: @text-selected;
+    text-color: @background-dark;
 }

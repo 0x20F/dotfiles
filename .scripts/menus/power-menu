@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #PADDINGS="50% 0 0 50%"
-ROFI_OPTIONS=(-theme $( ix -f paths.styles )/rofi/icons -padding $(($(xwininfo -root | awk '/Height/ { print $2}')/2)))
+ROFI_OPTIONS=(-theme $( ix -f paths.styles )/rofi/icons)
 CONFIRMATION_OPTIONS=(-dmenu -i -p "Are you sure you want to proceed?")
 
 
