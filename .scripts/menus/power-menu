@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-#PADDINGS="50% 0 0 50%"
-ROFI_OPTIONS=(-theme $( ix -f configs.rofi )/power)
+ROFI_OPTIONS=(-theme $( ix -f configs.rofi )/power-menu)
+ROFI_CONFIRMATION=(-theme $( ix -f configs.rofi)/confirmation-dialog)
 CONFIRMATION_OPTIONS=(-dmenu -i -p "Are you sure you want to proceed?")
 
 
@@ -18,18 +18,18 @@ YESNO="\n"
 
 case $chosen in
     $power_off)
-        [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" "${CONFIRMATION_OPTIONS[@]}") ==  ] && systemctl poweroff
+        [ $(echo -e $YESNO | rofi "${ROFI_CONFIRMATION[@]}" "${CONFIRMATION_OPTIONS[@]}") ==  ] && systemctl poweroff
         ;;
     $reboot)
-        [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" "${CONFIRMATION_OPTIONS[@]}") ==  ] && systemctl reboot
+        [ $(echo -e $YESNO | rofi "${ROFI_CONFIRMATION[@]}" "${CONFIRMATION_OPTIONS[@]}") ==  ] && systemctl reboot
         ;;
     $lock)
         exec  $( ix -f paths.scripts )/lock/lock-screen
         ;;
     $suspend)
-	    [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" "${CONFIRMATION_OPTIONS[@]}") ==  ] && systemctl suspend
+	    [ $(echo -e $YESNO | rofi "${ROFI_CONFIRMATION[@]}" "${CONFIRMATION_OPTIONS[@]}") ==  ] && systemctl suspend
         ;;
     $log_out)
-	    [ $(echo -e $YESNO | rofi "${ROFI_OPTIONS[@]}" "${CONFIRMATION_OPTIONS[@]}") ==  ] && bspc quit
+	    [ $(echo -e $YESNO | rofi "${ROFI_CONFIRMATION[@]}" "${CONFIRMATION_OPTIONS[@]}") ==  ] && bspc quit
         ;;
 esac
