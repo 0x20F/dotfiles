@@ -14,3 +14,7 @@ packages = ${dotfiles}/.nixos/system/packages.nix
 scripts = ${dotfiles}/.scripts
 
 wallpapers = ${styles}/wallpapers
+
+
+[configs]
+rofi = ${paths:home}/.config/rofi
