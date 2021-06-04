@@ -1,5 +1,5 @@
 //: ix-config
-//: to: $HOME/.config/rofi
+//: to: #{{ configs.rofi }}
 
 
 * {
@@ -7,7 +7,7 @@
     background-light: #242424;
 
     text-light: #BEBEBE;
-    text-selected: #29BBFF;
+    text-selected: #31BAFF;
 }
 
 
@@ -30,11 +30,11 @@
 }
 
 #element {
-    padding: 20px 50px;
+    padding: 30px 50px;
     background-color: @background-light;
     text-color: @text-light;
     border-radius: 3px;
-    font-size: 16px;
+    font-size: 26px;
     horizontal-align: 1;
 }
 
