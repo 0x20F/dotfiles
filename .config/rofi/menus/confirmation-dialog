@@ -3,8 +3,11 @@
 
 
 * {
-    background-dark: #151515;
-    background-light: #242424;
+    background-dark: #212631;
+    background-light: #373f51;
+    background-bright: #EFF7FF;
+
+    background-dark-transparent: #212631bb;
 
     text-light: #BEBEBE;
     text-selected: #31BAFF;
@@ -12,33 +15,28 @@
 
 
 #window {
-    border-radius: 3px;
-    background-color: transparent;
-    // Some concoction of all 2 elements + padding 
-    width: 263px;
+    padding: 30% 0 0 43%;
+    width: 100%;
+    height: 100%;
+    background-color: @background-dark-transparent;
     children: [ listview ];
 }
 
 
 #listview {
-    background-color: @background-dark;
-    padding: 10px;
-    orientation: center;
+    background-color: transparent;
     layout: horizontal;
-    border-radius: 3px;
     spacing: 1%;
 }
 
 #element {
-    padding: 30px 50px;
+    padding: 2%;
     background-color: @background-light;
     text-color: @text-light;
-    border-radius: 3px;
-    font-size: 26px;
-    horizontal-align: 1;
+    border-radius: 6px;
 }
 
 #element.selected {
-    background-color: @text-selected;
-    text-color: @background-dark;
+    background-color: @background-bright;
+    text-color: @text-selected;
 }
