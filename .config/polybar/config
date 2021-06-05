@@ -124,21 +124,12 @@ label = %date% %time%
 
 
 [module/menu0]
-type = custom/menu
-label-open = "O "
-format = <label-toggle> <menu>
-format-padding = 2
-padding-right = 2
+type = custom/script
+label-padding = 2
+exec = echo ""
+click-left = #{{ paths.scripts }}/menus/power-menu
 
 format-foreground = ${colors.underline}
-
-menu-0-0 = "   Shutdown  "
-menu-0-0-exec = shutdown now
-menu-0-1 = "   Reboot  "
-menu-0-1-exec = shutdown -r now
-menu-0-3 = "   Lock"
-menu-0-3-exec = "echo hello world"
-menu-0-2 = "   Cancel  "
 
 [settings]
 screenchange-reload = true
