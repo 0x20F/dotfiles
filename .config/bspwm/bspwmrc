@@ -1,0 +1,87 @@
+#!/bin/sh
+
+
+#: ix-config
+#: to: $HOME/.config/bspwm
+#: prefix: &
+#: access: 777
+
+
+# [+] Workspaces
+# ---------------------
+export WS1="001"
+export WS2="002"
+export WS3="003"
+export WS4="004"
+export WS5="005"
+
+bspc config border_width        1
+bspc config window_gap          8
+bspc config top_padding         0
+
+bspc config split_ratio                 0.50
+bspc config borderless_monocle          true
+bspc config gapless_monocle             true
+bspc config focus_follows_pointer       true
+bspc config history_aware_focus         true
+
+bspc monitor --reset-desktops $WS1 $WS2 $WS3 $WS4 $WS5
+
+
+
+
+
+# [+] Modules
+# ---------------------
+# wallpaper
+feh --bg-fill &{{ paths.wallpapers }}/main.jpg
+
+# polybar
+&{{ paths.scripts }}/polybar/launch
+
+# compositor
+picom &
+
+# notifications
+dunst -conf "$HOME/.config/dunst/dunstrc" &
+
+
+
+
+
+# [+] Rules
+# ---------------------
+bspc rule desktop=$WS2 follow=on --add Firefox
+bspc rule desktop=$WS4 follow=on --add Vlc
+bspc rule state=floating --add Thunar
+
+
+
+
+
+# [+] Colors
+# ---------------------
+# bspc config focused_border_color            "$brightwhite"
+# bspc config active_border_color             "$brightblack"
+# bspc config normal_border_color             "$black"
+# bspc config urgent_border_color             "$blue"
+# bspc config presel_feedback_color           "$yellow"
+# bspc config focused_locked_border_color     "$brightred"
+# bspc config active_locked_border_color      "$red"
+# bspc config normal_locked_border_color      "$black"
+# bspc config focused_sticky_border_color     "$brightcyan"
+# bspc config active_sticky_border_color      "$cyan"
+# bspc config normal_sticky_border_color      "$black"
+# bspc config focused_private_border_color    "$brightblue"
+# bspc config active_private_border_color     "$blue"
+# bspc config normal_private_border_color     "$black"
+
+
+
+
+
+# [+] Done
+# ---------------------
+dunstify --appname="bspwm" "Done loading WM setup"
+
+

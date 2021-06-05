@@ -1,0 +1,115 @@
+#
+# bspwm hotkeys
+#
+
+#: ix-config
+#: prefix: &
+#: to: $HOME/.config/sxhkd
+
+
+
+
+# Open terminal
+super + Return
+	alacritty
+
+
+# Close window
+ctrl + q
+	bspc node --close
+
+
+# Lock screen
+super + shift + l
+	&{{ paths.scripts }}/lock/lock-screen
+
+
+# Rotate tree
+super + shift + { d, a }
+	bspc node @/ --circulate {forward, backward}
+
+
+# Toggle tiling for window
+super + d
+	bspc query --nodes -n focused.tiled && state=floating || state=tiled; \
+	bspc node --state \~$state
+
+
+# Toggle fullscreen for window
+super + f
+	bspc node --state \~fullscreen
+
+
+# Focus next/previous desktop
+alt + {_,shift} + Tab
+	bspc desktop --focus {prev,next}.occupied
+
+
+# Focus/move window to the biggest space
+super + {_,shift + }m
+	bspc node --{focus,swap} biggest
+
+
+# Focus/swap windows into direction
+super + {_,shift + }{h,j,k,l}
+	bspc node --{focus,swap} {west,south,north,east}
+
+
+# Focus/swap windows into direction (arrow keys)
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node --{focus,swap} {west,south,north,east}
+
+
+# Swap window with last window (section = §)
+alt + section
+	bspc node --swap last
+
+
+# Increase size of current window
+super + alt + {h,j,k,l}
+	bspc node {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
+
+
+# Decrease size of current window
+super + alt + shift + {h,j,k,l}
+	bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
+
+
+# Move window to selected desktop
+super + shift + {1-9,0}
+	bspc node --to-desktop ^{1-9,10} --focus
+
+
+# Move window to left/right desktop
+super + shift + {Left,Right}
+	bspc node --to-desktop {prev,next} --focus
+
+
+# Focus selected desktop
+super + {1-9,0}
+	bspc desktop --focus ^{1-9,10}
+
+
+# Focus when clicking
+~button1
+	bspc pointer --grab focus
+
+
+# Launch rofi
+alt + space
+	rofi -show run
+
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd; dunstify --appname='sxhkd' 'Reloaded config'
+
+
+# reload bspwmrc
+super + shift + e
+	bspc wm -r
+
+
+# Show help
+super + shift + i
+	&{{ paths.scripts }}/menus/shortcut-help

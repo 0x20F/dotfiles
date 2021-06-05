@@ -1,0 +1,20 @@
+#: ix-config
+#: to: $HOME/.config/ix
+
+
+[paths]
+home = /home/snowwhite
+
+dotfiles = ${home}/dots
+pictures = ${home}/.pictures
+binaries = ${home}/.local/bin
+
+styles = ${dotfiles}/.styles
+packages = ${dotfiles}/.nixos/system/packages.nix
+scripts = ${dotfiles}/.scripts
+
+wallpapers = ${styles}/wallpapers
+
+
+[configs]
+rofi = ${paths:home}/.config/rofi

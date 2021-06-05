@@ -1,16 +1,19 @@
+#: ix-config
+#: to: $HOME
+
+
+
 plugins=(
     git 
     colored-man-pages 
-    zsh-syntax-highlighting 
-    zsh-autosuggestions
+    #zsh-syntax-highlighting 
+    #zsh-autosuggestions
 )
 
 
 
 
-export ZSH="$HOME/.oh-my-zsh"       # Path to 'oh-my-zsh' -> symlink to dotfiles repo
 ZSH_THEME="robbyrussell"
-
 
 
 
@@ -18,19 +21,17 @@ ZSH_THEME="robbyrussell"
 source "$ZSH/oh-my-zsh.sh"
 
 
+# Source the normal .profile
+source "$HOME/.profile"
 
 
 
 # Aliases
 # ========================= 
-alias server="node ~/repo/moscow/server.js"
-alias mozzie="php ~/repo/journal_sys/bin/mozart.php"
-alias rdrestart="rundocker restart --no-post-checkout"
-
-alias cat="bat" # Rust equivalent
-# Override some exa aliases from the zsh package
+alias cat="bat"
 alias ls="exa"
 alias l="exa -halm --git"
+
 
 
 
@@ -54,13 +55,6 @@ function banner {
     echo "\n\t\t$DATE\n$NAME\n\n" | lolcat -F 0.4
     echo "$(showerThought)"
 }
-
-
-
-
-export PATH="/usr/local/opt/php@7.2/bin:$PATH"
-export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
-export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 
 
 

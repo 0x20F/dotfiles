@@ -1,0 +1,11 @@
+#!/bin/sh
+
+
+# Link the main configuration
+unlink /etc/nixos/configuration.nix
+ln -s "$(realpath ./configuration.nix)" /etc/nixos/configuration.nix
+
+
+# Link the system module
+unlink /etc/nixos/system
+ln -s "$(realpath ./system)" /etc/nixos

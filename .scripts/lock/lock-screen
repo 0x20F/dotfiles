@@ -1,0 +1,114 @@
+#!/bin/sh
+set -euo pipefail
+
+
+# Dimensions
+width=$(xrandr --query | grep ' connected' | grep -o '[0-9][0-9]*x[0-9][0-9]*[^ ]*' | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/' |cut -d "x" -f 1 |head -n1)
+height=$(xrandr --query | grep ' connected' | grep -o '[0-9][0-9]*x[0-9][0-9]*[^ ]*' | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/' |cut -d "x" -f 2 |head -n1)
+half_width=$(( width / 2 ))
+half_height=$(( height / 2 ))
+
+indicator_offset=30
+user_radius=50
+
+user_w=100
+user_h=100
+user_x=$(( half_width - user_radius ))
+user_y=$(( half_height - (user_radius + indicator_offset) ))
+
+
+# Helpers
+cache=$HOME/.cache/lockscreen
+cropuser=$cache/$USER-pic-crop.png
+pictures=$HOME/.pictures
+font="JetBrainsMono Nerd Font"
+
+
+
+
+cropuser() {
+	userpic=$pictures/profile.png
+	dimensions="$((user_w))x$((user_h))"
+
+	convert $userpic -resize $dimensions -gravity center \( \
+		-size $dimensions xc:Black 		\
+		-fill White 			\
+			-draw "circle $user_radius $user_radius $user_radius 1" 	\
+		-alpha Copy			\
+		\) -compose CopyOpacity -composite -trim $cropuser
+}
+
+
+
+blurbg() {
+	maim -u "$cache/screenshot.png"
+	
+	convert "$cache/screenshot.png" \
+		-filter Gaussian	\
+		-blur 0x27		\
+		"$cache/screenshot-blur.png"
+}
+
+
+
+genbg() {
+	if [[ ! -d $HOME/.cache/lockscreen ]]; then
+		mkdir $HOME/.cache/lockscreen
+		cropuser
+	fi
+
+	blurbg
+	composite -geometry "+$((user_x))+$((user_y))" $cropuser $cache/screenshot-blur.png $cache/screenshot-pic-blur.png
+}
+
+
+
+lock() {
+	i3lock-color -n -c 24283100 -t -e 		\
+		-i "$cache/screenshot-pic-blur.png"	\
+		--datestr="" 				\
+		--indicator				\
+		--force-clock				\
+		--pass-media-keys			\
+		--pass-power-keys			\
+		--pass-volume-keys			\
+		--insidevercolor=2e3440a8		\
+		--insidewrongcolor=2e3440a8		\
+		--insidecolor=2e344000			\
+		--ringwrongcolor=bf616a			\
+		--ringcolor=81a1c1			\
+		--ringvercolor=88c0d0			\
+		--line-uses-inside			\
+		--keyhlcolor=b48ead			\
+		--bshlcolor=bf616a			\
+		--separatorcolor=81a1c1			\
+		--verifcolor=88c0d0			\
+		--wrongcolor=bf616a			\
+		--indpos="w/2:h/2-$indicator_offset"	\
+		--timecolor=e5e9f0			\
+		--timepos="w/2:h/2+55"			\
+		--timestr="%I:%M %p"			\
+		--datecolor=e5e9f0			\
+		--time-font="$font"			\
+		--date-font="$font"			\
+		--verif-font="$font"			\
+		--wrong-font="$font"			\
+		--greeter-font="$font:style=Bold"	\
+		--greetertext="$USER"			\
+		--greetercolor=8fbcbb			\
+		--greeterpos="w/2:h/2+40"		\
+		--radius 50				\
+		--ring-width 3				\
+		--greetersize=14			\
+		--timesize=12				\
+		--verifsize=10				\
+		--wrongsize=10				\
+		--modsize=9				\
+		--modifpos="w/2:h/2-15"
+}
+
+
+# TODO: Add credit 
+
+genbg
+lock

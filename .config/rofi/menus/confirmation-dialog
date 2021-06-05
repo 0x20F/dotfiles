@@ -1,0 +1,42 @@
+//: ix-config
+//: to: #{{ configs.rofi }}
+
+
+* {
+    background-dark: #212631;
+    background-light: #373f51;
+    background-bright: #EFF7FF;
+
+    background-dark-transparent: #212631bb;
+
+    text-light: #BEBEBE;
+    text-selected: #31BAFF;
+}
+
+
+#window {
+    padding: 30% 0 0 43%;
+    width: 100%;
+    height: 100%;
+    background-color: @background-dark-transparent;
+    children: [ listview ];
+}
+
+
+#listview {
+    background-color: transparent;
+    layout: horizontal;
+    spacing: 1%;
+}
+
+#element {
+    padding: 2%;
+    background-color: @background-light;
+    text-color: @text-light;
+    border-radius: 6px;
+}
+
+#element.selected {
+    background-color: @background-bright;
+    text-color: @text-selected;
+}
