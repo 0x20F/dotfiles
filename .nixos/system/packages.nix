@@ -10,24 +10,31 @@ in
   environment.systemPackages = with pkgs; [
     scripts.ix
 
+    
     # Internet
 	wget curl
 
-	# Shell replacements
+    
+    # Shell replacements
 	exa bat ripgrep fzf
 
-	# Shell tools
+    
+    # Shell tools
 	vim tmux git htop
 	lolcat figlet jq psmisc
 	python3 xorg.xev xorg.xwininfo
+    neofetch
+
 
 	# Shell
 	zsh oh-my-zsh
 
-	# Libs
+    
+    # Libs
 	glib
 
-	# Graphical Interface
+    
+    # Graphical Interface
 	feh rofi alacritty dunst
 	polybar picom maim imagemagick
 	firefox-devedition-bin-unwrapped
@@ -38,6 +45,7 @@ in
     i3lock-color
     # vscode
   ];
+
 
   fonts = {
     enableFontDir = true;
