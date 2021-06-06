@@ -1,4 +1,5 @@
 #: ix-config
+#: prefix: &
 #: to: $HOME
 
 
@@ -19,8 +20,6 @@ ZSH_THEME="robbyrussell"
 
 # Load oh-my-zsh as well
 source "$ZSH/oh-my-zsh.sh"
-
-
 # Source the normal .profile
 source "$HOME/.profile"
 
@@ -37,16 +36,23 @@ alias l="exa -halm --git"
 
 
 # Useful functions
-# ========================= 
+# =========================
+function shell() {
+    nix-shell "&{{ paths.shells }}/$1.nix"
+}
+
+
 function flag() {
     alias $1="cd '$PWD'";
 }
+
 
 function showerThought {
     curl -s --connect-timeout 1 -A '/u/A858DE45F56D9BC9' \
         'https://www.reddit.com/r/showerthoughts/top.json?sort=top&t=week&limit=100' | \
         jq -c -r '.d = .data.children['$((RANDOM%100))'].data | "\"\(.d.title)\" \n - u/\(.d.author)" '
 }
+
 
 function banner {
     NAME="$(figlet -f slant 'snowwhite')"
