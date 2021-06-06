@@ -29,7 +29,6 @@ set updatetime=100  " For plugins that need to update faster
 
 
 
-colorscheme iceberg
 " To allow for transparent terminal background
 hi Normal guibg=NONE ctermbg=NONE
 " Set lightline color scheme
@@ -37,7 +36,9 @@ let g:lightline = { 'colorscheme': 'wombat' }
 
 
 
+" Custom file highlights
 au BufNewFile,BufRead /*.rasi setf css
+
 
 
 
@@ -63,9 +64,13 @@ Plug 'preservim/NERDTree'
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
+
+
+colorscheme nord
 
 
 " Autoquit if nerdtree is the only active tab
