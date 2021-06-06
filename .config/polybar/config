@@ -25,15 +25,23 @@ padding = 2
 
 [bar/main]
 monitor = ${env:MONITOR}
+width = 100%
 height = 30
+offset-x = 0
+offset-y = 0
 bottom = false
-top = true
 fixed-center = true
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = #bb212631
+foreground = #eff7ff
 
-padding = 2
+pseudo-transparency = false
+cursor-click = pointer
+wm-restack = bspwm
+override-redirect = true
+dpi = 0
+
+padding = ${constants.padding}
 module-margin = 1
 
 font-0 = "JetBrainsMono Nerd Font:size=8;2"
@@ -43,9 +51,6 @@ modules-left = power workspaces
 modules-center = xwindow
 modules-right = time
 
-tray-position = right
-tray-detached = false
-tray-max-size = 16
 
 
 
@@ -63,41 +68,19 @@ format-prefix = "  "
 [module/workspaces]
 type = internal/bspwm
 
-pin-workspaces = true
-index-sort = true
-enable-click = true
-enable-scroll = false
-wrapping-scroll = false
-reverse-scroll = false
-
-fuzzy-match = true
-
 format = <label-state>
+pin-workspaces = false
+enable-scroll = true
 
-label-mode-underline = ${colors.underline}
-label-mode-padding = ${constants.padding}
+label-focused = "  %name%  "
+label-focused-foreground = #3185fc
 
-label-focused = %name%
-label-focused-foreground = #ffffff
-label-focused-underline = ${colors.underline}
+label-empty = "  %name%  "
+label-empty-foreground = #88ffffff
 
-label-unfocused = %name%
+label-urgent = "  %name%  "
 
-label-visible = %name%
-label-visible-underline = #1A1A21
-
-label-urgent = %name%
-label-urgent-foreground = #ffffff
-label-urgent-background = ${colors.underline}
-
-label-dimmed-padding = ${constants.padding}
-label-focused-padding = ${constants.padding}
-label-empty-padding = ${constants.padding}
-label-urgent-padding = ${constants.padding}
-label-occupied-padding = ${constants.padding}
-label-visible-padding = ${constants.padding}
-label-unfocused-padding = ${constants.padding}
-
+label-occupied = "  %name%  "
 
 
 
@@ -114,8 +97,7 @@ label = %time%
 type = custom/script
 exec = echo ""
 click-left = #{{ paths.scripts }}/menus/power-menu
-
-format-foreground = ${colors.underline}
+format-foreground = #373f51
 
 
 
