@@ -73,6 +73,7 @@ call plug#end()
 colorscheme nord
 
 
+
 " Autoquit if nerdtree is the only active tab
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
