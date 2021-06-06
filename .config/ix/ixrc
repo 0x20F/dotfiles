@@ -11,6 +11,7 @@ binaries = ${home}/.local/bin
 
 styles = ${dotfiles}/.styles
 packages = ${dotfiles}/.nixos/system/packages.nix
+shells = ${dotfiles}/.nixos/shells
 scripts = ${dotfiles}/.scripts
 
 wallpapers = ${styles}/wallpapers
