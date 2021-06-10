@@ -37,7 +37,7 @@ foreground = #eff7ff
 
 pseudo-transparency = false
 cursor-click = pointer
-wm-restack = 
+wm-restack = bspwm 
 override-redirect = false
 dpi = 0
 
