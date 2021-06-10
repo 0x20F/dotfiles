@@ -3,7 +3,8 @@
 {
 	# System hostname
 	networking.hostName = "palace";
-	networking.wireless.enable = true; # Wifi via 'wpa_supplicant'.
+	# networking.wireless.enable = true; # Wifi via 'wpa_supplicant'.
+	networking.networkmanager.enable = true; # Wifi via 'networkmanager'.
 	
 
 	# Zsh setup
@@ -42,7 +43,7 @@
 	# Internationalisation properties.
 	i18n.defaultLocale = "en_US.UTF-8";
 	console = {
-		font ="Lat2-Terminus16";
+		font ="latarcyrheb-sun32";
 		keyMap = "sv-latin1";	
 	};
 }
