@@ -40,7 +40,7 @@ in
 	firefox-devedition-bin-unwrapped
 	# google-chrome - add later, it's 64bit, windows VM won't run that
 	vlc
-	xfce.thunar xfce.gvfs xfce.tumbler
+	xfce.thunar xfce.tumbler
 	# obsidian - add later, it's 64bit, windows VM won't run that
     i3lock-color
     # vscode
@@ -48,7 +48,7 @@ in
 
 
   fonts = {
-    enableFontDir = true;
+    fontDir.enable = true;
     enableGhostscriptFonts = true;
 
     fonts = with pkgs; [
