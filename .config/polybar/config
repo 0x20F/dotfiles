@@ -26,7 +26,7 @@ padding = 2
 [bar/main]
 monitor = ${env:MONITOR}
 width = 100%
-height = 30
+height = 60
 offset-x = 0
 offset-y = 0
 bottom = false
@@ -37,19 +37,19 @@ foreground = #eff7ff
 
 pseudo-transparency = false
 cursor-click = pointer
-wm-restack = bspwm
-override-redirect = true
+wm-restack = 
+override-redirect = false
 dpi = 0
 
 padding = ${constants.padding}
 module-margin = 1
 
-font-0 = "JetBrainsMono Nerd Font:size=8;2"
+font-0 = "JetBrainsMono Nerd Font:size=6;2"
 font-1 = FontAwesome:size=10;2
 
 modules-left = power workspaces
 modules-center = xwindow
-modules-right = time
+modules-right = time battery
 
 
 
@@ -57,8 +57,8 @@ modules-right = time
 [module/xwindow]
 type = internal/xwindow
 label = %title%
-label-maxlen = 120
-label-emptey = Desktop
+label-maxlen = 50
+label-empty = Desktop
 
 format = <label>
 format-prefix = "  "
@@ -90,6 +90,18 @@ interval = 1
 time = %H:%M:%S
 label = %time%
 
+
+
+[module/battery]
+type = internal/battery
+full-at = 99
+battery = BAT0
+adapter = AC
+poll-interval = 5
+# TODO: Change later with actual animations and icons
+label-charging = "Charging %percentage%%"
+label-discharging = "Discharging %percentage%%"
+label-full = "Fully Charged"
 
 
 
