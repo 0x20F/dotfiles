@@ -31,7 +31,7 @@ in
 
     
     # Libs
-	glib
+    glib
 
     
     # Graphical Interface
@@ -44,6 +44,7 @@ in
 	# obsidian - add later, it's 64bit, windows VM won't run that
     i3lock-color
     # vscode
+    vulkan-tools
   ];
 
 

@@ -1,11 +1,21 @@
 { config, pkgs, ... }: 
 
+let
+  thermald-conf = ./thermald-conf.xml;
+in
 {
-	# System hostname
+    boot.kernelPackages = pkgs.linuxPackages_latest;
+    boot.kernelParams = [ "acpi_rev_override" ];
+
+    services.thermald.enable = true;
+    services.thermald.configFile = thermald-conf;
+
+    # System hostname
 	networking.hostName = "palace";
 	# networking.wireless.enable = true; # Wifi via 'wpa_supplicant'.
 	networking.networkmanager.enable = true; # Wifi via 'networkmanager'.
-	
+    
+    powerManagement.cpuFreqGovernor = "powersave";    
 
 	# Zsh setup
 	programs.zsh = {
