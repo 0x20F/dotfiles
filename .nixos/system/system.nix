@@ -10,6 +10,8 @@ in
     services.thermald.enable = true;
     services.thermald.configFile = thermald-conf;
 
+    services.tlp.enable = true;
+
     # System hostname
 	networking.hostName = "palace";
 	# networking.wireless.enable = true; # Wifi via 'wpa_supplicant'.
