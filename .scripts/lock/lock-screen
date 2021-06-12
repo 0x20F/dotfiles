@@ -15,7 +15,7 @@ user_radius=150
 user_w=$(( user_radius * 2 ))
 user_h=$(( user_radius * 2  ))
 user_x=$(( half_width - user_radius ))
-user_y=$(( half_height - user_h + (ring_width * 2 + 1) ))
+user_y=$(( half_height - user_h + (ring_width * 2 + 3) ))
 
 
 # Helpers
@@ -109,8 +109,9 @@ lock() {
 		--insidevercolor=2e3440a8			\
 		--insidewrongcolor=2e3440a8			\
 		--insidecolor=2e344000				\
+		--ring-width="$ring_width"			\
 		--ringwrongcolor=bf616a				\
-		--ringcolor=81a1c1					\
+		--ringcolor=181b21					\
 		--ringvercolor=88c0d0				\
 		--line-uses-inside					\
 		--keyhlcolor=b48ead					\
@@ -132,7 +133,6 @@ lock() {
 		--greetercolor=8fbcbb				\
 		--greeterpos="w/2:h/2+40"			\
 		--radius="$(( $user_radius / 2 ))"	\
-		--ring-width="$ring_width"			\
 		--greetersize=18					\
 		--timesize=16						\
 		--verifsize=10						\
