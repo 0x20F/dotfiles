@@ -6,15 +6,14 @@ in
 {
     boot.kernelPackages = pkgs.linuxPackages_latest;
     boot.kernelParams = [ "acpi_rev_override" ];
+    boot.blacklistedKernelModules = [ "nvidia" ];
 
     services.thermald.enable = true;
     services.thermald.configFile = thermald-conf;
 
     services.tlp.enable = true;
 
-    # System hostname
 	networking.hostName = "palace";
-	# networking.wireless.enable = true; # Wifi via 'wpa_supplicant'.
 	networking.networkmanager.enable = true; # Wifi via 'networkmanager'.
     
     powerManagement.cpuFreqGovernor = "powersave";    

@@ -1,24 +1,6 @@
 { config, pkgs, ... }:
 
-let 
-  nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
-    export __NV_PRIME_RENDER_OFFLOAD=1
-    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-    export __GLX_VENDOR_LIBRARY_NAME=nvidia
-    export __VK_LAYER_NV_optimus=NVIDIA_only
-    exec -a "$0" "$@"
-  '';
-in
 {
-    environment.systemPackages = [ nvidia-offload ];    
-
-    environment.variables = {
-      GDK_SCALE = "1";
-      GDK_DPI_SCALE = "0.7";
-      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-      XCURSOR_SIZE = "64";
-    };
-
 	# Enable the X11 windowing system
 	services.xserver = {
 		enable = true;
@@ -47,13 +29,10 @@ in
 
 		libinput.enable = true;
 
-        dpi = 290;
-
-        videoDrivers = [ "nvidia" ];
+        dpi = 192;
     };
 
     
-    hardware.cpu.intel.updateMicrocode = config.hardware.enableRedistributableFirmware;
     hardware.opengl.driSupport32Bit = true;
     hardware.opengl.enable = true;
     hardware.opengl.extraPackages = with pkgs; [
@@ -62,13 +41,6 @@ in
       libvdpau-va-gl
       intel-media-driver
     ];
-    hardware.nvidia.powerManagement.enable = true;
-    hardware.nvidia.prime = {
-      offload.enable = true;
-
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
 
 	# Enable sound.
 	sound.enable = true;
