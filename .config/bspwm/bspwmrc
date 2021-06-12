@@ -45,8 +45,6 @@ picom &
 # notifications
 dunst -conf "$HOME/.config/dunst/dunstrc" &
 
-# key-bind daemon
-killall sxhkd; sxhkd &
 
 
 
