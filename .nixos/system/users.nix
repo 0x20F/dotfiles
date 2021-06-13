@@ -6,7 +6,7 @@
 	users.users.snowwhite = {
 		shell = pkgs.zsh;
 		isNormalUser = true;
-		extraGroups = [ "wheel" ]; # Enable 'sudo' for the user.
+		extraGroups = [ "wheel" "audio" "video" ]; # Enable 'sudo' for the user.
 	};
 
 

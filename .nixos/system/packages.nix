@@ -7,6 +7,8 @@ in
 {
   nixpkgs.config.allowUnfree = true;
 
+  programs.light.enable = true;
+
   environment.systemPackages = with pkgs; [
     scripts.ix
 
@@ -23,7 +25,7 @@ in
 	vim tmux git htop
 	lolcat figlet jq psmisc
 	python3 xorg.xev xorg.xwininfo
-    neofetch
+    neofetch lsof
 
 
 	# Shell
@@ -44,7 +46,6 @@ in
 	# obsidian - add later, it's 64bit, windows VM won't run that
     i3lock-color
     # vscode
-    vulkan-tools
   ];
 
 
