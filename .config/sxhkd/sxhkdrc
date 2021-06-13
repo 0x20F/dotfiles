@@ -117,24 +117,23 @@ super + shift + i
 
 # Raise volume with pulseaudio
 XF86AudioRaiseVolume
-	amixer set Master 5%+
-
+	&{{ paths.scripts }}/control/volume up
 
 # Lower volume with pulseaudio
 XF86AudioLowerVolume
-	amixer set Master 5%-
+	&{{ paths.scripts }}/control/volume down
 
 
 # Toggle volume mute
 XF86AudioMute
-	amixer set Master toggle
+	&{{ paths.scripts }}/control/volume toggle
 
 
 # Increase the brightness (hardware)
 XF86MonBrightnessUp
-	light -A 10
+	&{{ paths.scripts }}/control/brightness up
 
 
 # Decrease the brightness (hardware)
 XF86MonBrightnessDown
-	light -U 10
+	&{{ paths.scripts }}/control/brightness down
