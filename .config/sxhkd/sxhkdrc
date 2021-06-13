@@ -125,6 +125,11 @@ XF86AudioLowerVolume
 	amixer set Master 5%-
 
 
+# Toggle volume mute
+XF86AudioMute
+	amixer set Master toggle
+
+
 # Increase the brightness (hardware)
 XF86MonBrightnessUp
 	light -A 10
