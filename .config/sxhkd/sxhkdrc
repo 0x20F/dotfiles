@@ -113,3 +113,23 @@ super + shift + e
 # Show help
 super + shift + i
 	&{{ paths.scripts }}/menus/shortcut-help
+
+
+# Raise volume with pulseaudio
+XF86AudioRaiseVolume
+	amixer set Master 5%+
+
+
+# Lower volume with pulseaudio
+XF86AudioLowerVolume
+	amixer set Master 5%-
+
+
+# Increase the brightness (hardware)
+XF86MonBrightnessUp
+	light -A 10
+
+
+# Decrease the brightness (hardware)
+XF86MonBrightnessDown
+	light -U 10
