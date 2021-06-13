@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# changeBrightness
+
+
+msgId="995313"
+
+# Change the brightness
+case "$1" in
+    "up")
+        light -A 10
+        ;;
+
+    "down")
+        light -U 10
+        ;;
+esac
+
+brightness="$( light -G )"
+
+dunstify -a "changeBrightness" -u low -r "$msgId" -h int:value:"$brightness" "Brightness: ${brightness}%"
+
