@@ -40,12 +40,10 @@ in
 	feh rofi alacritty dunst
 	polybar picom maim imagemagick
 	firefox-devedition-bin-unwrapped
-	# google-chrome - add later, it's 64bit, windows VM won't run that
-	vlc
+	google-chrome vlc
 	xfce.thunar xfce.tumbler
-	# obsidian - add later, it's 64bit, windows VM won't run that
-    i3lock-color
-    # vscode
+	obsidian vscode
+    i3lock-color discord
   ];
 
 
