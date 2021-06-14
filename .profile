@@ -5,6 +5,8 @@
 # Useful paths
 export PACKAGES=#{{ paths.packages }}
 
+# Defaults
+export EDITOR=$( which vim )
 
 
 
