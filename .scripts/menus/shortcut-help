@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+THEME="$(ix -f configs.rofi)/menus/shortcut-help"
+
 awk '/^[a-z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' ~/.config/sxhkd/sxhkdrc |
 	column -t -s $'\t' |
-	rofi -dmenu -i -lines 15 -no-show-icons -width 800
+	rofi -dmenu -i -lines 15 -markup-rows  -width 800 -theme "$THEME"
