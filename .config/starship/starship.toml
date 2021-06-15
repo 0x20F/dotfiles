@@ -1,0 +1,24 @@
+#: ix-config
+#: to: $HOME/.config
+
+add_newline = true
+
+format = "$git_status$git_branch$directory$env_var[](white) "
+
+
+[git_branch]
+format = "[$branch]($style) "
+style = "bold fg:240"
+truncation_length = 10
+truncation_symbol = "..."
+
+
+[git_status]
+style = "fg:240"
+
+
+[env_var]
+variable = "CURRENT_ENVIRONMENT"
+format = "[$env_value ]($style)"
+style = "bold green"
+

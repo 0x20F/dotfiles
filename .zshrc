@@ -9,12 +9,13 @@ plugins=(
     colored-man-pages 
     #zsh-syntax-highlighting 
     #zsh-autosuggestions
+    nix-shell
 )
 
 
 
-
-ZSH_THEME="robbyrussell"
+ZSH_CUSTOM=$HOME/.config/oh-my-zsh
+ZSH_THEME="afowler"
 
 
 
@@ -28,8 +29,8 @@ source "$HOME/.profile"
 # Aliases
 # ========================= 
 alias cat="bat"
-alias ls="exa"
-alias l="exa -halm --git"
+alias ls="exa -ah --icons"
+alias l="exa -halm --git --icons"
 
 
 
@@ -66,3 +67,5 @@ function banner {
 
 
 
+# Enable the starship prompt
+eval "$(starship init zsh)"
