@@ -15,7 +15,7 @@ plugins=(
 
 
 ZSH_CUSTOM=$HOME/.config/oh-my-zsh
-ZSH_THEME="afowler"
+ZSH_THEME="af-magic"
 
 
 

@@ -18,7 +18,7 @@ in
 
     
     # Shell replacements
-	exa bat ripgrep fzf
+	exa bat ripgrep fzf starship
 
     
     # Shell tools
