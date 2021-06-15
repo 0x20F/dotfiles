@@ -112,6 +112,18 @@ super + shift + i
 	&{{ paths.scripts }}/menus/shortcut-help
 
 
+ctrl + XF86AudioRaiseVolume
+	&{{ paths.scripts }}/control/microphone up
+
+
+ctrl + XF86AudioLowerVolume
+	&{{ paths.scripts }}/control/microphone down
+
+
+ctrl + XF86AudioMute
+	&{{ paths.scripts }}/control/microphone toggle
+
+
 # Raise volume
 XF86AudioRaiseVolume
 	&{{ paths.scripts }}/control/volume up

@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# changeMicVolume
+
+
+msgId="642212"
+
+case "$1" in
+    "up")
+        amixer set Capture 5%+
+        ;;
+
+    "down")
+        amixer set Capture 5%-
+        ;;
+
+    "toggle")
+        amixer set Capture toggle
+        ;;
+esac
+
+volume="$(amixer get Capture | tail -1 | awk '{print $5}' | sed 's/[^0-9]*//g')"
+mute="$(amixer get Capture | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')"
+
+echo $volume $mute
+
+if [[ $volume == 0 || "$mute" == "off" ]]; then
+    dunstify -a "changeMicVolume" -u low -r "$msgId" "Microphone muted"
+else
+    dunstify -a "changeMicVolume" -u low -r "$msgId" -h int:value:"$volume" "Volume: ${volume}%"
+fi
+

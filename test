@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+inotifywait -e close_write,moved_to,create -m $1 |
+while read -r directory events filename; do
+    eval $2
+done
