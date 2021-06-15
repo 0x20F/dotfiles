@@ -2,7 +2,7 @@
 
 let
   # Personal scripts that need to be global 
-  scripts = pkgs.callPackage ./scripts.nix { };
+  custom = pkgs.callPackage ./packages-custom.nix { };
 in
 {
   nixpkgs.config.allowUnfree = true;
@@ -10,7 +10,8 @@ in
   programs.light.enable = true;
 
   environment.systemPackages = with pkgs; [
-    scripts.ix
+    custom.ix
+    custom.picom
 
     
     # Internet
@@ -25,7 +26,8 @@ in
 	vim tmux git htop
 	lolcat figlet jq psmisc
 	python3 xorg.xev xorg.xwininfo
-    neofetch lsof
+    neofetch lsof inotify-tools
+    meson ninja
 
 
 	# Shell
@@ -38,7 +40,7 @@ in
     
     # Graphical Interface
 	feh rofi alacritty dunst
-	polybar picom maim imagemagick
+	polybar maim imagemagick
 	firefox-devedition-bin-unwrapped
 	google-chrome vlc
 	xfce.thunar xfce.tumbler

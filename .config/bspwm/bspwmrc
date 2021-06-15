@@ -40,7 +40,7 @@ feh --bg-fill &{{ paths.wallpapers }}/background.jpg
 &{{ paths.scripts }}/polybar/launch
 
 # compositor
-picom &
+picom --experimental-backend &
 
 # notifications
 dunst -conf "$HOME/.config/dunst/dunstrc" &
