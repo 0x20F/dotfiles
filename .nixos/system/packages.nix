@@ -61,8 +61,8 @@ in
       source-code-pro
       source-sans-pro
       dejavu_fonts
-      font-awesome-ttf
       siji
+      material-design-icons
     ];
   };
 }
