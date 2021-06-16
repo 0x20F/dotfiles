@@ -2,4 +2,22 @@
 #: to: #{{ configs.rofi }}/menus
 
 
+configuration {
+    lines: 5;
+    show-icons: true;
+    display-drun: "EXEC:";
+    hide-scrollbar: true;
+}
+
+
+
 @import "#{{ configs.rofi }}/themes/simple"
+
+
+entry {
+    padding: 1%;
+    horizontal-align: 0;
+    vertical-align: 0.5;
+    placeholder: "Find an application...";
+    text-color: #646c7d;
+}

@@ -2,4 +2,4 @@
 
 THEME="$(ix -f configs.rofi)/menus/app-runner"
 
-rofi -show drun -show-icons -theme "$THEME" -lines 5
+rofi -show drun -theme "$THEME"

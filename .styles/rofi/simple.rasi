@@ -2,6 +2,12 @@
 #: to: #{{ configs.rofi }}/themes
 
 
+
+configuration {
+   font: "JetBrainsMono Nerd Font 20";
+}
+
+
 * {
    accent: #FFFFFF;
    bckgrd: rgba(0, 0, 0, 1);
@@ -15,13 +21,20 @@
    urgentcolor:      	#e53714;
 
    fromtop: 25%;
-   font: 				"JetBrainsMono Nerd Font 20";
    border-color:        @background;
    separatorcolor:      @foreground;
    background-color: 	@background;
 
    highlight: bold red;
 }
+
+
+prompt {
+   enable: true;
+   horizontal-align: 0.5;
+   vertical-align: 0.5;
+}
+
 
 #window {
    width: 1700px;
@@ -122,7 +135,7 @@ element-text {
    padding: 			10px 1% 10px 1%;
 }
 
-#entry {
+entry {
    background-color: 	@background-alt;
    text-color:			@foreground;
    padding: 			10 0 10 10;
