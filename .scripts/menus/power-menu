@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-ROFI_OPTIONS=(-theme $( ix -f configs.rofi )/power-menu)
-ROFI_CONFIRMATION=(-theme $( ix -f configs.rofi)/confirmation-dialog)
+ROFI_OPTIONS=(-theme $( ix -f configs.rofi )/menus/power-menu)
+ROFI_CONFIRMATION=(-theme $( ix -f configs.rofi)/menus/confirmation-dialog)
 CONFIRMATION_OPTIONS=(-dmenu -i -p "Are you sure you want to proceed?")
 
 
