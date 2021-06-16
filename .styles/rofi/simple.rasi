@@ -49,8 +49,8 @@
 }
 
 element-icon {
-   size: 2.65ch;
-   padding: 1% 1% 1% 0;
+   size: 4ch;
+   padding: 1% 1% 1% 0.2%;
 }
 
 element-text {
