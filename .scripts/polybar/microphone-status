@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Get microphone status
+
+mute=$(amixer get Capture | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')
+
+
+if [[ "$mute" == "off" ]]; then
+    echo "󰍭"
+else
+    echo "󰍬"
+fi
