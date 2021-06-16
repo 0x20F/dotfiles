@@ -27,7 +27,6 @@ in
 	lolcat figlet jq psmisc
 	python3 xorg.xev xorg.xwininfo
     neofetch lsof inotify-tools
-    meson ninja
 
 
 	# Shell
@@ -46,6 +45,8 @@ in
 	xfce.thunar xfce.tumbler
 	obsidian vscode
     i3lock-color discord
+    papirus-icon-theme
+    lxappearance
   ];
 
 
