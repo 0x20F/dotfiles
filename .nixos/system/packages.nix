@@ -27,6 +27,7 @@ in
 	lolcat figlet jq psmisc
 	python3 xorg.xev xorg.xwininfo
     neofetch lsof inotify-tools
+    bc
 
 
 	# Shell

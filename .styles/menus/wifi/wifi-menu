@@ -3,17 +3,19 @@
 
 
 configuration {
-    lines: 5;
-    show-icons: true;
-    display-drun: "EXEC:";
+    lines: 8;
     hide-scrollbar: true;
 }
-
 
 
 @import "#{{ configs.rofi }}/themes/simple"
 
 
+window {
+    width: 1600px;
+}
+
+
 entry {
-    placeholder: "Find an application...";
+    placeholder: "Pick a network to connect to...";
 }
