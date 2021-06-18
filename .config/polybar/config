@@ -143,8 +143,10 @@ type = internal/network
 interface = wlp0s20f3
 interval = 5.0
 
-format-connected = <ramp-signal>
-format-disconnected = <label-disconnected>
+# Checkout https://github.com/polybar/polybar/wiki/Formatting#action-a
+# for "Format tags" explanations as well as extra action buttons
+format-connected = "%{A1:#{{ paths.scripts }}/menus/wifi-menu:}<ramp-signal>%{A}"
+format-disconnected = "%{A1:#{{ paths.scripts }}/menus/wifi-menu:}<label-disconnected>%{A}"
 
 label-disconnected = 󰤮
 label-disconnected-foreground = #{{ hex #f4f4f4; 0.5 }}
