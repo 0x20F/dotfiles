@@ -41,7 +41,12 @@ FONT="DejaVu Sans Mono 8"
 # hexanet        WPA2
 # hexanet        WPA2
 # ASUS           WPA2
-LIST=$(nmcli --fields "$FIELDS" device wifi list | sed '/^--/d' | tr -s ' ' | awk '{print $1, "\t", $2, "\t", $3}' | column -s $'\t' -t -o $'\t\t\t\t')
+LIST=$(
+	nmcli --fields "$FIELDS" device wifi list | \
+	sed '/^--/d' | tr -s ' ' | \
+	awk '{{elip=""} if (length($1) > 10) {elip="..."} print substr($1, 0, 10) elip, "\t", $2, "\t", $3}' | \
+	column -s $'\t' -t -o $'\t\t\t\t'
+)
 
 # Gives a list of known connections so we can parse it later
 KNOWNCON=$(nmcli connection show)
@@ -69,6 +74,7 @@ CURRSSID=$(LANGUAGE=C nmcli -t -f active,ssid dev wifi | awk -F: '$1 ~ /^yes/ {p
 # Also pipe that result + 1 into bc since lines aren't 0 indexed
 if [[ ! -z $CURRSSID ]]; then
 	SSIDLINE="$(echo "$LIST" | awk -F '[ ]{2,}' '{print $1}' | grep -Fxn -m 1 $CURRSSID | awk -F ':' '{print $1}')"
+
 	HIGHLINE=$(echo  "$SSIDLINE + 1" | bc )
 fi
 
@@ -95,7 +101,7 @@ CHSSID=$(echo "$CHENTRY" | sed  's/\s\{2,\}/\|/g' | awk -F "|" '{print $1}')
 # If the user inputs "manual" as their SSID in the start window, it will bring them to this screen
 if [ "$CHENTRY" = "manual" ] ; then
 	# Manual entry of the SSID and password (if appplicable)
-	MSSID=$(echo "enter the SSID of the network (SSID,password)" | rofi -dmenu -p "Manual Entry: " -font "$FONT" -lines 1)
+	MSSID=$(echo "enter the SSID of the network (SSID,password)" | rofi -dmenu -p "Manual:" -theme "$(ix -f configs.rofi)/menus/manual-prompt" )
 	# Separating the password from the entered string
 	# FIXME: Maybe trim aswell
 	MPASS=$(echo "$MSSID" | awk -F "," '{print $2}')
@@ -126,7 +132,7 @@ else
 		nmcli con up "$CHSSID"
 	else
 		if [[ "$CHENTRY" =~ "WPA2" ]] || [[ "$CHENTRY" =~ "WEP" ]]; then
-			WIFIPASS=$(echo "if connection is stored, hit enter" | rofi -dmenu -p "password: " -lines 1 -font "$FONT" )
+			WIFIPASS=$(echo "if you've previously connected, leave empty" | rofi -dmenu -p "Password:" -theme "$(ix -f configs.rofi)/menus/password-prompt")
 		fi
 		nmcli dev wifi con "$CHSSID" password "$WIFIPASS"
 	fi

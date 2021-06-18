@@ -3,7 +3,7 @@
 
 
 configuration {
-    lines: 8;
+    lines: 1;
 }
 
 
@@ -16,7 +16,16 @@ window {
     border-radius: 0 0 8px 8px;
 }
 
+prompt {
+    text: "Manual Entry:";
+}
 
 entry {
-    placeholder: "Pick a network to connect to...";
+    placeholder: "SSID and Password please";
+}
+
+element-text {
+    expand: true;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
 }
