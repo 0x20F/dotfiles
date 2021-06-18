@@ -48,6 +48,7 @@ in
     i3lock-color discord
     papirus-icon-theme
     lxappearance
+    spotify
   ];
 
 
