@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+# Get audio status
+# 1. Custom icon for volume level
+# 2. Custom icon for mute/unmute
+# 3. Custom icon for headphones
+
+mute=$(amixer get Master | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')
+headphones=$(pacmd list-sinks | grep 'active port')
+
+
+
+# If mute, output muted and exit
+if [[ "$mute" == "off" ]]; then
+    # Check if headphones
+    if [[ "$headphones" =~ "headphones" ]]; then
+        echo "󰟎"
+        exit
+    fi
+
+    echo "󰖁"
+    exit
+fi
+
+
+
+# If not muted, and headphones, just one icon
+if [[ "$headphones" =~ "headphones" ]]; then
+    echo "󰋋"
+    exit
+fi
+
+
+
+# If no headphones, figure out the appropriate
+# icon for the volume level
+volume=$(amixer get Master | tail -1 | awk '{print $5}' | sed 's/[^0-9]*//g')
+
+if (( volume > 60 )); then
+    echo "󰕾"
+    exit
+fi
+
+
+if (( volume > 30 )); then
+    echo "󰖀"
+    exit
+fi
+
+
+if (( volume > 0 )); then
+    echo "󰕿"
+    exit
+fi
+
+
+
