@@ -21,37 +21,45 @@ alert = #bd2c40
 padding = 2
 
 
-
-
-[bar/main]
+[section/base]
 monitor = ${env:MONITOR}
-width = 100%
 height = 60
-offset-x = 0
-offset-y = 0
-bottom = false
-fixed-center = true
-
-background = #bb212631
+background = #bb181b21
 foreground = #eff7ff
-
-pseudo-transparency = false
 cursor-click = pointer
-wm-restack = bspwm 
+wm-restack = bspwm
 override-redirect = false
 dpi = 0
-
 padding = ${constants.padding}
 module-margin = 1
+offset-y = 8
+font-0 = "JetBrainsMono Nerd Font:size=9;4"
+font-1 = "Material Design Icons:size=10;4"
 
-font-0 = "JetBrainsMono Nerd Font:size=9;2"
-font-1 = "Material Design Icons:size=10;2"
 
-modules-left = power workspaces
+[bar/left]
+inherit = section/base
+width = 16%
+offset-x = 8
+modules-center = power workspaces
+#tray-position = right
+
+[bar/center]
+inherit = section/base
+width = 20%
+offset-x = 40%
 modules-center = xwindow
-modules-right = time microphone-status audio-status wifi battery
+background = #00181b21
+foreground = #181b21
 
-tray-position = right
+[bar/right]
+inherit = section/base
+width = 16%
+offset-x = 83.75%
+modules-left = time
+modules-right = microphone-status audio-status wifi battery
+
+
 
 
 
