@@ -9,4 +9,43 @@ icon=$(echo "$4" | sed '/^$/d')
 urgency=$(echo "$5" | sed '/^$/d')
 timestamp=$(date +"%I:%M %p") # For now
 
-echo -en "$timestamp\n$urgency\n$icon\n$body\n$summary\n$appname\n" >> /tmp/dunstlog
+
+# Check if app is blacklisted
+case "$appname" in
+	'changeVolume'|'changeBrightness'|'sxhkd'|'bspwm')
+		# Don't add notification
+		exit
+		;;
+esac
+
+
+
+# Check if the logfile is there
+# TODO: Replace with ix variable
+if [ ! -f /tmp/dunstlog ]; then
+	echo "FILE DOESNT EXIST"
+	echo '{ "notifications": [] }' > /tmp/dunstlog
+fi
+
+
+
+# Build a new JSON object for the notification
+json=$(
+	jq -n \
+		--arg an "$appname" \
+		--arg sy "$summary" \
+		--arg by "$body" \
+		--arg ic "$icon" \
+		--arg uy "$urgency" \
+		--arg ts "$timestamp" \
+		'{appname:$an, summary:$sy, body:$by, icon:$ic, urgency:$uy, timestamp:$ts}'
+)
+
+
+# Temporary file to write the new contents to
+swap="/tmp/${RANDOM}.tmp"
+
+# Prepend the new JSON object to the existing array
+jq ".notifications |= [$json] + ." /tmp/dunstlog > $swap
+mv $swap /tmp/dunstlog
+
