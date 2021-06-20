@@ -57,7 +57,7 @@ inherit = section/base
 width = 16%
 offset-x = 83.75%
 modules-left = time
-modules-right = microphone-status audio-status wifi battery
+modules-right = microphone-status audio-status wifi battery notifications
 
 
 
@@ -140,6 +140,14 @@ format-foreground = #373f51
 
 
 
+[module/notifications]
+type = custom/script
+exec = echo "󱍤"
+click-left = #{{ paths.scripts }}/menus/notification-center
+format-foreground = #373f51
+
+
+
 [module/microphone-status]
 type = custom/script
 exec = #{{ paths.scripts }}/polybar/microphone-status
@@ -165,7 +173,7 @@ format-connected = "%{A1:#{{ paths.scripts }}/menus/wifi-menu:}<ramp-signal>%{A}
 format-disconnected = "%{A1:#{{ paths.scripts }}/menus/wifi-menu:}<label-disconnected>%{A}"
 
 label-disconnected = 󰤮
-label-disconnected-foreground = #{{ hex #f4f4f4; 0.5 }}
+label-disconnected-foreground = #{{ hex #f4f4f4; alpha: 0.5 }}
 
 ramp-signal-0 = 󰤫
 ramp-signal-1 = 󰤟
