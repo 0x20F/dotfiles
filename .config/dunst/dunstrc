@@ -4,7 +4,7 @@
 
 
 [colors]
-background = "#181b21"
+background = "#181b21bb"
 frame = "#3b4252"
 
 
@@ -14,16 +14,17 @@ frame = "#3b4252"
 
 follow = keyboard
 
-geometry = "650x4-20+80"    
+geometry = "750x4-10+80"    
 indicate_hidden = yes
 transparency = 0
 notification_height = 0
 separator_height = 1
-padding = 40
-horizontal_padding = 40
-text_icon_padding = 10
+padding = 20
+horizontal_padding = 30
+text_icon_padding = 30
 frame_width = 0
 corner_radius = 8
+vertical_alignment = center
 
 separator_color = "#00000000"
 sort = yes
@@ -45,14 +46,14 @@ markup = full
 #   %n  progress value if set without any extra characters
 #   %%  Literal %
 # Markup is allowed
-format = "<b>%a</b>\n%s\n%b"
+format = "<b>%a:</b> %s\n%b"
 alignment = left
 show_age_threshold = 60
-word_wrap = true
-ellipsize = middle
+word_wrap = false
+ellipsize = end
 ignore_newline = false
 stack_duplicates = true
-show_indicators = true
+show_indicators = false
 
 ### Icons ###
 icon_position = left
