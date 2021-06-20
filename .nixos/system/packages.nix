@@ -62,6 +62,9 @@ in
       ubuntu_font_family
       source-code-pro
       source-sans-pro
+      google-fonts
+      lato
+      montserrat
       dejavu_fonts
       siji
       material-design-icons
