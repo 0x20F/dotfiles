@@ -109,8 +109,8 @@ battery = BAT0
 adapter = AC
 poll-interval = 5
 
-label-charging = "%percentage%%"
-label-discharging = "%percentage%%"
+label-charging = " %percentage%%"
+label-discharging = " %percentage%%"
 label-full = 󰁹
 
 format-charging = <animation-charging><label-charging>
@@ -142,7 +142,7 @@ format-foreground = #373f51
 
 [module/notifications]
 type = custom/script
-exec = echo "󱍤"
+exec = echo "󰀼"
 click-left = #{{ paths.scripts }}/menus/notification-center
 format-foreground = #373f51
 
