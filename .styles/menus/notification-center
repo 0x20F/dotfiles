@@ -1,0 +1,27 @@
+#: ix-config
+#: to: #{{ configs.rofi }}/menus
+
+
+configuration {
+    lines: 8;
+}
+
+
+@import "#{{ configs.rofi }}/themes/simple"
+
+
+window {
+    width: 1350px;
+    y-offset: 0;
+    border-radius: 0 0 8px 8px;
+}
+
+
+entry {
+    placeholder: "All yours...";
+}
+
+
+element-icon {
+    size: 6ch;
+}
