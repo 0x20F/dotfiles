@@ -11,16 +11,16 @@ json=$(cat "$log_file")
 
 notifications=$( 
   echo $json | \
-  jq -cr '.notifications[] | "\(.appname)|\(.summary)|\(.icon)|\(.urgency)|\(.timestamp)"'
+    jq -cr '.notifications[] | "\(.appname)|\(.summary)|\(.icon)|\(.urgency)|\(.timestamp)|\(.body)"'
 )
 
 
 
-while IFS="|" read -r appname summary icon urgency timestamp; do
-  name="<b>$(printf %-62.62s "$appname")</b>"
+while IFS="|" read -r appname summary icon urgency timestamp body; do
+  name="$(printf %-62.62s "<b>$appname: </b>$summary")"
   icon="\0icon\x1f${icon}"
 
-  entry="$name$timestamp\n$summary$icon$separator"
+  entry="$name$timestamp\n$body$icon$separator"
 
   rows="$rows$entry"
 done <<< $notifications
