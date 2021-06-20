@@ -16,15 +16,28 @@ case "$appname" in
 		# Don't add notification
 		exit
 		;;
+
+	'Spotify')
+		# Spotify doesn't send an actual path to their icon so
+		# we need to retrieve it
+		random_name=$(mktemp --suffix ".png")
+		# Get the thumbnail url from the player metadata
+		artlink=$(playerctl metadata mpris:artUrl | sed -e 's/open.spotify.com/i.scdn.co/g')
+
+		# Download the image
+		curl -s "$artlink" -o "$random_name"
+		icon=$random_name
+		;;
 esac
 
 
 
-# Check if the logfile is there
-# TODO: Replace with ix variable
-if [ ! -f /tmp/dunstlog ]; then
+log_file=$(ix -f logs.dunst)
+
+# If the log file isn't there, create it
+if [ ! -f $log_file ]; then
 	echo "FILE DOESNT EXIST"
-	echo '{ "notifications": [] }' > /tmp/dunstlog
+	echo '{ "notifications": [] }' > $log_file
 fi
 
 
@@ -46,6 +59,6 @@ json=$(
 swap="/tmp/${RANDOM}.tmp"
 
 # Prepend the new JSON object to the existing array
-jq ".notifications |= [$json] + ." /tmp/dunstlog > $swap
-mv $swap /tmp/dunstlog
+jq ".notifications |= [$json] + ." $log_file > $swap
+mv $swap $log_file
 
