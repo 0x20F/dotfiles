@@ -19,3 +19,7 @@ wallpapers = ${styles}/wallpapers
 
 [configs]
 rofi = ${paths:home}/.config/rofi
+
+
+[logs]
+dunst = /tmp/dunstlog
