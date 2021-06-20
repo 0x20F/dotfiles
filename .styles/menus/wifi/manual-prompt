@@ -12,12 +12,10 @@ configuration {
 
 window {
     width: 1470px;
-    y-offset: 0;
-    border-radius: 0 0 8px 8px;
 }
 
 prompt {
-    text: "Manual Entry:";
+    text: "Manual";
 }
 
 entry {

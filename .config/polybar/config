@@ -24,7 +24,7 @@ padding = 2
 [section/base]
 monitor = ${env:MONITOR}
 height = 60
-background = #bb181b21
+background = #bb0c0f14
 foreground = #eff7ff
 cursor-click = pointer
 wm-restack = bspwm
@@ -33,7 +33,7 @@ dpi = 0
 padding = ${constants.padding}
 module-margin = 1
 offset-y = 8
-font-0 = "JetBrainsMono Nerd Font:size=9;4"
+font-0 = "FiraCode Nerd Font:size=9;4"
 font-1 = "Material Design Icons:size=10;4"
 
 
@@ -86,7 +86,7 @@ label-focused = "  %name%  "
 label-focused-foreground = #3185fc
 
 label-empty = "  %name%  "
-label-empty-foreground = #88ffffff
+label-empty-foreground = #373f51
 
 label-urgent = "  %name%  "
 

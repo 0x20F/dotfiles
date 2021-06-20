@@ -12,11 +12,10 @@ configuration {
 
 window {
     width: 1610px;
-    y-offset: 0;
-    border-radius: 0 0 8px 8px;
 }
 
 
 entry {
     placeholder: "Pick a network to connect to...";
 }
+
