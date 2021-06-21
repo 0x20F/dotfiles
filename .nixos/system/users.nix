@@ -11,12 +11,12 @@
 
 
 	system.userActivationScripts.snowwhite-vim-plug.text = ''
-		mkdir -p /home/snowwhite/.vim/autoload
+		mkdir -p /home/snowwhite/.config/nvim/autoload
 		rm -rf /tmp/plug
 
 		${pkgs.git}/bin/git clone https://github.com/junegunn/vim-plug /tmp/plug
 
-		mv /tmp/plug/plug.vim /home/snowwhite/.vim/autoload
+		mv /tmp/plug/plug.vim /home/snowwhite/.config/nvim/autoload
 
 	'';
 }

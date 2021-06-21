@@ -29,6 +29,7 @@ source "$HOME/.profile"
 # Aliases
 # ========================= 
 alias cat="bat"
+alias vim="nvim"
 alias ls="exa -ah --icons"
 alias l="exa -halm --git --icons"
 

@@ -23,7 +23,7 @@ in
 
     
     # Shell tools
-	vim tmux git htop
+	neovim tmux git htop
 	lolcat figlet jq psmisc
 	python3 xorg.xev xorg.xwininfo
     neofetch lsof inotify-tools
