@@ -13,12 +13,16 @@
 # Original Source:
 # https://github.com/zbaylin/rofi-wifi-menu
 
+#: ix-config
+#: prefix: $
+#: to: ${{ configs.menus }}
+#: access: 777
 
 
 # Rofi themes to use
-rofi_wifi_theme="$(ix -f configs.rofi)/menus/wifi-menu"
-rofi_password_theme="$(ix -f configs.rofi)/menus/password-prompt"
-rofi_manual_theme="$(ix -f configs.rofi)/menus/manual-prompt"
+rofi_wifi_theme="${{ configs.rofi }}/menus/wifi-menu"
+rofi_password_theme="${{ configs.rofi }}/menus/password-prompt"
+rofi_manual_theme="${{ configs.rofi }}/menus/manual-prompt"
 
 # Rofi arguments for each menu
 rofi_wifi_args=(-dmenu -p "Wi-Fi" -theme $rofi_wifi_theme)
