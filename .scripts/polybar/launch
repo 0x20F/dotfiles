@@ -8,6 +8,7 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 
 # Launch bars for each monitor
 for m in $(polybar --list-monitors | cut -d ":" -f1); do
+    MONITOR=$m polybar --reload misc &
 	MONITOR=$m polybar --reload left &
 	MONITOR=$m polybar --reload center &
 	MONITOR=$m polybar --reload right &

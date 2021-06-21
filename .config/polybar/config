@@ -59,7 +59,13 @@ offset-x = 83.75%
 modules-left = time
 modules-right = microphone-status audio-status wifi battery notifications
 
-
+[bar/misc]
+inherit = section/base
+width = 5%
+offset-x = 78.7%
+background = #00181b21
+foreground = #181b21
+modules-right = ethernet
 
 
 
@@ -181,6 +187,20 @@ ramp-signal-2 = 󰤢
 ramp-signal-3 = 󰤢
 ramp-signal-4 = 󰤨
 ramp-signal-5 = 󰤨
+
+
+
+[module/ethernet]
+type = internal/network
+interface = enp0s20f0u1
+interval = 5.0
+
+format-connected = <label-connected>
+label-connected = "%downspeed:5% 󰈀"
+
+
+
+
 
 
 [settings]
