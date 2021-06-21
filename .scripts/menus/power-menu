@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
-ROFI_OPTIONS=(-theme $( ix -f configs.rofi )/menus/power-menu)
-ROFI_CONFIRMATION=(-theme $( ix -f configs.rofi)/menus/confirmation-dialog)
+ROFI_OPTIONS=(-theme $(ix -f configs.rofi)/menus/power-menu)
+ROFI_CONFIRMATION=(-theme $(ix -f configs.rofi)/menus/confirmation-dialog)
 CONFIRMATION_OPTIONS=(-dmenu -i -p "Are you sure you want to proceed?")
 
 
-power_off=""
-reboot=""
-lock=""
-suspend=""
-log_out=""
+power_off="󰐥"
+reboot="󰜉"
+lock="󱅞"
+suspend="󰒲"
+log_out="󰗽"
 
 options="$power_off\n$reboot\n$lock\n$suspend\n$log_out"
 chosen="$(echo -e "$options" | rofi "${ROFI_OPTIONS[@]}" -dmenu -selected-row 2)"

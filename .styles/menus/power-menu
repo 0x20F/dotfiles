@@ -5,20 +5,22 @@
 * {
     background-dark: #212631;
     background-light: #373f51;
-    background-bright: #EFF7FF;
+    background-bright: #f4f4f4;
 
-    background-dark-transparent: #212631bb;
+    background-dark-transparent: #{{ rgb #0c0f14bb }};
 
     text-light: #BEBEBE;
     text-selected: #31BAFF;
+
+    font: "Material Design Icons 50";
 }
 
 
 #window {
-    padding: 30% 0 0 35%;
+    padding: 30% 0 0 29%;
     width: 100%;
     height: 100%;
-    background-color: @background-dark-transparent;
+    background-color: #{{ rgb #0c0f14bb }};
     children: [ listview ];
 }
 
@@ -28,14 +30,20 @@
     spacing: 1%;
 }
 
-#element {
-    padding: 2%;
-    background-color: @background-light;
+element {
+    width: 8%;
+    padding: 3%;
+    background-color: #40444a33;
     text-color: @text-light;
     border-radius: 6px;
 }
 
-#element.selected {
-    background-color: @background-bright;
-    text-color: @text-selected;
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
+
+element.selected {
+    background-color: #81d2fe;
+    text-color: #181b21;
 }
