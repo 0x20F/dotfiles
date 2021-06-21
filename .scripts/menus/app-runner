@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
-THEME="$(ix -f configs.rofi)/menus/app-runner"
+#: ix-config
+#: to: $HOME/.config/menus
+#: access: 777
+
+THEME="#{{ configs.rofi }}/menus/app-runner"
 
 rofi -show drun -theme "$THEME"

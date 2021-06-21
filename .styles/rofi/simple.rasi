@@ -11,7 +11,7 @@ configuration {
 
 * {
    accent: #ffffff;
-   bckgrd: #{{ rgb #0c0f14bb }};
+   bckgrd: #{{ rgb #0c0f14cc }};
    select: @accent;
 
    foreground: #f4f4f4;
