@@ -7,6 +7,7 @@ export PACKAGES=#{{ paths.packages }}
 
 # Defaults
 export EDITOR=$( which vim )
+export FZF_DEFAULT_COMMAND="find -L"
 
 
 
