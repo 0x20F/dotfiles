@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+if [ ! $(nvidia-offload) ]; then
+    echo "Running without the Nvidia GPU"
+fi
+

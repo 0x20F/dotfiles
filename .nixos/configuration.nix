@@ -11,10 +11,14 @@
 
 	# 
 	# Include system configurations
-	./system/ui.nix		# Window Manager + X-Server
-	./system/users.nix	# Users in the system
-	./system/packages.nix	# System level packages
-	./system/system.nix	# Shell, Timezone, etc.
+	./system/ui.nix		  # Window Manager + X-Server
+	./system/users.nix	  # Users in the system
+	./system/packages.nix # System level packages
+	./system/system.nix	  # Shell, Timezone, etc.
+
+    #./system/services.nix # Custom services
+
+    #./system/alternate/nvidia.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -37,6 +41,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.05"; # Did you read the comment?
-
 }
 
