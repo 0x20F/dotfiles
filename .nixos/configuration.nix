@@ -16,8 +16,6 @@
 	./system/packages.nix # System level packages
 	./system/system.nix	  # Shell, Timezone, etc.
 
-    #./system/services.nix # Custom services
-
     #./system/alternate/nvidia.nix
     ];
 
