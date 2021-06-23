@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+#: ix-config
+#: to: $HOME/.local/bin
+#: access: 777
+
+#
+#	Suspend and start the lock screen so that
+#	the screen is locked when it wakes up again
+#	--------------------------------------------
+
+
+systemctl suspend && #{{ paths.scripts }}/lock/lock-screen
+
+
