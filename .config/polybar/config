@@ -42,7 +42,6 @@ inherit = section/base
 width = 16%
 offset-x = 8
 modules-center = power workspaces
-#tray-position = right
 
 [bar/center]
 inherit = section/base
@@ -58,6 +57,7 @@ width = 16%
 offset-x = 83.75%
 modules-left = time
 modules-right = microphone-status audio-status wifi battery notifications
+tray-position = right
 
 [bar/misc]
 inherit = section/base
@@ -89,7 +89,7 @@ pin-workspaces = false
 enable-scroll = true
 
 label-focused = "  %name%  "
-label-focused-foreground = #3185fc
+label-focused-foreground = #81D2FE
 
 label-empty = "  %name%  "
 label-empty-foreground = #373f51
