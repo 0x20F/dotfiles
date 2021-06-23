@@ -13,11 +13,15 @@
 
 		phases = "installPhase";
 
-		installPhase = ''
+        buildInputs = with pkgs; [
+          python3
+        ];
+
+		installPhase = with pkgs; ''
 			mkdir -p $out/bin
 		
 			# Add the shebang for python
-			echo '#!/usr/bin/env python' >> $out/bin/ix
+			echo '#!${ pkgs.coreutils }/bin/env ${ pkgs.python3 }/bin/python' >> $out/bin/ix
 
 			# Add the rest of the script
 			cat $src/ix.py >> $out/bin/ix
