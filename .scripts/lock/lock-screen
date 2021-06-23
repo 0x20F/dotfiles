@@ -61,6 +61,7 @@ blur_background() {
 		return
 	fi
 
+	# Blur it
 	convert $background \
 		-gravity center \
 		-filter Gaussian	\
@@ -68,6 +69,14 @@ blur_background() {
 		-crop 16:10		\
 		-resize "$((width))x$((height))" \
 		"$cache/$background_output"
+
+	# Create a dark, slightly transparent image
+	overlay_name=$(mktemp --suffix ".png")
+	color="#0c0f14bb" # TODO: Move to ix
+	convert -size "${width}x${height}" xc:$color $overlay_name
+
+	# Overlay the darker image on top of the blurred background
+	composite $overlay_name "$cache/$background_output" "$cache/$background_output"
 }
 
 
@@ -120,7 +129,7 @@ lock() {
 		--verifcolor=88c0d0					\
 		--wrongcolor=bf616a					\
 		--indpos="w/2:h/2-$indicator_offset"\
-		--timecolor=e5e9f0					\
+		--timecolor=373f51					\
 		--timepos="w/2:h/2+60"				\
 		--timestr="%I:%M %p"				\
 		--datecolor=e5e9f0					\
@@ -130,7 +139,7 @@ lock() {
 		--wrong-font="$font"				\
 		--greeter-font="$font:style=Bold"	\
 		--greetertext="$USER"				\
-		--greetercolor=8fbcbb				\
+		--greetercolor=04ffff				\
 		--greeterpos="w/2:h/2+40"			\
 		--radius="$(( $user_radius / 2 ))"	\
 		--greetersize=18					\
