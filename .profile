@@ -4,9 +4,10 @@
 
 # Useful paths
 export PACKAGES=#{{ paths.packages }}
+export SYSTEM=#{{ paths.system }}
 
 # Defaults
-export EDITOR=$( which vim )
+export EDITOR=$( which nvim )
 export FZF_DEFAULT_COMMAND="find -L"
 
 
