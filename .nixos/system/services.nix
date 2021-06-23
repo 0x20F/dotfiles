@@ -6,7 +6,7 @@ in
 {
   systemd.services.wakelock = {
     wantedBy = [ "sleep.target" "suspend.target" ];
-    before = [ "sleep.target" "suspend.target" ];
+    after = [ "sleep.target" "suspend.target" ];
     description = "Lock the screen before going to sleep";
     environment = { 
       DISPLAY = ":0";
@@ -15,7 +15,11 @@ in
       xorg.xrandr
       custom.ix
       i3lock-color
-      python3
+      gnused
+      gnugrep
+      gawk
+      coreutils
+      imagemagick
     ];
 
     serviceConfig = {
