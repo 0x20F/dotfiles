@@ -5,8 +5,8 @@ let
 in
 {
     boot.kernelPackages = pkgs.linuxPackages_latest;
-    boot.kernelParams = [ "acpi_rev_override" ];
-    boot.blacklistedKernelModules = [ "nvidia" ];
+    #boot.kernelParams = [ "acpi_rev_override" ];
+    #boot.blacklistedKernelModules = [ "nvidia" ];
 
     services.thermald.enable = true;
     services.thermald.configFile = thermald-conf;

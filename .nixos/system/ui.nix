@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
 {
+    environment.variables = {
+      GDK_SCALE = "2";
+      GDK_DPI_SCALE = "0.5";
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    };
+
 	# Enable the X11 windowing system
 	services.xserver = {
 		enable = true;
@@ -31,7 +37,6 @@
 
         dpi = 192;
     };
-
     
     hardware.opengl.driSupport32Bit = true;
     hardware.opengl.enable = true;
@@ -40,6 +45,9 @@
       vaapiVdpau
       libvdpau-va-gl
       intel-media-driver
+    ];
+    hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [
+      vaapiIntel
     ];
 
 	# Enable sound.
