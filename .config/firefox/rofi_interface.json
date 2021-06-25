@@ -1,0 +1,11 @@
+#: ix-config
+#: to: $HOME/.mozilla/native-messaging-hosts
+
+
+{
+    "name": "rofi_interface",
+    "description": "Native backend for rofi tab switcher.",
+    "path": "#{{ configs.firefox }}/scripts/rofi_tabs.py",
+    "type": "stdio",
+    "allowed-extensions": [ "@rofi.tab.switcher" ]
+}

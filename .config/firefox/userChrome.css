@@ -1,0 +1,73 @@
+#: ix-config
+#: to: $HOME/.mozilla/firefox/xivm3agq.default/chrome
+
+
+
+window, #main-window, #toolbarwindow, #TabsToolbar, #PersonalToolbar,
+#navigator-toolbox, #sidebar-box {
+    -moz-appearance: none !important;
+    background-color: rgba(12, 15, 20, 0.3) !important;
+    background-image: none !important;
+}
+
+
+:root:not([chromehidden*="toolbar"]) #navigator-toolbox {
+    -moz-appearance: none !important;
+    background-color: rgba(12, 15, 20, 0.3) !important;
+    background-image: none !important;
+}
+
+
+#urlbar {
+    --urlbar-toolbar-height: 40px !important;
+    --urlbar-height: 43px !important;
+
+    height: 43px !important;
+    border-radius: 3px !important;
+    font-size: 12px !important;
+}
+
+
+#urlbar-container {
+    --urlbar-container-height: 40px;
+    height: 40px !important;
+}
+
+
+#urlbar[open] > .urlbarView {
+    background-color: #181b21;
+    padding: 0 20px !important;
+    border-radius: 4px;
+    margin-top: 3px;
+    border: none;
+    border: 1px solid #81d2fe;
+}
+
+
+#star-button-box {
+    padding-inline: 10px !important;
+}
+
+
+#tracking-protection-icon-container, #identity-box {
+    padding-inline: 15px !important;
+}
+
+
+#urlbar-input-container, #urlbar-background {
+    background-color: transparent !important;
+}
+
+
+#nav-bar {
+    background-color: rgba(12, 15, 20, 0.3) !important;
+    -moz-appearance: none !important;
+    background-image: none !important;
+    padding: 10px !important;
+}
+
+
+#TabsToolbar {
+    visibility: collapse !important;
+}
+

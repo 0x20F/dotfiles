@@ -21,6 +21,7 @@ wallpapers = ${styles}/wallpapers
 [configs]
 menus = ${paths:home}/.config/menus
 rofi = ${paths:home}/.config/rofi
+firefox = ${paths:home}/.mozilla/firefox
 
 
 [logs]
