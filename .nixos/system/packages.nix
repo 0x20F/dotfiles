@@ -27,7 +27,7 @@ in
 	lolcat figlet jq psmisc
 	python3 xorg.xev xorg.xwininfo
     neofetch lsof inotify-tools
-    bc unzip
+    bc unzip python39Packages.pip
 
 
 	# Shell
@@ -41,15 +41,14 @@ in
     # Graphical Interface
 	feh rofi alacritty dunst
 	polybar maim imagemagick
-    firefox
-	google-chrome vlc
+    firefox google-chrome vlc
     gnome.nautilus
     obsidian vscode
     i3lock-color discord
     papirus-icon-theme
     lxappearance arc-theme
     spotify playerctl
-    xss-lock
+    wmctrl
   ];
 
 
