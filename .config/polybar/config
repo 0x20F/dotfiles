@@ -89,7 +89,7 @@ pin-workspaces = false
 enable-scroll = true
 
 label-focused = "  %name%  "
-label-focused-foreground = #81D2FE
+label-focused-foreground = #04ffff
 
 label-empty = "  %name%  "
 label-empty-foreground = #373f51
@@ -97,6 +97,7 @@ label-empty-foreground = #373f51
 label-urgent = "  %name%  "
 
 label-occupied = "  %name%  "
+label-occupied-foreground = #99aab5 
 
 
 
@@ -140,9 +141,9 @@ animation-charging-framerate = 1500
 
 [module/power]
 type = custom/script
-exec = echo ""
+exec = echo " 󰟪"
 click-left = #{{ configs.menus }}/power-menu
-format-foreground = #373f51
+format-foreground = #04ffff
 
 
 
@@ -156,6 +157,7 @@ format-foreground = #373f51
 
 [module/microphone-status]
 type = custom/script
+format-foreground = #ff0000
 exec = #{{ paths.scripts }}/polybar/microphone-status
 click-left = "#{{ paths.scripts }}/control/microphone toggle"
 
