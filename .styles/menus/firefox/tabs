@@ -1,0 +1,29 @@
+#: ix-config
+#: to: #{{ configs.rofi }}/menus
+
+
+configuration {
+    lines: 4;
+}
+
+
+@import "#{{ configs.rofi }}/themes/simple"
+
+
+window {
+    width: 1450px;
+}
+
+
+entry {
+    placeholder: "Switch to another tab...";
+}
+
+
+element-icon {
+    size: 4.5ch;
+}
+
+element {
+    padding: 2%;
+}

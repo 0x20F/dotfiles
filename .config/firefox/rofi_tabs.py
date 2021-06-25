@@ -4,6 +4,19 @@
 #: to: #{{ configs.firefox }}/scripts
 #: access: 777
 
+# Author: 0x20F
+# Original Author: blackhole89
+#
+# Modified version of the rofi-tab-switcher
+# back-end from here:
+# https://github.com/blackhole89/rofi-tab-switcher
+#
+# No major changes, mostly simplified things.
+# Goes hand in hand with the 'rofi_interface.json' file
+# and the rofi-tab-switcher extension for firefox:
+# https://addons.mozilla.org/sv-SE/firefox/addon/rofi-tab-switcher
+
+
 import json
 import sys
 import struct
@@ -12,7 +25,7 @@ import random
 from xml.sax.saxutils import escape
 
 
-rofi_theme = "#{{ configs.rofi }}/menus/notification-center"
+rofi_theme = "#{{ configs.rofi }}/menus/tabs"
 
 
 ### JSON I/O for Firefox FFI from Mozilla websites
@@ -46,7 +59,7 @@ while True:
 
     # spawn rofi and get selection
     rofi = subprocess.Popen(
-        "rofi -dmenu -i -scroll-method 1 -format i -p 'Go to tab' -markup-rows -no-custom -selected-row %d -theme %s | head -n 1" % (
+        "rofi -dmenu -p 'Go to tab' -markup-rows -theme %s" % (
             message['active'],
             rofi_theme
         ),
