@@ -61,7 +61,7 @@ bspc rule state=floating --add Thunar
 
 # [+] Colors
 # ---------------------
-bspc config focused_border_color            "#99aab5"
+bspc config focused_border_color            "#181b21"
 # bspc config active_border_color             "$brightblack"
 bspc config normal_border_color             "#181b21"
 # bspc config urgent_border_color             "$blue"
