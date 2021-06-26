@@ -59,29 +59,31 @@ while True:
 
     # spawn rofi and get selection
     rofi = subprocess.Popen(
-        "rofi -dmenu -p 'Go to tab' -markup-rows -theme %s" % (
+        "rofi -dmenu -i -scroll-method 1 -format i -p 'Go to tab' -markup-rows -no-custom -selected-row %d -theme %s | head -n 1" % (
             message['active'],
             rofi_theme
-        ),
-        shell=True,
-        stdin=subprocess.PIPE,
+        ), 
+        shell=True, 
+        stdin=subprocess.PIPE, 
         stdout=subprocess.PIPE
     )
 
     out, err = rofi.communicate(
         u''.join(
             map(
-                lambda tab:u"<span>(%d)</span> %s <span alpha='50%%'>%s</span>\n" % (
+                lambda tab:u"<span alpha='50%%'>(%d)</span> %s\t<span alpha='50%%'>%s</span>\n" % (
                     tab['window'],
-                    escape(tab['title']),
-                    escape(tab['url'])),
-                    message['tabs']
-            )
+                    escape((tab['title'][:30] + '...').strip().ljust(50)),
+                    escape(tab['url'])
+                ),
+                message['tabs'])
         ).encode('utf-8')
     )
+
 
     # if anything was selected, tell browser side to switch to that tab
     if out != b'':
         send_message(encode_message(message['tabs'][int(out)]['id']))
+
 
 

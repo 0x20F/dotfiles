@@ -7,5 +7,5 @@
     "description": "Native backend for rofi tab switcher.",
     "path": "#{{ configs.firefox }}/scripts/rofi_tabs.py",
     "type": "stdio",
-    "allowed-extensions": [ "@rofi.tab.switcher" ]
+    "allowed_extensions": [ "@rofi.tab.switcher" ]
 }
