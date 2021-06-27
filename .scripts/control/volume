@@ -16,13 +16,20 @@ case "$1" in
         ;;
 
     "toggle")
+        # Do both since headphones is dependent on master
         amixer set Master toggle
+        amixer set Headphone toggle
         ;;
 esac
 
 # Query amixer for the current volume and whether or not the speaker is muted
-volume="$(amixer get Master | tail -1 | awk '{print $5}' | sed 's/[^0-9]*//g')"
-mute="$(amixer get Master | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')"
+# Tailed line looks like this:
+#   For speakers: "Mono: Playback 36 [100%] [0.000dB] [on]"
+#   For headphones: "Front right: Playback 87 [100%] [0.000dB] [on]"
+last=$(amixer get Master | tail -1 | awk -F':' '{print $2}')
+
+volume="$( echo $last | awk '{print $3}' | sed 's/[^0-9]*//g')"
+mute="$(echo $last | awk '{print $5}' | sed 's/[^a-z]*//g')"
 
 if [[ $volume == 0 || "$mute" == "off" ]]; then
     # Show the sound muted notification

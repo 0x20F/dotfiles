@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Get microphone status
 
-volume=$(amixer get Capture | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')
+volume=$(amixer get Capture | tail -1 | awk '{print $7}' | sed 's/[^a-z]*//g')
 
 
 if [[ "$volume" == "off" ]]; then
