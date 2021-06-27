@@ -4,7 +4,7 @@
 
 
 [colors]
-background = "#181b21bb"
+background = "#0c0f14bb"
 frame = "#3b4252"
 
 
@@ -14,7 +14,7 @@ frame = "#3b4252"
 
 follow = keyboard
 
-geometry = "750x4-10+80"    
+geometry = "500x4-10+60"    
 indicate_hidden = yes
 transparency = 0
 notification_height = 0
@@ -23,7 +23,7 @@ padding = 20
 horizontal_padding = 30
 text_icon_padding = 30
 frame_width = 0
-corner_radius = 8
+corner_radius = 6
 vertical_alignment = center
 
 separator_color = "#00000000"
@@ -31,7 +31,7 @@ sort = yes
 idle_threshold = 120
 
 ### Text ###
-font = JetBrainsMono Nerd Font 9
+font = JetBrainsMono Nerd Font 7
 line_height = 0
 
 markup = full
