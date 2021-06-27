@@ -8,9 +8,9 @@ height=$(xrandr --query | grep ' connected' | grep -o '[0-9][0-9]*x[0-9][0-9]*[^
 half_width=$(( width / 2 ))
 half_height=$(( height / 2 ))
 
-indicator_offset=70
-ring_width=3
-user_radius=150
+indicator_offset=62
+ring_width=2
+user_radius=130
 
 user_w=$(( user_radius * 2 ))
 user_h=$(( user_radius * 2  ))
@@ -106,48 +106,47 @@ generate_background() {
 lock() {
 	generate_background
 
-	i3lock-color -n -c 24283100 -e 			\
-		-i "$cache/$lockscreen_background"	\
-		--centered							\
-		--datestr="" 						\
-		--indicator							\
-		--force-clock						\
-		--pass-media-keys					\
-		--pass-power-keys					\
-		--pass-volume-keys					\
-		--insidevercolor=2e3440a8			\
-		--insidewrongcolor=2e3440a8			\
-		--insidecolor=2e344000				\
-		--ring-width="$ring_width"			\
-		--ringwrongcolor=bf616a				\
-		--ringcolor=181b21					\
-		--ringvercolor=88c0d0				\
-		--line-uses-inside					\
-		--keyhlcolor=b48ead					\
-		--bshlcolor=bf616a					\
-		--separatorcolor=81a1c1				\
-		--verifcolor=88c0d0					\
-		--wrongcolor=bf616a					\
-		--indpos="w/2:h/2-$indicator_offset"\
-		--timecolor=373f51					\
-		--timepos="w/2:h/2+60"				\
-		--timestr="%I:%M %p"				\
-		--datecolor=e5e9f0					\
-		--time-font="$font"					\
-		--date-font="$font"					\
-		--verif-font="$font"				\
-		--wrong-font="$font"				\
-		--greeter-font="$font:style=Bold"	\
-		--greetertext="$USER"				\
-		--greetercolor=04ffff				\
-		--greeterpos="w/2:h/2+40"			\
-		--radius="$(( $user_radius / 2 ))"	\
-		--greetersize=18					\
-		--timesize=16						\
-		--verifsize=10						\
-		--wrongsize=10						\
-		--modsize=9							\
-		--modifpos="w/2:h/2-15"
+	i3lock-color -n -c 24283100 -e 				\
+		-i "$cache/$lockscreen_background"		\
+		--centered								\
+		--date-str="" 							\
+		--indicator								\
+		--force-clock							\
+		--pass-media-keys						\
+		--pass-power-keys						\
+		--pass-volume-keys						\
+		--insidever-color=2e3440a8				\
+		--insidewrong-color=2e3440a8			\
+		--inside-color=2e344000					\
+		--ring-width="$ring_width"				\
+		--ringwrong-color=bf616a				\
+		--ring-color=181b21						\
+		--ringver-color=88c0d0					\
+		--line-uses-inside						\
+		--keyhl-color=b48ead					\
+		--bshl-color=bf616a						\
+		--separator-color=81a1c1				\
+		--verif-color=88c0d0					\
+		--wrong-color=bf616a					\
+		--ind-pos="w/2:h/2-$indicator_offset"	\
+		--time-color=373f51						\
+		--time-pos="w/2:h/2+45"					\
+		--time-str="%I:%M %p"					\
+		--date-color=e5e9f0						\
+		--time-font="$font"						\
+		--date-font="$font"						\
+		--verif-font="$font"					\
+		--wrong-font="$font"					\
+		--greeter-font="$font:style=Bold"		\
+		--greeter-text="$USER"					\
+		--greeter-color=04ffff					\
+		--greeter-pos="w/2:h/2+30"				\
+		--radius="$(( $user_radius / 2 ))"		\
+		--greeter-size=13						\
+		--time-size=11							\
+		--verif-size=10							\
+		--wrong-size=10							\
+		--modif-pos="w/2:h/2-15"
 }
 
 lock

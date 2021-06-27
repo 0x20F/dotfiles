@@ -45,6 +45,8 @@ picom --experimental-backend &
 # notifications
 dunst -conf "$HOME/.config/dunst/dunstrc" &
 
+# hotkey daemon
+sxhkd &
 
 
 

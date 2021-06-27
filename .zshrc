@@ -7,9 +7,8 @@
 plugins=(
     git 
     colored-man-pages 
-    #zsh-syntax-highlighting 
-    #zsh-autosuggestions
-    nix-shell
+    zsh-syntax-highlighting 
+    zsh-autosuggestions
 )
 
 
@@ -20,7 +19,7 @@ ZSH_THEME="af-magic"
 
 
 # Load oh-my-zsh as well
-source "$ZSH/oh-my-zsh.sh"
+source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 # Source the normal .profile
 source "$HOME/.profile"
 
@@ -39,11 +38,6 @@ alias l="exa -halm --git --icons"
 
 # Useful functions
 # =========================
-function shell() {
-    nix-shell "&{{ paths.shells }}/$1.nix"
-}
-
-
 function flag() {
     alias $1="cd '$PWD'";
 }
@@ -69,4 +63,4 @@ function banner {
 
 
 # Enable the starship prompt
-eval "$(starship init zsh)"
+source <("/usr/local/bin/starship" init zsh --print-full-init)
