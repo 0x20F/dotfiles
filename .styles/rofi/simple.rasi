@@ -4,7 +4,7 @@
 
 
 configuration {
-   font: "Fira Code Nerd Font 20";
+   font: "Fira Code Nerd Font 15";
    hide-scrollbar: true;
 }
 
@@ -42,7 +42,7 @@ prompt {
 
 
 window {
-   width: 1700px;
+   width: 40%;
    anchor: north;
    location: north;
    y-offset: 25%;

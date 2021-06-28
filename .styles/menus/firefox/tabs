@@ -10,11 +10,6 @@ configuration {
 @import "#{{ configs.rofi }}/themes/simple"
 
 
-window {
-    width: 1650px;
-}
-
-
 entry {
     placeholder: "Switch to another tab...";
 }
