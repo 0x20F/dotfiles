@@ -1,20 +1,26 @@
 #: ix-config
-#: to: $HOME/.mozilla/firefox/xivm3agq.default/chrome
+#: to: $HOME/.mozilla/firefox/njdqxjqh.default-release/chrome
+
+
+
+:root {
+  --custom-background-color: #181b21;
+}
 
 
 
 window, #main-window, #toolbarwindow, #TabsToolbar, #PersonalToolbar,
 #navigator-toolbox, #sidebar-box {
     -moz-appearance: none !important;
-    background-color: rgba(12, 15, 20, 0.3) !important;
     background-image: none !important;
+    background-color: var(--custom-background-color) !important;
 }
 
 
 :root:not([chromehidden*="toolbar"]) #navigator-toolbox {
     -moz-appearance: none !important;
-    background-color: rgba(12, 15, 20, 0.3) !important;
     background-image: none !important;
+    background-color: var(--custom-background-color) !important;
 }
 
 
@@ -59,15 +65,25 @@ window, #main-window, #toolbarwindow, #TabsToolbar, #PersonalToolbar,
 }
 
 
-#nav-bar {
-    background-color: rgba(12, 15, 20, 0.3) !important;
+window, #nav-bar {
     -moz-appearance: none !important;
     background-image: none !important;
     padding: 10px !important;
+    background-color: var(--custom-background-color) !important;
 }
 
 
 #TabsToolbar {
     visibility: collapse !important;
 }
+
+
+#main-window[lwthemetextcolor="bright"] #navigator-toolbox > toolbar:not(#toolbar-menubar):not(#TabsToolbar) {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+
+
+
 

@@ -23,7 +23,7 @@ padding = 2
 
 [section/base]
 monitor = ${env:MONITOR}
-height = 40
+height = 45
 background = #bb0c0f14
 foreground = #eff7ff
 cursor-click = pointer
