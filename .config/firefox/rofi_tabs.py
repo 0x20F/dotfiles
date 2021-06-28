@@ -53,6 +53,22 @@ def send_message(encoded_message):
     sys.stdout.flush()
 
 
+# Format how the row is going to look inside rofi
+def format(tab):
+    window = tab['window']
+    title = tab['title']
+    url = tab['url']
+    separator = '...' if len(title) > 30 else ''
+
+    title = (title[:30].strip() + separator).ljust(50)
+
+    return u"<span alpha='50%%'>(%d)</span> %s\t<span alpha='50%%'>%s</span>\n" % (
+        window,
+        escape(title),
+        escape(url)
+    )
+
+
 ### main loop
 while True:
     message = get_message()
@@ -68,17 +84,8 @@ while True:
         stdout=subprocess.PIPE
     )
 
-    out, err = rofi.communicate(
-        u''.join(
-            map(
-                lambda tab:u"<span alpha='50%%'>(%d)</span> %s\t<span alpha='50%%'>%s</span>\n" % (
-                    tab['window'],
-                    escape((tab['title'][:30] + '...').strip().ljust(50)),
-                    escape(tab['url'])
-                ),
-                message['tabs'])
-        ).encode('utf-8')
-    )
+
+    out, err = rofi.communicate(u''.join(map(format, message['tabs'])).encode('utf-8'))
 
 
     # if anything was selected, tell browser side to switch to that tab
