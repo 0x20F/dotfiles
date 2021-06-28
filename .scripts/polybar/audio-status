@@ -4,7 +4,7 @@
 # 2. Custom icon for mute/unmute
 # 3. Custom icon for headphones
 
-mute=$(amixer get Master | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')
+mute=$(amixer -c 0 get Master | tail -1 | awk '{print $5}' | sed 's/[^a-z]*//g')
 headphones=$(pacmd list-sinks | grep 'active port')
 
 
@@ -33,7 +33,7 @@ fi
 
 # If no headphones, figure out the appropriate
 # icon for the volume level
-volume=$(amixer get Master | tail -1 | awk '{print $5}' | sed 's/[^0-9]*//g')
+volume=$(amixer -c 0 get Master | tail -1 | awk '{print $3}' | sed 's/[^0-9]*//g')
 
 if (( volume > 60 )); then
     echo "󰕾"

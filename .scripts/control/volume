@@ -5,20 +5,35 @@
 # Arbitrary but unique message id
 msgId="991049"
 
+# Current state
+state=$(amixer -c 0 get Master | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')
+
+
 # Change the volume
 case "$1" in
     "up")
-        amixer set Master 5%+
+        amixer -c 0 set Master playback 5%+
         ;;
 
     "down")
-        amixer set Master 5%-
+        amixer -c 0 set Master playback 5%-
         ;;
 
     "toggle")
-        # Do both since headphones is dependent on master
-        amixer set Master toggle
-        amixer set Headphone toggle
+        # A mute on Master seems to mute everything but an
+        # unmute only unmutes Master so we have to unmute everything
+        # else ourselves
+        if [[ "$state" == 'on' ]]; then
+            amixer -c 0 set Master mute
+        else
+            amixer -c 0 set Master unmute
+
+            amixer -c 0 set Headphone unmute
+
+            # Speaker has 2 parts
+            amixer -c 0 set Speaker unmute
+            amixer -c 0 set 'Bass Speaker' unmute
+        fi
         ;;
 esac
 
@@ -26,7 +41,7 @@ esac
 # Tailed line looks like this:
 #   For speakers: "Mono: Playback 36 [100%] [0.000dB] [on]"
 #   For headphones: "Front right: Playback 87 [100%] [0.000dB] [on]"
-last=$(amixer get Master | tail -1 | awk -F':' '{print $2}')
+last=$(amixer -c 0 get Master | tail -1 | awk -F':' '{print $2}')
 
 volume="$( echo $last | awk '{print $3}' | sed 's/[^0-9]*//g')"
 mute="$(echo $last | awk '{print $5}' | sed 's/[^a-z]*//g')"
