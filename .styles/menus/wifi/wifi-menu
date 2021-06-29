@@ -11,7 +11,7 @@ configuration {
 
 
 window {
-    width: 1610px;
+    width: 46%;
 }
 
 
