@@ -19,7 +19,7 @@
 config_file="${1:-"$HOME/.config/global/tasks.json"}"
 tasks=$(cat $config_file)
 rofi_theme="#{{ configs.rofi }}/menus/quick-run"
-rofi_args=(-dmenu -matching fuzzy -i -p "exec" -theme $rofi_theme -markup-rows)
+rofi_args=(-dmenu -i -p "exec" -theme $rofi_theme -markup-rows)
 
 rows=""
 
