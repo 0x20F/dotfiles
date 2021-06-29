@@ -5,7 +5,7 @@
 # 3. Custom icon for headphones
 
 mute=$(amixer -c 0 get Master | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')
-headphones=$(pacmd list-sinks | grep 'active port')
+headphones=$(pactl list sinks | grep 'Active Port')
 
 
 
