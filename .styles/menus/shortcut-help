@@ -2,3 +2,8 @@
 #: to: #{{ configs.rofi }}/menus
 
 @import "#{{ configs.rofi }}/themes/simple"
+
+
+entry {
+    placeholder: "What do you want to do?";    
+}

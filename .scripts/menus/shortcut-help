@@ -6,6 +6,6 @@
 
 THEME="#{{ configs.rofi }}/menus/shortcut-help"
 
-awk '/^[a-z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' ~/.config/sxhkd/sxhkdrc |
+awk '/^[a-z]/ && last {print $0,"\t","<span alpha=\"50%\">",last,"</span>"} {last=""} /^#/{last=$0}' ~/.config/sxhkd/sxhkdrc |
 	column -t -s $'\t' |
-	rofi -dmenu -i -lines 15 -markup-rows  -width 800 -theme "$THEME"
+	rofi -dmenu -i -lines 15 -markup-rows  -width 800 -theme "$THEME" -p "shortcuts"
