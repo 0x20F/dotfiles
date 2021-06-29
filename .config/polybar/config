@@ -65,7 +65,7 @@ width = 5%
 offset-x = 78.7%
 background = #00181b21
 foreground = #181b21
-modules-right = ethernet
+modules-right = ethernet bluetooth
 
 
 
@@ -200,6 +200,12 @@ interval = 5.0
 format-connected = <label-connected>
 label-connected = "%downspeed:5% 󰈀"
 
+
+
+[module/bluetooth]
+type = custom/script
+exec = #{{ paths.scripts }}/polybar/bluetooth-status
+format-foreground = #007ff5
 
 
 
