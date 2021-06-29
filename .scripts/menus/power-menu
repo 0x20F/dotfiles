@@ -32,7 +32,7 @@ case $chosen in
         exec  $( ix -f paths.scripts )/lock/lock-screen
         ;;
     $suspend)
-	    [ $(echo -e $YESNO | rofi "${ROFI_CONFIRMATION[@]}" "${CONFIRMATION_OPTIONS[@]}") ==  ] && systemctl suspend
+	    [ $(echo -e $YESNO | rofi "${ROFI_CONFIRMATION[@]}" "${CONFIRMATION_OPTIONS[@]}") ==  ] && slock
         ;;
     $log_out)
 	    [ $(echo -e $YESNO | rofi "${ROFI_CONFIRMATION[@]}" "${CONFIRMATION_OPTIONS[@]}") ==  ] && bspc quit

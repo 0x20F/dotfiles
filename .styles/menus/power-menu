@@ -12,7 +12,7 @@
     text-light: #BEBEBE;
     text-selected: #31BAFF;
 
-    font: "Material Design Icons 50";
+    font: "Material Design Icons 30";
 }
 
 
