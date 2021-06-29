@@ -1,0 +1,9 @@
+#: ix-config
+#: to: #{{ configs.rofi }}/menus
+
+@import "#{{ configs.rofi }}/themes/simple"
+
+
+entry {
+    placeholder: "Search tasks";
+}

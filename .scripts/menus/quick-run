@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+#: ix-config
+#: to: #{{ configs.menus }}
+#: access: 777
+
+# Author: 0x20F
+# Original Author: Moustacheful ( GitHub )
+#
+# Modified version of Moustacheful's amazing idea.
+# Changes:
+#   - More customized rows
+#   - Got rid of confirmation dialog
+#
+# Original source: https://github.com/moustacheful/myrmidon
+
+
+
+config_file="${1:-"$HOME/.config/global/tasks.json"}"
+tasks=$(cat $config_file)
+rofi_theme="#{{ configs.rofi }}/menus/quick-run"
+rofi_args=(-dmenu -matching fuzzy -i -p "exec" -theme $rofi_theme -markup-rows)
+
+rows=""
+
+# Loop through all the things defined in the config
+# and create a custom row for it
+while IFS="|" read name command; do
+  padded_name=$(printf %-42.42s "$name")
+  rows="$rows$padded_name<span alpha='50%'>$command</span>\n"
+done <<< $(jq -cr '.[] | "\(.name)|\(.command)"' $config_file)
+
+
+# Pass tasks to rofi, and get the output as the selected option,
+# Making sure to trim away all the extra formatting that was added
+selected=$(echo -en "$rows" | rofi "${rofi_args[@]}" | awk -F '[[:space:]][[:space:]]+' '{print $1}')
+task=$(echo $tasks | jq ".[] | select(.name == \"$selected\")")
+
+# Exit if no task was found
+if [[ $task == "" ]]; then
+  echo "No task defined as '$selected' within config file."
+  exit 1
+fi
+
+task_command=$(echo $task | jq ".command")
+
+eval "\"$task_command\" > /dev/null &"

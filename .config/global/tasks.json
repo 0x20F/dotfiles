@@ -1,0 +1,34 @@
+#: ix-config
+#: to: $HOME/.config/global
+
+[
+    {
+        "name": "power menu",
+        "command": "#{{ configs.menus }}/power-menu"
+    },
+    
+    {
+        "name": "wifi settings",
+        "command": "#{{ configs.menus }}/wifi-menu"
+    },
+    
+    {
+        "name": "notifications",
+        "command": "#{{ configs.menus }}/notification-center"
+    },
+
+    {
+        "name": "bluetooth settings",
+        "command": "echo 'Not implemented yet lol'"
+    },
+
+    {
+        "name": "toggle mic",
+        "command": "#{{ paths.scripts }}/control/microphone toggle"
+    },
+
+    {
+        "name": "toggle volume",
+        "command": "#{{ paths.scripts }}/control/volume toggle"
+    }
+]
