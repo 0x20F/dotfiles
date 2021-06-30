@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+
+updates=$(checkupdates | wc -l)
+
+
+if [[ "$updates" == "0" ]]; then
+	exit 1
+fi
+
+
+echo "$updates 󰏗"

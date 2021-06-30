@@ -61,11 +61,11 @@ tray-position = right
 
 [bar/misc]
 inherit = section/base
-width = 5%
-offset-x = 78.7%
+width = 15%
+offset-x = 69%
 background = #00181b21
 foreground = #181b21
-modules-right = ethernet bluetooth
+modules-right = ethernet bluetooth package-updates
 
 
 
@@ -208,6 +208,12 @@ exec = #{{ paths.scripts }}/polybar/bluetooth-status
 format-foreground = #007ff5
 
 
+
+[module/package-updates]
+type = custom/script
+exec = #{{ paths.scripts }}/polybar/package-updates
+interval = 900 # Every 15 min
+format-foreground = #9eee00
 
 
 
