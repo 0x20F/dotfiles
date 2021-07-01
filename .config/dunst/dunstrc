@@ -14,7 +14,7 @@ frame = "#3b4252"
 
 follow = keyboard
 
-geometry = "500x4-10+60"    
+geometry = "500x4-7+60"    
 indicate_hidden = yes
 transparency = 0
 notification_height = 0
