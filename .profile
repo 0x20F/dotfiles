@@ -5,11 +5,12 @@
 # Useful paths
 export PACKAGES=#{{ paths.packages }}
 export SYSTEM=#{{ paths.system }}
+export katana=#{{ paths.modules }} # Custom ruby modules
+
 
 # Defaults
 export EDITOR=$( which nvim )
 export FZF_DEFAULT_COMMAND="find -L"
-
 
 
 # Create the binaries directory if
