@@ -26,3 +26,7 @@ firefox = ${paths:home}/.mozilla/firefox
 
 [logs]
 dunst = /tmp/dunstlog
+
+
+[fonts]
+terminal = "FiraCode Nerd Font"
