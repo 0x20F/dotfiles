@@ -8,6 +8,7 @@ home = /home/snowwhite
 dotfiles = ${home}/dots
 pictures = ${home}/.pictures
 binaries = ${home}/.local/bin
+modules = ${dotfiles}/.system/katana
 
 styles = ${dotfiles}/.styles
 packages = ${dotfiles}/.nixos/system/packages.nix
