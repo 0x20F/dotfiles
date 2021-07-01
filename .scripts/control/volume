@@ -1,55 +1,47 @@
-#!/usr/bin/env bash
-# changeVolume
+#!/usr/bin/env ruby
+$: << ENV['katana']
 
 
-# Arbitrary but unique message id
-msgId="991049"
-
-# Current state
-state=$(amixer -c 0 get Master | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')
+require 'audio'
+require 'notify'
 
 
-# Change the volume
-case "$1" in
-    "up")
-        amixer -c 0 set Master playback 5%+
-        ;;
+# Setup audio module
+Audio::setup()
 
-    "down")
-        amixer -c 0 set Master playback 5%-
-        ;;
 
-    "toggle")
-        # A mute on Master seems to mute everything but an
-        # unmute only unmutes Master so we have to unmute everything
-        # else ourselves
-        if [[ "$state" == 'on' ]]; then
-            amixer -c 0 set Master mute
-        else
-            amixer -c 0 set Master unmute
+# Execute based on provided arguments
+case ARGV[0]
+when 'up'
+  Audio::raise(5)
 
-            amixer -c 0 set Headphone unmute
+when 'down'
+  Audio::lower(5)
 
-            # Speaker has 2 parts
-            amixer -c 0 set Speaker unmute
-            amixer -c 0 set 'Bass Speaker' unmute
-        fi
-        ;;
-esac
+when 'toggle'
+  Audio::toggle()
 
-# Query amixer for the current volume and whether or not the speaker is muted
-# Tailed line looks like this:
-#   For speakers: "Mono: Playback 36 [100%] [0.000dB] [on]"
-#   For headphones: "Front right: Playback 87 [100%] [0.000dB] [on]"
-last=$(amixer -c 0 get Master | tail -1 | awk -F':' '{print $2}')
+end
 
-volume="$( echo $last | awk '{print $3}' | sed 's/[^0-9]*//g')"
-mute="$(echo $last | awk '{print $5}' | sed 's/[^a-z]*//g')"
 
-if [[ $volume == 0 || "$mute" == "off" ]]; then
-    # Show the sound muted notification
-    dunstify -a "changeVolume" -u low -i audio-volume-muted -r "$msgId" "Volume muted" 
-else
-    # Show the volume notification
-    dunstify -a "changeVolume" -u low -i audio-volume-high -r "$msgId" -h int:value:"$volume" "Volume: ${volume}%"
-fi
+# Build a notification
+# and give it an ID so it can be replaced if needed
+notification = Notification::new(51341)
+  .summary("muted")
+  .appname('volume')
+  .urgency(:low)
+  .replace()
+
+
+if not Audio::is_muted()
+  volume = Audio::current_volume()
+
+  notification
+    .summary("#{volume}%")
+    .hint("int:value:#{volume}")
+end
+
+
+notification.send()
+
+

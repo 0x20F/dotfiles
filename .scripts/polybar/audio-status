@@ -1,56 +1,48 @@
-#!/usr/bin/env bash
-# Get audio status
-# 1. Custom icon for volume level
-# 2. Custom icon for mute/unmute
-# 3. Custom icon for headphones
-
-mute=$(amixer -c 0 get Master | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')
-headphones=$(pactl list sinks | grep 'Active Port')
+#!/usr/bin/env ruby
+$: << ENV['katana']
 
 
+require 'audio'
 
-# If mute, output muted and exit
-if [[ "$mute" == "off" ]]; then
-    # Check if headphones
-    if [[ "$headphones" =~ "headphones" ]]; then
-        echo "󰟎"
-        exit
-    fi
+# Setup the audio module
+Audio::setup()
 
-    echo "󰖁"
+
+muted = Audio::is_muted()
+headphones = Audio::using_headphones()
+
+
+if muted
+  if headphones
+    print '󰟎'
     exit
-fi
+  end
+
+  print '󰖁'
+  exit
+end
 
 
-
-# If not muted, and headphones, just one icon
-if [[ "$headphones" =~ "headphones" ]]; then
-    echo "󰋋"
-    exit
-fi
+# If just headphones and not muted
+if headphones
+  print '󰋋'
+  exit
+end
 
 
 
 # If no headphones, figure out the appropriate
 # icon for the volume level
-volume=$(amixer -c 0 get Master | tail -1 | awk '{print $3}' | sed 's/[^0-9]*//g')
+volume = Audio::current_volume()
 
-if (( volume > 60 )); then
-    echo "󰕾"
-    exit
-fi
+case volume
+when 60..100
+  print '󰕾'
 
+when 30..60
+  print '󰖀'
 
-if (( volume > 30 )); then
-    echo "󰖀"
-    exit
-fi
+when 0..30
+  print '󰕿'
 
-
-if (( volume > 0 )); then
-    echo "󰕿"
-    exit
-fi
-
-
-
+end
