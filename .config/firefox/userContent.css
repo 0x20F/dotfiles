@@ -1,0 +1,8 @@
+#: ix-config
+#: to: $HOME/.mozilla/firefox/njdqxjqh.default-release/chrome
+
+
+
+html, body {
+    scrollbar-color: #181b21 #f4f4f400 !important;
+}
