@@ -4,6 +4,15 @@
 # This greatly simplifies the work a script
 # needs to do just to send out a notification.
 class Notification
+  @message_id = 123
+  
+  @appname = ''
+  @summary = ''
+  @icon = ''
+  @urgency = :low
+  @hint = ''
+  @replace = ''
+
 
   # Create a new notification object 
   # with a specific id.
