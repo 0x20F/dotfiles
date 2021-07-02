@@ -71,6 +71,7 @@ class Notification
   def hint(value)
     # We're probably going to want an array here later
     @hint = "-h '#{value}'"
+    self
   end
 
 
