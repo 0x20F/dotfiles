@@ -212,7 +212,6 @@ format-foreground = #007ff5
 [module/package-updates]
 type = custom/script
 exec = #{{ paths.scripts }}/polybar/package-updates
-interval = 900 # Every 15 min
 format-foreground = #9eee00
 
 

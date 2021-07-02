@@ -1,12 +1,78 @@
-#!/usr/bin/env bash
+#!/usr/bin/env ruby
+# An overly engineered way of checking whether
+# or not there are packages that require updates.
+#
+# Polybar does this weird thing where it hangs if
+# I try to reload it while it's in the middle of 
+# an interval so I can't tell the polybar module
+# to have an interval of 15 minutes, sadly.
+#
+# The problem is it can't run very often either since
+# checking all the packages and the database for updates
+# is relatively heavy and shouldn't run that often. Which
+# is why this script exists. It can run as often as
+# polybar wants but it won't check for updates until
+# 15 minutes have passed since the last check, which makes
+# it pretty fast and not so resource intensive.
+require 'time'
 
 
-updates=$(checkupdates | wc -l)
+
+CACHE_FILE = '/tmp/last-check'
 
 
-if [[ "$updates" == "0" ]]; then
-	exit 1
-fi
+# Update the cache file by replacing it
+# with a completely new file that contains the 
+# current time
+def update_cache() File.write(CACHE_FILE, "#{Time.now}") end
 
 
-echo "$updates 󰏗"
+# Get the amount of package updates
+# available in the system
+def package_updates() `checkupdates`.lines.length() end
+
+
+# Load the cached file and check whether or not 
+# it's time to actually check for updates by checking
+# whether or not 15 minutes have passed.
+#
+# If it hasn't been 15 minutes yet, don't check for 
+# anything new
+def main()
+
+  # If cache exists, check if 15 minutes
+  # have passed and abort if not
+  if File.file?(CACHE_FILE)
+    cache = File.open(CACHE_FILE, 'r')
+    
+    last = Time.parse(cache.read)
+    now = Time.now
+
+    diff = now.min - last.min
+
+    if diff < 15
+      exit
+    end
+  end
+
+  # Get all updates
+  updates = package_updates()
+
+  # No output if there are no updates
+  if updates == 0
+    exit(1)
+  end
+
+
+  # Output the label that polybar should show
+  # and recreate the cache file
+  print "#{updates} 󰏗"
+  update_cache()
+end
+
+
+
+main()
+
+
+
