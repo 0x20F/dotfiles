@@ -1,32 +1,39 @@
-#!/usr/bin/env bash
-# changeMicVolume
+#!/usr/bin/env ruby
+$: << ENV['katana']
 
 
-msgId="642212"
+require 'audio'
+require 'notify'
 
-case "$1" in
-    "up")
-        amixer set Capture 5%+
-        ;;
 
-    "down")
-        amixer set Capture 5%-
-        ;;
 
-    "toggle")
-        amixer set Capture toggle
-        ;;
-esac
+case ARGV[0]
+when 'up'
+  Microphone::raise()
 
-# TODO: Make a script to get current volume so it's the same way everywhere
-volume="$(amixer get Capture | tail -1 | awk '{print $5}' | sed 's/[^0-9]*//g')"
-mute="$(amixer get Capture | tail -1 | awk '{print $7}' | sed 's/[^a-z]*//g')"
+when 'down'
+  Microphone::lower()
 
-echo $volume $mute
+when 'toggle'
+  Microphone::toggle()
 
-if [[ $volume == 0 || "$mute" == "off" ]]; then
-    dunstify -a "changeMicVolume" -u low -r "$msgId" "Microphone muted"
-else
-    dunstify -a "changeMicVolume" -u low -r "$msgId" -h int:value:"$volume" "Volume: ${volume}%"
-fi
+end
 
+
+
+notification = Notification::new(642513)
+  .appname('microphone')
+  .summary('muted')
+  .replace
+
+
+if not Microphone::is_muted()
+  volume = Microphone::current_volume()
+
+  notification
+    .summary("#{volume}%")
+    .hint("int:value:#{volume}")
+end
+
+
+notification.send()

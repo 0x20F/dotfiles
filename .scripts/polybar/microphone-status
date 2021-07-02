@@ -1,11 +1,8 @@
-#!/usr/bin/env bash
-# Get microphone status
-
-volume=$(amixer get Capture | tail -1 | awk '{print $7}' | sed 's/[^a-z]*//g')
+#!/usr/bin/env ruby
+$: << ENV['katana']
 
 
-if [[ "$volume" == "off" ]]; then
-    exit 1
-else
-    echo "󰍬"
-fi
+require 'audio'
+
+
+Microphone::is_muted() ? exit(1) : print('󰍬')
