@@ -1,21 +1,26 @@
-#!/usr/bin/env bash
-# changeBrightness
+#!/usr/bin/env ruby
+$: << ENV['katana']
 
 
-msgId="995313"
+require 'backlight'
+require 'notify'
 
-# Change the brightness
-case "$1" in
-    "up")
-        light -A 10
-        ;;
 
-    "down")
-        light -U 10
-        ;;
-esac
+case ARGV[0]
+when 'down'
+  Backlight::lower()
 
-brightness="$( light -G )"
+when 'up'
+  Backlight::raise()
 
-dunstify -a "changeBrightness" -u low -r "$msgId" -h int:value:"$brightness" "Brightness: ${brightness}%"
+end
 
+
+brightness = Backlight::screen_level().to_f.round
+
+Notification::new(62423)
+  .appname('brightness')
+  .summary("#{brightness}%")
+  .hint("int:value:#{brightness}")
+  .replace
+  .send
