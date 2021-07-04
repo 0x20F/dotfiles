@@ -58,6 +58,7 @@ offset-x = 83.75%
 modules-left = time
 modules-right = microphone-status audio-status wifi battery notifications
 tray-position = right
+separator = %{F#55373f51}|%{F-}
 
 [bar/misc]
 inherit = section/base
