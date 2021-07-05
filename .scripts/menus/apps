@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+$: << ENV['katana']
+
+
+require 'ui/menu'
+
+
+Menu::new()
+  .theme('app-runner')
+  .show()

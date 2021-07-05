@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+$: << ENV['katana']
+
+
+require 'ui/menu'
+
+
+menu = Menu::new(:custom)
+  .max_lines(15)
+  .markup()
+  .theme('shortcut-help')
+  .prompt('shortcuts')
+
+
+sxhkdrc = File.expand_path('~/.config/sxhkd/sxhkdrc')
+shortcuts = File.open(sxhkdrc).read
+
+
+# Simple format:
+# 
+# 1. Every line that starts with a letter is a command
+# definition since sxhkd indents the actual command.
+#
+# 2. Every line before the line that starts with a letter
+# is a comment describing what the command does.
+#
+# Match on those terms and you've got it all.
+commands = shortcuts.scan(/^[a-zA-Z~].+/)
+descriptions = shortcuts.scan(/(^#.+$)(?=\n^[a-zA-Z~])/).flatten
+
+
+
+# Match the commands with their descriptions
+# into a nicely formatted 'table' and each row
+# to the menu.
+#
+# If all entries have descriptions, it should
+# match up nicely.
+commands.each_with_index do |command, idx|
+  command = command.ljust(40, ' ')
+  description = descriptions[idx]
+
+  # Format for markup
+  menu.add_line("#{command} <span alpha='50%'>#{description}</span>")
+end
+
+
+# Show the menu
+menu.show()
