@@ -123,15 +123,15 @@ super + shift + e
 super + shift + i
 	&{{ configs.menus }}/shortcut-help
 
-
+# Raise microphone volume
 ctrl + XF86AudioRaiseVolume
 	&{{ paths.scripts }}/control/microphone up
 
-
+# Lower microphone volume
 ctrl + XF86AudioLowerVolume
 	&{{ paths.scripts }}/control/microphone down
 
-
+# Mute microphone
 ctrl + XF86AudioMute
 	&{{ paths.scripts }}/control/microphone toggle
 
