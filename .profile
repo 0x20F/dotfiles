@@ -2,10 +2,9 @@
 #: out: $HOME
 
 
-# Useful paths
-export PACKAGES=#{{ paths.packages }}
-export SYSTEM=#{{ paths.system }}
-export katana=#{{ paths.modules }} # Custom ruby modules
+# For the system modules
+export katana=#{{ paths.modules }}
+export rofi_themes=#{{ configs.menus }}
 
 
 # Defaults
