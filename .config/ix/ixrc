@@ -15,6 +15,7 @@ packages = ${dotfiles}/.nixos/system/packages.nix
 system = ${dotfiles}/.nixos/configuration.nix
 shells = ${dotfiles}/.nixos/shells
 scripts = ${dotfiles}/.scripts
+menus = ${scripts}/menus
 
 wallpapers = ${styles}/wallpapers
 

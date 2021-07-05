@@ -101,12 +101,12 @@ super + {1-9,0}
 
 # Launch rofi
 alt + space
-	&{{ configs.menus }}/app-runner
+	&{{ paths.menus }}/apps
 
 
 # Launch the quick-run menu
 super + space
-	&{{ configs.menus }}/quick-run
+	&{{ paths.menus}}/run
 
 
 # Reload sxhkd config
@@ -121,7 +121,7 @@ super + shift + e
 
 # Show help
 super + shift + i
-	&{{ configs.menus }}/shortcut-help
+	&{{ paths.menus }}/help
 
 # Raise microphone volume
 ctrl + XF86AudioRaiseVolume
