@@ -16,6 +16,7 @@ export FZF_DEFAULT_COMMAND="find -L"
 # it's not already there
 binaries=#{{ paths.binaries }}
 
+
 if [[ ! -d "$binaries" ]]; then
 	mkdir -p $binaries
 fi
