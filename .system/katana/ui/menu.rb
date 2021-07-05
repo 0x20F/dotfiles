@@ -33,6 +33,7 @@ class Menu
   # menu while we calculate anything heavier
   # in the background for the actual menu we
   # want to display
+  #
   def show(message = nil)
     @process[:fork] = fork do
       @parent.close
@@ -90,6 +91,7 @@ class Menu
   # visible menu.
   #
   # Will not run at all if no menu is currently visible
+  #
   def value
     return nil if not @process[:rofi]
 
@@ -148,6 +150,9 @@ class Menu
   end
 
 
+  # Compose the command that will run
+  # when the menu is toggled on
+  #
   def build_command
     mode = '-dmenu'
 
@@ -155,30 +160,41 @@ class Menu
       mode = '-show drun'
     end
 
-    puts "rofi #{mode} #{@hint} #{@max_lines} #{@markup} #{@separator} #{@theme} #{@insensitive}"
-    
-    "rofi #{mode} #{@hint} #{@max_lines} #{@markup} #{@separator} #{@theme} #{@insensitive}"
+    "rofi #{mode} #{@prompt} #{@max_lines} #{@markup} #{@separator} #{@theme} #{@insensitive}"
   end
 
 
-  def hint(text)
-    @hint = "-p #{text}"
+  # Tell the menu what to show as 
+  # the prompt text when it spawns
+  #
+  def prompt(text)
+    @prompt = "-p #{text}"
     self
   end
 
 
+  # Tell the menu how many lines
+  # it should display
+  #
   def max_lines(max)
     @max_lines = "-lines #{max}"
     self
   end
 
 
+  # Tell the menu whether to interpret
+  # the rows as markup language
+  #
   def markup
     @markup = '-markup-rows'
     self
   end
 
 
+  # Tell the menu what theme to use.
+  # Theme directory must be defined inside
+  # the 'rofi_themes' environment variable
+  #
   def theme(theme)
     directory = ENV['rofi_themes']
     @theme = "-theme '#{directory}/#{theme}'"
@@ -186,11 +202,18 @@ class Menu
   end
 
 
+  # Tell the menu what the line separator is,
+  # in case you don't want to use the default
+  # newline character
+  #
   def line_separator(sep)
     @separator = "-sep #{sep}"
   end
 
 
+  # Tell the menu that it shouldn't care
+  # about casing when matching search queries
+  #
   def insensitive
     @insensitive = '-i'
   end
