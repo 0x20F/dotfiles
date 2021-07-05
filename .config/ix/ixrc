@@ -20,7 +20,7 @@ wallpapers = ${styles}/wallpapers
 
 
 [configs]
-menus = ${paths:home}/.config/menus
+menus = ${paths:home}/.config/rofi/menus
 rofi = ${paths:home}/.config/rofi
 firefox = ${paths:home}/.mozilla/firefox
 
