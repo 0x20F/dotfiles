@@ -3,7 +3,7 @@ $: << ENV['katana']
 
 
 require 'ui/menu'
-require 'utils'
+require 'etc/utils'
 require 'json'
 
 

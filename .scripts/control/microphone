@@ -3,7 +3,7 @@ $: << ENV['katana']
 
 
 require 'dev/audio'
-require 'notify'
+require 'etc/notify'
 
 
 

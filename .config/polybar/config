@@ -151,7 +151,7 @@ format-foreground = #04ffff
 [module/notifications]
 type = custom/script
 exec = echo "󰀼"
-click-left = #{{ configs.menus }}/notification-center
+click-left = #{{ paths.menus }}/notifications
 format-foreground = #373f51
 
 
@@ -178,8 +178,8 @@ interval = 5.0
 
 # Checkout https://github.com/polybar/polybar/wiki/Formatting#action-a
 # for "Format tags" explanations as well as extra action buttons
-format-connected = "%{A1:#{{ configs.menus }}/wifi-menu:}<ramp-signal>%{A}"
-format-disconnected = "%{A1:#{{ configs.menus }}/wifi-menu:}<label-disconnected>%{A}"
+format-connected = "%{A1:#{{ paths.menus }}/wifi:}<ramp-signal>%{A}"
+format-disconnected = "%{A1:#{{ paths.menus }}/wifi:}<label-disconnected>%{A}"
 
 label-disconnected = 󰤮
 label-disconnected-foreground = #{{ hex #f4f4f4; alpha: 0.5 }}

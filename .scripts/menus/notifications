@@ -1,0 +1,63 @@
+#!/usr/bin/env ruby
+$: << ENV['katana']
+
+
+require 'ui/menu'
+require 'etc/utils'
+require 'json'
+
+
+
+notifications = Utils::get_notifications()
+
+
+menu = Menu::new(:custom)
+  .line_separator("\x0F")
+  .theme('notification-center')
+  .prompt('notifications')
+  .max_lines(5)
+  .markup()
+  .insensitive()
+  .icons()
+
+# If the log doesn't exist show an empty menu
+if not notifications
+  menu.add_line('No notifications (^-^*)')
+  menu.show()
+  exit
+end
+
+
+
+notifications.each do |log|
+  # Awful formatting but it looks nice in the end I guess...
+  ident = "<b>#{log['appname']}: </b>#{log['summary']}".ljust(76, ' ')
+  icon  = "\0icon\x1f#{log['icon']}"
+  
+  urgency   = log['urgency']
+  timestamp = log['timestamp']
+  body      = log['body']
+
+  full_line = "#{ident}#{timestamp}\n#{body}#{icon}"
+  line_status = nil
+
+  # Set lines as active or urgent depending
+  # on the specified urgency. We only care
+  # about NORMAL and CRITICAL.
+  case urgency
+  when 'NORMAL';    line_status = :active
+  when 'CRITICAL';  line_status = :urgent
+  end
+
+  if line_status
+    menu.add_line(full_line, line_status)
+  else
+    menu.add_line(full_line)
+  end
+end
+
+
+
+menu.show()
+
+

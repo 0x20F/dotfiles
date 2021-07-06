@@ -3,7 +3,7 @@ $: << ENV['katana']
 
 
 require 'dev/backlight'
-require 'notify'
+require 'etc/notify'
 
 
 case ARGV[0]
