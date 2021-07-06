@@ -2,7 +2,7 @@
 $: << ENV['katana']
 
 
-require 'audio'
+require 'dev/audio'
 
 # Setup the audio module
 Audio::setup()

@@ -2,7 +2,7 @@
 $: << ENV['katana']
 
 
-require 'backlight'
+require 'dev/backlight'
 require 'notify'
 
 
