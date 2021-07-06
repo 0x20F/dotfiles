@@ -54,6 +54,13 @@ class Menu
     end
 
     @process[:rofi] = @parent.recv(100).to_i
+    
+    # The forked process won't be used for
+    # anything else, so we can clean it up
+    # quickly.
+    kill_fork
+
+    self
   end
 
 
@@ -95,7 +102,19 @@ class Menu
   def value
     return nil if not @process[:rofi]
 
-    @parent.recv(65535).split.join(' ')
+    # Setup an automatic cleanup if
+    # nothing happens for a while.
+    #
+    # If rofi is closed without a choice,
+    # this will keep waiting for a value, exit 
+    # eventually.
+    Thread::new() do 
+      sleep 120
+      destroy()
+      exit
+    end
+
+    @parent.recv(65535).split.join(' ').force_encoding('utf-8')
   end
 
 
@@ -104,6 +123,7 @@ class Menu
   #
   def add_line(line)
     @lines.push(line)
+    self
   end
 
 
@@ -119,8 +139,6 @@ class Menu
   def destroy
     kill_fork
     kill_rofi
-    
-    @process = { :rofi => nil, :fork => nil }
   end
 
 
@@ -136,6 +154,8 @@ class Menu
   def kill_fork
     pid = @process[:fork]
     Process::kill('INT', pid) if pid
+
+    @process[:fork] = nil
   end
 
 
@@ -146,7 +166,14 @@ class Menu
   #
   def kill_rofi
     pid = @process[:rofi]
-    Process::kill('INT', pid) if pid
+
+    begin
+      Process::kill('INT', pid)
+    rescue Errno::ESRCH => _
+      # Process might've been killed by user
+    ensure
+      @process[:rofi] = nil
+    end
   end
 
 
