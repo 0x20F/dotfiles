@@ -12,7 +12,7 @@ timestamp=$(date +"%I:%M %p") # For now
 
 # Check if app is blacklisted
 case "$appname" in
-	'changeVolume'|'changeBrightness'|'sxhkd'|'bspwm')
+	'microphone'|'volume'|'brightness'|'sxhkd'|'bspwm')
 		# Don't add notification
 		exit
 		;;
