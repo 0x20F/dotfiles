@@ -14,7 +14,11 @@ class Menu
     @type = type
    
     @lines = []
+    @active_lines = []
+    @urgent_lines = []
+
     @loading = false
+    @separator_ch = "\n"
 
     @parent, @child = UNIXSocket.pair
     @process = {
@@ -46,8 +50,8 @@ class Menu
         :in => r, 
         :out => @child
       )
-      
-      message = @lines if not message
+     
+      message = @lines.join(@separator_ch) if not message
       w.puts(message)
 
       @child.send("#{pid}", 0)
@@ -121,8 +125,21 @@ class Menu
   # Add a new line to the final payload
   # that rofi will display.
   #
-  def add_line(line)
+  # Optionally, a status for the line can be
+  # specified. Available statuses are:
+  #   :active
+  #   :urgent
+  #
+  def add_line(line, status = nil)
     @lines.push(line)
+    
+    case status
+    when :active
+      @active_lines.push(@lines.length)
+    when :urgent
+      @urgent_lines.push(@lines.length)
+    end
+
     self
   end
 
@@ -187,7 +204,27 @@ class Menu
       mode = '-show drun'
     end
 
-    "rofi #{mode} #{@prompt} #{@max_lines} #{@markup} #{@separator} #{@theme} #{@insensitive}"
+    command = [
+      "rofi #{mode}",
+      @prompt,
+      @max_lines,
+      @markup,
+      @separator,
+      @theme,
+      @insensitive,
+      @icons,
+      @eh
+    ]
+
+    if @active_lines.length > 0
+      command.push("-a #{@active.join(',')}")
+    end
+
+    if @urgent_lines.length > 0
+      command.push("-u #{@urgent.join(',')}")
+    end
+
+    command.join(' ')
   end
 
 
@@ -234,7 +271,11 @@ class Menu
   # newline character
   #
   def line_separator(sep)
+    # Save the character as well as the parameter
+    # since the character might be used somewhere else
+    @separator_ch = "#{sep}"
     @separator = "-sep #{sep}"
+    self
   end
 
 
@@ -243,6 +284,26 @@ class Menu
   #
   def insensitive
     @insensitive = '-i'
+    self
+  end
+
+
+  # Tell the menu that it should show
+  # the icons provided in the data for
+  # each custom row
+  #
+  def icons
+    @icons = '-show-icons'
+    self
+  end
+
+
+  # Tell the menu how high each row 
+  # should be
+  #
+  def row_height(height)
+    @eh = "-eh #{height}"
+    self
   end
 
 
