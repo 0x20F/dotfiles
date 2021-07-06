@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+$: << ENV['katana']
+
+
+require 'ui/menu'
+require 'machine'
+
+
+
+buttons = {
+  :power_off => '󰐥',
+  :reboot    => '󰜉',
+  :lock      => '󱅞',
+  :suspend   => '󰒲',
+  :log_out   => '󰗽'
+}
+
+
+menu = Menu::new(:custom)
+  .theme('power-menu')
+  .add_line(buttons[:power_off])
+  .add_line(buttons[:reboot])
+  .add_line(buttons[:lock])
+  .add_line(buttons[:suspend])
+  .add_line(buttons[:log_out])
+  .show()
+
+
+case menu.value()
+when buttons[:power_off]; Machine::off()
+when buttons[:reboot];    Machine::reboot()
+when buttons[:lock];      Machine::lock()
+when buttons[:suspend];   Machine::suspend()
+when buttons[:log_out];   Machine::logout()
+end
+
+
+
