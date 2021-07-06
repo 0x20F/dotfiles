@@ -4,17 +4,17 @@
 [
     {
         "name": "power menu",
-        "command": "#{{ configs.menus }}/power-menu"
+        "command": "#{{ paths.menus }}/power"
     },
     
     {
         "name": "wifi settings",
-        "command": "#{{ configs.menus }}/wifi-menu"
+        "command": "#{{ paths.menus }}/wifi"
     },
     
     {
         "name": "notifications",
-        "command": "#{{ configs.menus }}/notification-center"
+        "command": "#{{ paths.menus }}/notifications"
     },
 
     {

@@ -1,0 +1,48 @@
+#!/usr/bin/env ruby
+$: << ENV['katana']
+
+
+require 'ui/menu'
+require 'utils'
+require 'json'
+
+
+
+# Find out where the configured combos are
+# and parse the file as json
+config = File.open("#{configs}/global/tasks.json").read
+tasks = JSON.parse(config)
+
+
+
+# Create a new menu and add a new row
+# for each of the configured combos
+menu = Menu::new(:custom)
+  .prompt('run')
+  .theme('quick-run')
+  .markup()
+
+tasks.each do |task|
+  name = task['name'].ljust(30, ' ')
+  command = task['command']
+
+  menu.add_line("#{name} <span alpha='50%'>#{command}</span>")
+end
+
+menu.show()
+
+
+
+# Clean it up since it contains the markup
+choice = menu.value().split(' <').first
+
+# Figure out if the selected item even exists in
+# the configuration file
+task = tasks.select { |k, v| k['name'] == choice }
+
+# Execute the script defined in the config
+if task.first
+  system("#{task.first['command']}")
+end
+
+
