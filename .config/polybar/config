@@ -143,7 +143,7 @@ animation-charging-framerate = 1500
 [module/power]
 type = custom/script
 exec = echo " 󰟪"
-click-left = #{{ configs.menus }}/power-menu
+click-left = #{{ paths.menus }}/power
 format-foreground = #04ffff
 
 

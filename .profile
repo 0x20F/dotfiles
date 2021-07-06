@@ -2,6 +2,9 @@
 #: out: $HOME
 
 
+# Default paths
+export scripts=#{{ paths.scripts }}
+
 # For the system modules
 export katana=#{{ paths.modules }}
 export rofi_themes=#{{ configs.menus }}
