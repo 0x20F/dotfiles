@@ -1,64 +1,51 @@
-#!/usr/bin/env bash
-
-# Follow in the steps of mighty barbarossa
-# Cleanup to ensure each field is on a separate line
-appname=$(echo "$1" | sed '/^$/d')
-summary=$(echo "$2" | sed '/^$/d' | xargs)
-body=$(echo "$3" | sed '/^$/d' | xargs)
-icon=$(echo "$4" | sed '/^$/d')
-urgency=$(echo "$5" | sed '/^$/d')
-timestamp=$(date +"%I:%M %p") # For now
+#!/usr/bin/env ruby
+$: << ENV['katana']
 
 
-# Check if app is blacklisted
-case "$appname" in
-	'microphone'|'volume'|'brightness'|'sxhkd'|'bspwm')
-		# Don't add notification
-		exit
-		;;
-
-	'Spotify')
-		# Spotify doesn't send an actual path to their icon so
-		# we need to retrieve it
-		random_name=$(mktemp --suffix ".png")
-		# Get the thumbnail url from the player metadata
-		artlink=$(playerctl metadata mpris:artUrl | sed -e 's/open.spotify.com/i.scdn.co/g')
-
-		# Download the image
-		curl -s "$artlink" -o "$random_name"
-		icon=$random_name
-		;;
-esac
+require 'etc/logs'
+require 'etc/utils'
+require 'open-uri'
 
 
 
-log_file=$(ix -f logs.dunst)
+# Apply some filters before sending 
+# to the logs
+appname = ARGV[0]
+icon = ARGV[3]
 
-# If the log file isn't there, create it
-if [ ! -f $log_file ]; then
-	echo "FILE DOESNT EXIST"
-	echo '{ "notifications": [] }' > $log_file
-fi
+case appname
+when 'microphone','volume','brightness','sxhkd','bspwm'
+  # Don't add notifications
+  exit
+when 'Spotify'
+  # Spotify doesn't send an actual path to their icon so 
+  # we need to retrieve it from the player metadata and curl it down.
+  output = "/tmp/#{string(25)}.png"
+  
+  # Use spotify's cdn for the url instead
+  art_link = `playerctl metadata mpris:artUrl`
+    .gsub('open.spotify.com', 'i.scdn.co')
+    .gsub("\n", '')
+
+  # Download the image
+  URI.open(art_link) do |u|
+    File.open(output, 'wb') { |f| f.write(u.read) }
+  end
+
+  icon = output
+end
 
 
-
-# Build a new JSON object for the notification
-json=$(
-	jq -n \
-		--arg an "$appname" \
-		--arg sy "$summary" \
-		--arg by "$body" \
-		--arg ic "$icon" \
-		--arg uy "$urgency" \
-		--arg ts "$timestamp" \
-		'{appname:$an, summary:$sy, body:$by, icon:$ic, urgency:$uy, timestamp:$ts}'
-)
+args = [
+  ARGV[0], # appname
+  ARGV[1], # summary
+  ARGV[2], # body
+  icon,
+  ARGV[4]  # urgency
+]
 
 
-# Temporary file to write the new contents to
-swap="/tmp/${RANDOM}.tmp"
-
-# Prepend the new JSON object to the existing array
-jq ".notifications |= [$json] + ." $log_file > $swap
-mv $swap $log_file
+# Log the new info with the dunst logger
+logger = Logs::get('dunst')
+logger::append(*args)
 

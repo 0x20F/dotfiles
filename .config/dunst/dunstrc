@@ -75,6 +75,7 @@ force_xinerama = false
 
 
 [log]
+appname = *
 script = &{{ paths.scripts }}/dunst/log
 
 
