@@ -11,21 +11,10 @@ end
 
 
 
-module Utils
-  # Get the log for system notifications
-  # so far, parse it into a hash, and give
-  # back that hash.
-  #
-  # If no log is available, nil.
-  #
-  def self.get_notifications
-    if not File.exist?('/tmp/dunstlog')
-      return nil
-    end
-
-    log_file = File.open('/tmp/dunstlog').read
-    logs = JSON.parse(log_file)
-
-    logs['notifications']
-  end
+# Generate a string of a specific
+# length.
+#
+def string(length)
+  o = [('a'..'z'), ('A'..'Z'), (0..9)].map(&:to_a).flatten
+  (0..length).map { o[rand(o.length)] }.join
 end
