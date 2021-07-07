@@ -8,13 +8,16 @@ module Logger
   # fully parsed using the custom parsing method
   def all
     c = contents
-    c ? parse(c) : []
+    c ? on_read(c) : []
   end
 
   # Add a new entry to the existing entries
   def append(*args)
-    line = mutate(args)
-    items = contents.push(line)
+    c = contents
+    
+    line = on_new(args)
+    items = c ? on_read(c) : []
+    items = on_add(items, line)
 
     # If a max entry limit is defined, automatically
     # remove the earliest one.
@@ -22,7 +25,7 @@ module Logger
       items.shift
     end
 
-    file = prepare(items)
+    file = on_end(items)
 
     save(file)
   end
@@ -41,7 +44,7 @@ module Logger
 
   # Define how the logger should parse
   # the given log file into an array of items
-  def parse(_contents)
+  def on_read(_contents)
     raise 'Logger has not defined how to parse the logs'
   end
 
@@ -49,17 +52,19 @@ module Logger
   # the array of items that has been created
   # and turn it back into something that can
   # be stored inside a file
-  def prepare(_items)
+  def on_end(_items)
     raise 'Logger has not defined how to rewire everything back'
   end
 
-  # Define how the logger should add a new
-  # log to the given log file
-  def add(_line, _to)
-    raise 'Logger has not defined how to add new items to the logs'
+  # Allow the loggers to define a custom way
+  # of inserting new items into the logs
+  def on_add(items, line)
+    items.push(line)
   end
 
-  def mutate(*_pieces)
+  # Define how the logger should interpret
+  # the data given when adding a new log
+  def on_new(*_pieces)
     raise 'Logger has not defined how to handle new data'
   end
 
@@ -77,6 +82,7 @@ module Logger
 
 
 
+
   # ----------------------------------------
   # Private methods that are only used within
   # the interface
@@ -86,9 +92,9 @@ module Logger
   # Open up the defined log file and read all
   # of its contents
   def contents
-    nil unless File.exists?(file)
-    contents = IO::read(file)
-    contents == '' ? nil : contents
+    return nil unless File.exists?(file)
+    entries = IO::read(file)
+    entries == '' ? nil : entries
   end
 
   # Save new data to the original file by either
