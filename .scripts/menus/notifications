@@ -3,12 +3,13 @@ $: << ENV['katana']
 
 
 require 'ui/menu'
-require 'etc/utils'
+require 'etc/logs'
 require 'json'
 
 
 
-notifications = Utils::get_notifications()
+logger = Logs::get('dunst')
+notifications = logger.all()
 
 
 menu = Menu::new(:custom)
