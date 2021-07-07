@@ -1,8 +1,7 @@
 module Logger
   # ----------------------------------------
   # Methods that will be available to all the
-  # users of a logger that implements this
-  # interface.
+  # implementors of this interface.
   # ----------------------------------------
 
   # Get all the items from the log file,
@@ -16,6 +15,13 @@ module Logger
   def append(*args)
     line = mutate(args)
     items = contents.push(line)
+
+    # If a max entry limit is defined, automatically
+    # remove the earliest one.
+    if items.length > max && max != 0
+      items.shift
+    end
+
     file = prepare(items)
 
     save(file)
@@ -61,6 +67,12 @@ module Logger
   # specific logger is located
   def file
     raise 'No log file defined'
+  end
+
+  # Define how many lines should be allowed
+  # in the log. Default (0) is unlimited
+  def max
+    0
   end
 
 
