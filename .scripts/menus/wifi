@@ -1,0 +1,99 @@
+#!/usr/bin/env ruby
+$: << ENV['katana']
+
+
+require 'utils'
+
+use 'wifi', 'menu'
+
+
+
+
+TOGGLE_ON_LABEL = 'toggle on'
+TOGGLE_OFF_LABEL = 'toggle off'
+MANUAL_LABEL = 'manual'
+
+
+# Create the menu early so we can show that something
+# is loading while we figure out all the wifi networks
+menu = Menu::new(:custom)
+    .theme('wifi-menu')
+    .prompt('internet')
+
+menu.loading(:on, 'Loading networks...')
+
+
+# Get all the info we're going to work with
+networks        = Wifi::list
+known           = Wifi::known_connections
+is_connected    = Wifi::connected?
+current         = Wifi::current
+
+
+# Start generating the lines that are going
+# to go in the menu
+menu
+    .add_line(is_connected ? TOGGLE_OFF_LABEL : TOGGLE_ON_LABEL) # Wifi toggle line
+    .add_line('manual') # Allow the user to connect manually
+
+
+networks.each do |n|
+    ssid = n[:ssid]
+    chan = n[:channel]
+
+    if ssid.length > 15
+        ssid = ssid[0..15] + '...'
+    end
+
+    line = "%-40s %-15s %-15s %-10s" % [ssid, n[:security], n[:signal], chan]
+
+    # Figure out if we're looking at the line with
+    # the current network so we can mark it as active
+    # inside the menu
+    status = :active if (ssid == current[:ssid]) && (chan == current[:channel])
+
+    menu.add_line(line, status)
+end
+
+
+menu.loading(:off)
+
+
+# Figure out what the user wants to do
+choice = menu.value()
+
+case choice
+when TOGGLE_ON_LABEL  then Wifi::on()
+
+when TOGGLE_OFF_LABEL then Wifi::off()
+
+when MANUAL_LABEL
+    menu = Menu::new(:custom)
+        .theme('manual-prompt')
+        .prompt('manual mode')
+        .add_line('Enter the SSID and password of the network (SSID,Password)')
+        .show()
+        
+    ssid, password = menu.value().split(',').map(&:strip)
+
+    Wifi::connect(ssid, pass)
+
+else
+    ssid = choice.split[0]
+
+    menu = Menu::new(:custom)
+        .theme('password-prompt')
+        .prompt(ssid)
+        .add_line('Enter the password or leave blank if wifi does not have one')
+        .show()
+
+    password = menu.value()
+
+    Wifi::connect(ssid, password)
+
+end
+
+
+
+
+

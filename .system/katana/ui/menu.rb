@@ -62,6 +62,10 @@ class Menu
     # The forked process won't be used for
     # anything else, so we can clean it up
     # quickly.
+    sleep 1 # Wait a bit before killing anything
+            # This means that every loading menu will
+            # have a loading time of at least 1 second.
+            # It's not pretty but it'll do for now.
     kill_fork
 
     self
@@ -104,7 +108,7 @@ class Menu
   # Will not run at all if no menu is currently visible
   #
   def value
-    return nil if not @process[:rofi]
+    return nil unless @process[:rofi]
 
     # Setup an automatic cleanup if
     # nothing happens for a while.
@@ -135,9 +139,9 @@ class Menu
     
     case status
     when :active
-      @active_lines.push(@lines.length)
+      @active_lines.push(@lines.length - 1)
     when :urgent
-      @urgent_lines.push(@lines.length)
+      @urgent_lines.push(@lines.length - 1)
     end
 
     self
@@ -184,6 +188,10 @@ class Menu
   def kill_rofi
     pid = @process[:rofi]
 
+    if not pid
+      return
+    end
+
     begin
       Process::kill('INT', pid)
     rescue Errno::ESRCH => _
@@ -217,11 +225,11 @@ class Menu
     ]
 
     if @active_lines.length > 0
-      command.push("-a #{@active.join(',')}")
+      command.push("-a #{@active_lines.join(',')}")
     end
 
     if @urgent_lines.length > 0
-      command.push("-u #{@urgent.join(',')}")
+      command.push("-u #{@urgent_lines.join(',')}")
     end
 
     command.join(' ')
