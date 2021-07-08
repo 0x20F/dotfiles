@@ -2,9 +2,10 @@
 $: << ENV['katana']
 
 
-require 'etc/logs'
-require 'etc/utils'
+require 'utils'
 require 'open-uri'
+
+use 'logs'
 
 
 
