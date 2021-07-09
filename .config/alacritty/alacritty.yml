@@ -1,7 +1,6 @@
 #: ix-config
 #: to: $HOME/.config/alacritty
 
-
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
 # Import additional configuration files
@@ -275,7 +274,7 @@ colors:
     black:   '#{{ colors.dark-three }}'
     red:     '#{{ colors.red }}'
     green:   '#{{ colors.green }}'
-    yellow:  '#f0c674'
+    yellow:  '#{{ colors.yellow }}'
     blue:    '#{{ colors.blue }}'
     magenta: '#b294bb'
     cyan:    '#{{ colors.cyan }}'
