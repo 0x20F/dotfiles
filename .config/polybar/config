@@ -9,8 +9,8 @@ padding = 2
 [section/base]
 monitor = ${env:MONITOR}
 height = 45
-background = #bb0c0f14
-foreground = #eff7ff
+background = #{{ hex colors.dark-one; alpha: 0.73; argb: true }}
+foreground = #{{ colors.light-one }}
 cursor-click = pointer
 wm-restack = bspwm
 override-redirect = false
@@ -18,8 +18,8 @@ dpi = 0
 padding = ${constants.padding}
 module-margin = 1
 offset-y = 8
-font-0 = "FiraCode Nerd Font:size=13;4"
-font-1 = "Material Design Icons:size=14;4"
+font-0 = "#{{ fonts.terminal }}:size=13;4"
+font-1 = "#{{ fonts.icons }}:size=14;4"
 
 
 [bar/left]
@@ -33,8 +33,8 @@ inherit = section/base
 width = 25%
 offset-x = 37.5%
 modules-center = xwindow
-background = #00181b21
-foreground = #181b21
+background = #00000000
+foreground = #{{ colors.dark-two }}
 
 [bar/right]
 inherit = section/base
@@ -43,14 +43,15 @@ offset-x = 83.75%
 modules-left = time
 modules-right = microphone-status audio-status wifi battery notifications
 tray-position = right
-separator = %{F#55373f51}|%{F-}
+# Ugly but it works. Color the separator to something specific
+separator = %{F#{{ hex colors.dark; alpha: 0.4; argb: true }}}|%{F-}
 
 [bar/misc]
 inherit = section/base
 width = 15%
 offset-x = 69%
-background = #00181b21
-foreground = #181b21
+background = #00000000
+foreground = #{{ colors.dark-two }}
 modules-right = ethernet bluetooth package-updates
 
 
@@ -75,15 +76,15 @@ pin-workspaces = false
 enable-scroll = true
 
 label-focused = "  %name%  "
-label-focused-foreground = #04ffff
+label-focused-foreground = #{{ colors.cyan }}
 
 label-empty = "  %name%  "
-label-empty-foreground = #373f51
+label-empty-foreground = #{{ colors.dark }}
 
 label-urgent = "  %name%  "
 
 label-occupied = "  %name%  "
-label-occupied-foreground = #99aab5 
+label-occupied-foreground = #{{ colors.grey }}
 
 
 
@@ -129,7 +130,7 @@ animation-charging-framerate = 1500
 type = custom/script
 exec = echo " 󰟪"
 click-left = #{{ paths.menus }}/power
-format-foreground = #04ffff
+format-foreground = #{{ colors.cyan }}
 
 
 
@@ -137,13 +138,13 @@ format-foreground = #04ffff
 type = custom/script
 exec = echo "󰀼"
 click-left = #{{ paths.menus }}/notifications
-format-foreground = #373f51
+format-foreground = #{{ colors.dark }}
 
 
 
 [module/microphone-status]
 type = custom/script
-format-foreground = #ff0000
+format-foreground = #{{ colors.red }}
 exec = #{{ paths.scripts }}/polybar/microphone-status
 click-left = "#{{ paths.scripts }}/control/microphone toggle"
 
@@ -167,7 +168,7 @@ format-connected = "%{A1:#{{ paths.menus }}/wifi:}<ramp-signal>%{A}"
 format-disconnected = "%{A1:#{{ paths.menus }}/wifi:}<label-disconnected>%{A}"
 
 label-disconnected = 󰤮
-label-disconnected-foreground = #{{ hex #f4f4f4; alpha: 0.5 }}
+label-disconnected-foreground = #{{ hex colors.light-one; alpha: 0.5; argb: true }}
 
 ramp-signal-0 = 󰤫
 ramp-signal-1 = 󰤟
@@ -191,17 +192,20 @@ label-connected = "%downspeed:5% 󰈀"
 [module/bluetooth]
 type = custom/script
 exec = #{{ paths.scripts }}/polybar/bluetooth-status
-format-foreground = #007ff5
+format-foreground = #{{ colors.blue }}
 
 
 
 [module/package-updates]
 type = custom/script
 exec = #{{ paths.scripts }}/polybar/package-updates
-format-foreground = #9eee00
+format-foreground = #{{ colors.light-green }}
 interval = 900 # 15 min
+
 
 
 
 [settings]
 screenchange-reload = true
+
+

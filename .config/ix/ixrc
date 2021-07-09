@@ -31,11 +31,14 @@ dunst = /tmp/dunstlog
 
 
 [fonts]
-terminal = "FiraCode Nerd Font"
+terminal = FiraCode Nerd Font
+icons = Material Design Icons
 
 
 [colors]
 # Dark theme colors
+dark = #373f51
+
 dark-one = #0c0f14
 dark-one-faded = #0c0f14bb
 
@@ -50,12 +53,18 @@ dark-three-faded = #4a5466bb
 light-one = #f4f4f4
 light-one-faded = #f4f4f4bb
 
+light-two = #d9d9d9
+
 # Default colors
 cyan    = #04ffff
+blue    = #42a4ff
 red     = #f25c5c
 grey    = #99aab5
+white   = #f4f4f4
+black   = #181b21
+green   = #aaed66
 
-
+light-green = #9eee00
 
 
 

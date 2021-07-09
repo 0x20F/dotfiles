@@ -8,13 +8,13 @@ format = "$git_status$git_branch$directory$env_var[](white) "
 
 [git_branch]
 format = "[$branch]($style) "
-style = "bold fg:240"
+style = "bold grey"
 truncation_length = 10
 truncation_symbol = "..."
 
 
 [git_status]
-style = "fg:240"
+style = "black"
 
 
 [env_var]
