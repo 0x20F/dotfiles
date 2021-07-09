@@ -5,24 +5,24 @@
 [paths]
 home = /home/snowwhite
 
-dotfiles = ${home}/dots
-pictures = ${home}/.pictures
-binaries = ${home}/.local/bin
-modules = ${dotfiles}/.system/katana
+dotfiles    = ${home}/dots
+pictures    = ${home}/.pictures
+binaries    = ${home}/.local/bin
+modules     = ${dotfiles}/.system/katana
 
-styles = ${dotfiles}/.styles
-packages = ${dotfiles}/.nixos/system/packages.nix
-system = ${dotfiles}/.nixos/configuration.nix
-shells = ${dotfiles}/.nixos/shells
-scripts = ${dotfiles}/.scripts
-menus = ${scripts}/menus
+styles      = ${dotfiles}/.styles
+packages    = ${dotfiles}/.nixos/system/packages.nix
+system      = ${dotfiles}/.nixos/configuration.nix
+shells      = ${dotfiles}/.nixos/shells
+scripts     = ${dotfiles}/.scripts
+menus       = ${scripts}/menus
 
-wallpapers = ${styles}/wallpapers
+wallpapers  = ${styles}/wallpapers
 
 
 [configs]
-menus = ${paths:home}/.config/rofi/menus
-rofi = ${paths:home}/.config/rofi
+menus   = ${paths:home}/.config/rofi/menus
+rofi    = ${paths:home}/.config/rofi
 firefox = ${paths:home}/.mozilla/firefox
 
 
@@ -32,3 +32,35 @@ dunst = /tmp/dunstlog
 
 [fonts]
 terminal = "FiraCode Nerd Font"
+
+
+[colors]
+# Dark theme colors
+dark-one = #0c0f14
+dark-one-faded = #0c0f14bb
+
+dark-two = #181b21
+dark-two-faded = #181b21bb
+
+dark-three = #4a5466
+dark-three-faded = #4a5466bb
+
+
+# Light theme colors
+light-one = #f4f4f4
+light-one-faded = #f4f4f4bb
+
+# Default colors
+cyan    = #04ffff
+red     = #f25c5c
+grey    = #99aab5
+
+
+
+
+
+
+
+
+
+
