@@ -1,8 +1,19 @@
 #: ix-config
 #: to: #{{ configs.menus }}
 
+
+
+configuration {
+    fullscreen: true;
+}
+
+
 @import "#{{ configs.rofi }}/themes/simple"
 
+
+window {
+    padding: 20%;
+}
 
 entry {
     placeholder: "Search tasks";

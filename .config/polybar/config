@@ -2,21 +2,6 @@
 #: to: $HOME/.config/polybar
 
 
-
-
-[colors]
-background = #00181b21
-background-alt = #1D1F21
-foreground = #548587
-foreground-alt = #548587
-fg-1 = #ffaf5f
-fg-2 = #ffd494
-primary = #ffb52a
-secondary = #e60053
-underline = #7289DA
-alert = #bd2c40
-
-
 [constants]
 padding = 2
 

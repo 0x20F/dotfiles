@@ -8,6 +8,7 @@ require 'ui/menu'
 menu = Menu::new(:custom)
   .max_lines(15)
   .markup()
+  .insensitive()
   .theme('shortcut-help')
   .prompt('shortcuts')
 
@@ -37,7 +38,7 @@ descriptions = shortcuts.scan(/(^#.+$)(?=\n^[a-zA-Z~])/).flatten
 # If all entries have descriptions, it should
 # match up nicely.
 commands.each_with_index do |command, idx|
-  command = command.ljust(40, ' ')
+  command = command.ljust(70, ' ')
   description = descriptions[idx]
 
   # Format for markup

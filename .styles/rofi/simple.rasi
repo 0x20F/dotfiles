@@ -27,7 +27,7 @@ configuration {
    separatorcolor:      @foreground;
    background-color: 	@background;
 
-   highlight: bold #ffffff;
+   highlight: bold #04ffff;
 }
 
 
@@ -35,9 +35,9 @@ prompt {
    enable: true;
    horizontal-align: 0.5;
    vertical-align: 0.5;
-   background-color: @accent;
+   background-color: #0c0f14;
    padding: 10px 1% 10px 1%;
-   text-color: #181b21;
+   text-color: #f4f4f4;
 }
 
 
@@ -46,7 +46,6 @@ window {
    anchor: north;
    location: north;
    y-offset: 25%;
-   border-radius: 8px;
 }
 
 mainbox {
@@ -57,14 +56,12 @@ listview {
    fixed-height: 		false;
    dynamic: 			true;
    scrollbar: 			false;
-   padding: 			10px;
    background-color: @transparent;
 }
 
 element {
    background-color: @transparent;
-   padding: 10px 25px 10px 25px;
-   border-radius: 8px;
+   padding: 20px 35px 20px 35px;
 }
 
 element-icon {

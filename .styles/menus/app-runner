@@ -3,16 +3,21 @@
 
 
 configuration {
-    lines: 5;
+    lines: 3;
+    columns: 3;
     show-icons: true;
     display-drun: "run";
     hide-scrollbar: true;
+    fullscreen: true;
 }
-
 
 
 @import "#{{ configs.rofi }}/themes/simple"
 
+
+window {
+    padding: 20%;
+}
 
 entry {
     placeholder: "Find an application...";

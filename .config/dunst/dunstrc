@@ -23,7 +23,6 @@ padding = 20
 horizontal_padding = 30
 text_icon_padding = 30
 frame_width = 0
-corner_radius = 6
 vertical_alignment = center
 
 separator_color = "#00000000"

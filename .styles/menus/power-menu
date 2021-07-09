@@ -33,9 +33,8 @@
 element {
     width: 8%;
     padding: 3%;
-    background-color: #40444a33;
-    text-color: @text-light;
-    border-radius: 6px;
+    background-color: #181b21;
+    text-color: #f4f4f4;
 }
 
 element-text {
@@ -44,6 +43,6 @@ element-text {
 }
 
 element.selected {
-    background-color: #81d2fe;
+    background-color: #04ffff;
     text-color: #181b21;
 }
