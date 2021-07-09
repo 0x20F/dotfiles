@@ -7,17 +7,11 @@ configuration {
     columns: 3;
     show-icons: true;
     display-drun: "run";
-    hide-scrollbar: true;
-    fullscreen: true;
 }
 
 
-@import "#{{ configs.rofi }}/themes/simple"
+@import "#{{ configs.rofi }}/themes/fullscreen"
 
-
-window {
-    padding: 20%;
-}
 
 entry {
     placeholder: "Find an application...";

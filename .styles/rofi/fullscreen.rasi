@@ -1,0 +1,16 @@
+#: ix-config
+#: to: #{{ configs.rofi }}/themes
+
+
+
+configuration {
+    fullscreen: true;
+}
+
+
+@import "#{{ configs.rofi }}/themes/simple"
+
+
+window {
+    padding: 20%;
+}

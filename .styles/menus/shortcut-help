@@ -3,17 +3,8 @@
 
 
 
-configuration {
-    fullscreen: true;
-}
+@import "#{{ configs.rofi }}/themes/fullscreen"
 
-
-@import "#{{ configs.rofi }}/themes/simple"
-
-
-window {
-    padding: 20%;
-}
 
 entry {
     placeholder: "What do you want to do?";    
