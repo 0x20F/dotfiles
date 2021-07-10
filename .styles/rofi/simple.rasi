@@ -17,7 +17,7 @@ configuration {
 
 
 inputbar {
-   background-color: #{{ colors.dark-one }};
+   background-color: #{{ colors.dark-two }};
    border: 0;
    margin: 0;
 }
@@ -38,7 +38,7 @@ prompt {
    vertical-align: 0.5;
    padding: 10px 1% 10px 1%;
    text-color: #{{ rgb colors.light-one }};
-   background-color: #{{ rgb colors.dark-one-faded }};
+   background-color: #{{ rgb colors.dark-one }};
 }
 
 
@@ -90,7 +90,7 @@ element.normal.urgent {
 }
 
 element.normal.active {
-   text-color: #{{ colors.dark-two }};
+   text-color: #{{ colors.dark-three }};
 }
 
 
@@ -99,8 +99,8 @@ element.normal.active {
 // Selected
 //
 element.selected.normal {
-   background-color: #{{ rgb colors.dark-three; alpha: 0.2 }};
-   text-color: #{{ colors.light-one }};
+   background-color: #{{ rgb colors.light-one }};
+   text-color: #{{ colors.dark-two }};
 }
 
 element.selected.urgent {
