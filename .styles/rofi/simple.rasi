@@ -64,6 +64,9 @@ listview {
 element {
    background-color: @transparent;
    padding: 20px 35px 20px 35px;
+   text-color: #{{ colors.light-one }};
+   border: 0 0 0 5px;
+   border-color: @transparent;
 }
 
 element-icon {
@@ -99,8 +102,7 @@ element.normal.active {
 // Selected
 //
 element.selected.normal {
-   background-color: #{{ rgb colors.light-one; alpha: 0.8 }};
-   text-color: #{{ colors.dark-two }};
+   border-color: #{{ colors.cyan }};
 }
 
 element.selected.urgent {
@@ -109,8 +111,7 @@ element.selected.urgent {
 }
 
 element.selected.active {
-   background-color: #{{ colors.light-one }};
-   text-color: #{{ colors.dark-two }};
+   border-color: #{{ colors.light-green }};
 }
 
 
