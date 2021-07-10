@@ -99,7 +99,7 @@ element.normal.active {
 // Selected
 //
 element.selected.normal {
-   background-color: #{{ rgb colors.light-one }};
+   background-color: #{{ rgb colors.light-one; alpha: 0.8 }};
    text-color: #{{ colors.dark-two }};
 }
 
