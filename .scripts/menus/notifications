@@ -15,7 +15,7 @@ notifications = logger.all()
 menu = Menu::new(:custom)
   .line_separator("\x0F")
   .theme('notification-center')
-  .prompt('notifications')
+  .prompt("(#{notifications.length()})")
   .max_lines(5)
   .markup()
   .insensitive()
@@ -32,14 +32,15 @@ end
 
 notifications.each do |log|
   # Awful formatting but it looks nice in the end I guess...
-  ident = "<b>#{log['appname']}: </b>#{log['summary']}".ljust(76, ' ')
+  ident = "<big>#{log['appname']}</big>".ljust(45, ' ')
   icon  = "\0icon\x1f#{log['icon']}"
+  summary = log['summary']
   
   urgency   = log['urgency']
-  timestamp = log['timestamp']
-  body      = log['body']
+  timestamp = "<span alpha='50%'>#{log['timestamp']}</span>"
+  body      = "<small>#{log['body']}</small>"
 
-  full_line = "#{ident}#{timestamp}\n#{body}#{icon}"
+  full_line = "#{ident}#{timestamp}\n\n#{summary}\n#{body}#{icon}"
   line_status = nil
 
   # Set lines as active or urgent depending

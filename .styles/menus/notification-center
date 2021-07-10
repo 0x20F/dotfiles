@@ -3,23 +3,34 @@
 
 
 configuration {
-    lines: 4;
+    columns: 2;
 }
 
+@import "#{{ configs.rofi }}/themes/fullscreen"
 
-@import "#{{ configs.rofi }}/themes/simple"
-
-
+/*
 window {
-    width: 42%;
+    width: 30%;
+    height: 70%;
+    anchor: north west;
+    location: north west;
+    y-offset: 8;
+    x-offset: 8;
 }
+*/
 
 
 entry {
-    placeholder: "All yours...";
+    placeholder: "All notifications since last reboot";
 }
 
 
 element-icon {
-    size: 4.5ch;
+    padding: 5px;
+    margin: 0 20px 0 0;
+    size: 10ch;
+}
+
+element {
+    padding: 20px;
 }
