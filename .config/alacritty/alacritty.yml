@@ -276,7 +276,7 @@ colors:
     green:   '#{{ colors.green }}'
     yellow:  '#{{ colors.yellow }}'
     blue:    '#{{ colors.blue }}'
-    magenta: '#b294bb'
+    magenta: '#{{ colors.magenta }}'
     cyan:    '#{{ colors.cyan }}'
     white:   '#{{ colors.white }}'
 
