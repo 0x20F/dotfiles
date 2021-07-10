@@ -4,7 +4,7 @@
 
 
 [colors]
-background = "#0c0f14bb"
+background = "&{{ colors.dark-one-faded }}"
 frame = "#3b4252"
 
 
@@ -45,7 +45,7 @@ markup = full
 #   %n  progress value if set without any extra characters
 #   %%  Literal %
 # Markup is allowed
-format = "<b>%a:</b> %s\n%b"
+format = "<big>%a</big> \n\n%s\n%b"
 alignment = left
 show_age_threshold = 60
 word_wrap = false
@@ -74,20 +74,19 @@ force_xinerama = false
 
 
 [log]
-appname = *
 script = &{{ paths.scripts }}/dunst/log
 
 
 [urgency_low]
 background = colors.background
-foreground = "#81a1c1"
+foreground = "&{{ colors.light-two }}"
 frame_color = "#3b4252"
 timeout = 5
 
 
 [urgency_normal]
 background = colors.background
-foreground = "#e5e9f0"
+foreground = "&{{ colors.light-one }}"
 frame_color = "#3b4252"
 timeout = 5
 
