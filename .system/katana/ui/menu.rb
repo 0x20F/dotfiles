@@ -240,7 +240,7 @@ class Menu
   # the prompt text when it spawns
   #
   def prompt(text)
-    @prompt = "-p #{text}"
+    @prompt = "-p '#{text}'"
     self
   end
 
