@@ -1,0 +1,16 @@
+/**
+ *
+ * Styles and tweaks for the 
+ * Tree Style Tabs extension
+ */
+#background {
+  background-color: #181b21;
+}
+
+
+:root.sidebar tab-item {
+  background-color: #181b21;
+}
+
+
+

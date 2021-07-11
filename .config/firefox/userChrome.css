@@ -5,6 +5,22 @@
 
 :root {
   --custom-background-color: #181b21;
+  --tabpanel-background-color: #181b21 !important;
+  --sidebar-background-color: #181b21 !important;
+}
+
+:root[color-scheme="system-color"][data-user-agent*="Linux"]
+  tab-item:not(.active):not(.bundled-active):not(.highlighted),
+:root[color-scheme="system-color"][data-user-agent*="Linux"]
+  .after-tabs button,
+:root[color-scheme="system-color"][data-user-agent*="Linux"]
+  .after-tabs [role="button"],
+:root[color-scheme="system-color"][data-user-agent*="Linux"]
+  #subpanel-selector-anchor,
+:root[color-scheme="system-color"][data-user-agent*="Linux"]
+  #background {
+  --toolbar-non-lwt-bgcolor: #181b21 !important /* or something background color */;
+  --toolbar-non-lwt-textcolor: ButtonText /* or something foreground color */;
 }
 
 
@@ -78,12 +94,31 @@ window, #nav-bar {
 }
 
 
+#sidebar-header {
+    display: none;
+}
+
+
+.sidebar-splitter {
+    border: 1px transparent !important;
+    background-color: #181b21 !important;
+    width: 1px !important;
+}
+
+
+#bookmarks-view treechildren {
+    background-color: red !important;
+}
+
+
 #main-window[lwthemetextcolor="bright"] #navigator-toolbox > toolbar:not(#toolbar-menubar):not(#TabsToolbar) {
   background-color: transparent !important;
   background-image: none !important;
 }
 
 
-
+vbox#sidebar-box.chromeclass-extrachrome {
+    border-style: none !important;
+}
 
 
