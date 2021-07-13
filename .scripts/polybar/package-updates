@@ -2,13 +2,15 @@
 
 
 
-updates = `checkupdates`.lines.length()
+official_updates = `checkupdates`.lines.length()
+aur_updates = `yay -Qua`.lines.length()
+
+updates = official_updates + aur_updates
 
 # No output if there are no updates
 if updates == 0
   exit(1)
 end
-
 
 # Output the label that polybar should show
 print "#{updates} 󰏗"
