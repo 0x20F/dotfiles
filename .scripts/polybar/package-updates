@@ -2,17 +2,34 @@
 
 
 
-official_updates = `checkupdates`.lines.length()
-aur_updates = `yay -Qua`.lines.length()
+# Official updates/AUR updates
+o_updates = `checkupdates`.lines.length()
+a_updates = `yay -Qua`.lines.length()
 
-updates = official_updates + aur_updates
+updates = o_updates + a_updates
 
 # No output if there are no updates
 if updates == 0
   exit(1)
 end
 
-# Output the label that polybar should show
-print "#{updates} 󰏗"
+updates = []
+# Get the configured colors
+blue = `ix -f colors.blue`.strip
+green = `ix -f colors.light-green`.strip
 
+# Different colors for each update tpye
+# They have to be formatted here since we can't play
+# with script output inside the polybar config
+if o_updates > 0
+  updates.push("%{F#{green}}#{o_updates} 󰏗%{F-}")
+end
+
+if a_updates > 0
+  updates.push("%{F#{blue}}#{a_updates} 󰏖%{F-}")
+end
+
+
+# Output the label that polybar should show
+puts updates.join(' ')
 
