@@ -15,7 +15,7 @@ appname = ARGV[0]
 icon = ARGV[3]
 
 case appname
-when 'microphone','volume','brightness','sxhkd','bspwm'
+when 'microphone','volume','brightness','sxhkd','bspwm','dunst'
   # Don't add notifications
   exit
 when 'Spotify'
