@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+$: << ENV['katana']
+
+
+require 'utils'
+
+
+use 'screenshot', 'notify', 'clipboard'
+
+
+# Take a screenshot, save it to /tmp/something.png
+# Send that file to the clipboard
+# Send a notification with that file as an icon
