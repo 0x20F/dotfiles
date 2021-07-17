@@ -39,7 +39,7 @@ foreground = #{{ colors.dark-two }}
 [bar/right]
 inherit = section/base
 width = 16%
-offset-x = 83.75%
+offset-x = 83.68%
 modules-left = time
 modules-right = microphone-status audio-status wifi battery notifications
 tray-position = right
