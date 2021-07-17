@@ -4,18 +4,19 @@ $: << ENV['katana']
 require 'utils'
 
 
-use 'notify'
+use 'notify', 'clipboard'
 
 
 
-module Screenshot
+module System
 
   # Take a screenshot of whatever is on screen
   # at this very moment, making sure to:
-  #   1. add the screenshot to clipboard
+  #   1. add the screenshot to the clipboard
   #   2. save the image in /tmp (by default)
   #   3. show a nice notification with the saved image
-  def self.take(path: '/tmp', delay: 0)
+  #
+  def self.screenshot(path: '/tmp', delay: 0)
     sleep(delay)
 
     filename = "#{path}/#{string(25)}.png"
@@ -23,8 +24,12 @@ module Screenshot
     # Take the screenshot
     `maim --format png #{filename}`
 
-    
-    Notification::new(123123)
+    # Add the image data to the clipboard
+    data = File::open(filename, 'rb').read
+    Clipboard::add(data, image: true)
+
+    # Send a notification
+    Notification::new(5123)
       .appname('Screenshot')
       .summary("Screenshot saved at #{filename}")
       .icon(filename)
@@ -32,3 +37,5 @@ module Screenshot
       .send()
   end
 end
+
+
