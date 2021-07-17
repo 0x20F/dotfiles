@@ -11,6 +11,16 @@
         "name": "wifi settings",
         "command": "#{{ paths.menus }}/wifi"
     },
+
+    {
+        "name": "screenshot",
+        "command": "#{{ paths.scripts }}/utils/screenshot 1"
+    },
+
+    {
+        "name": "screenshot (5s timer)",
+        "command": "#{{ paths.scripts }}/utils/screenshot 5"
+    },
     
     {
         "name": "notifications",
