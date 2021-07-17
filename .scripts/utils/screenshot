@@ -5,9 +5,8 @@ $: << ENV['katana']
 require 'utils'
 
 
-use 'screenshot', 'notify', 'clipboard'
+use 'system'
 
 
-# Take a screenshot, save it to /tmp/something.png
-# Send that file to the clipboard
-# Send a notification with that file as an icon
+delay = ARGV[0].to_i or 0
+System::screenshot(delay: delay)
