@@ -8,5 +8,5 @@ require 'utils'
 use 'system'
 
 
-delay = ARGV[0].to_i or 0
+delay = ARGV[0].to_f or 0
 System::screenshot(delay: delay)
