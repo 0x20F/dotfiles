@@ -91,7 +91,7 @@ label-occupied-foreground = #{{ colors.grey }}
 [module/time]
 type = internal/date
 interval = 1
-time = %H:%M:%S
+time = %H:%M
 label = %time%
 
 
