@@ -8,7 +8,11 @@ use 'system'
 
 # Official updates/AUR updates
 updates = System::updates()
-total_updates = updates[:pac] + updates[:aur]
+
+pac = updates[:pac].length
+aur = updates[:aur].length
+
+total_updates = pac + aur
 
 # No output if there are no updates
 if total_updates == 0
@@ -23,12 +27,12 @@ green = `ix -f colors.light-green`.strip
 # Different colors for each update tpye
 # They have to be formatted here since we can't play
 # with script output inside the polybar config
-if updates[:pac] > 0
-  final.push("%{F#{green}}#{updates[:pac]} 󰏗%{F-}")
+if pac > 0
+  final.push("%{F#{green}}#{pac} 󰏗%{F-}")
 end
 
-if updates[:aur] > 0
-  final.push("%{F#{blue}}#{updates[:aur]} 󰏖%{F-}")
+if aur > 0
+  final.push("%{F#{blue}}#{aur} 󰏖%{F-}")
 end
 
 

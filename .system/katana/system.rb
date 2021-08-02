@@ -43,8 +43,8 @@ module System
   # from 'pacman' and 'aur'
   def self.updates()
     hash = {
-      pac: `checkupdates`.lines.length(),
-      aur: `yay -Qua`.lines.length()
+      pac: `checkupdates`.lines,
+      aur: `yay -Qua`.lines
     }
   end
 end
