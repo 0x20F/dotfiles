@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+$: << ENV['katana']
+
+
+require 'utils'
+
+
+use 'menu', 'system'
+
+
+
+
+menu = Menu::new(:custom)
+  .prompt('hodl')
+  .theme('updates')
+  .markup()
+  .insensitive()
+
+menu.loading(:on, 'Checking for updates...')
+
+
+updates = System::updates()
+total = updates[:pac].length + updates[:aur].length
+
+
+#
+# Take care of pacman updates
+#
+updates[:pac].each do |update|
+  # package 1.1.1 -> 1.1.2
+  name, from, _, to = update.split
+
+  from = "<span alpha='50%'>#{from}</span>"
+  to = "<span alpha='50%'>#{to}</span>"
+
+  menu.add_line("#{name} #{from} -> #{to}")
+end
+
+#
+# Take care of aur updates
+#
+updates[:aur].each do |update|
+  # package 1.1.1 -> 1.1.2
+  name, from, _, to = update.split
+
+  from = "<span alpha='50%'>#{from}</span>"
+  to = "<span alpha='50%'>#{to}</span>"
+  
+  menu.add_line("(aur) #{name} #{from} -> #{to}")
+end
+
+
+menu.prompt(total)
+menu.loading(:off)
+
+menu.show()

@@ -1,0 +1,17 @@
+#: ix-config
+#: to: #{{ configs.menus }}
+
+
+
+configuration {
+    columns: 2;
+    lines: 5;
+}
+
+
+@import "#{{ configs.rofi }}/themes/fullscreen"
+
+
+entry {
+    placeholder: "All available updates";    
+}

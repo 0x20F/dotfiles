@@ -21,6 +21,11 @@
         "name": "screenshot (5s timer)",
         "command": "#{{ paths.scripts }}/utils/screenshot 5"
     },
+
+    {
+        "name": "package updates",
+        "command": "#{{ paths.menus }}/updates"
+    },
     
     {
         "name": "notifications",
