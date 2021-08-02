@@ -36,6 +36,17 @@ module System
       .urgency(:low)
       .send()
   end
+
+
+  # Get all the available package updates 
+  # within the system, including packages
+  # from 'pacman' and 'aur'
+  def self.updates()
+    hash = {
+      pac: `checkupdates`.lines.length(),
+      aur: `yay -Qua`.lines.length()
+    }
+  end
 end
 
 
