@@ -27,3 +27,7 @@ fi
 
 # Load all custom binaries for this user
 export PATH="$PATH:$binaries"
+
+
+# Java application fixes
+export _JAVA_AWT_WM_NONREPARENTING=1

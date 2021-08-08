@@ -56,7 +56,7 @@ sxhkd &
 bspc rule desktop=$WS2 follow=on --add Firefox
 bspc rule desktop=$WS4 follow=on --add Vlc
 bspc rule state=floating --add Thunar
-
+bspc rule -a jetbrains-studio state=floating
 
 
 
