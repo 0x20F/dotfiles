@@ -46,7 +46,6 @@ window {
    width: 40%;
    anchor: north;
    location: north;
-   y-offset: 25%;
    background-color: #{{ rgb colors.dark-one-faded }};
 }
 
@@ -64,17 +63,19 @@ listview {
 element {
    background-color: @transparent;
    padding: 20px 35px 20px 35px;
-   text-color: #{{ colors.light-one }};
    border: 0 0 0 5px;
    border-color: @transparent;
 }
 
 element-icon {
+   background-color: @transparent;
    size: 4ch;
    padding: 1% 1% 1% 0.2%;
 }
 
 element-text {
+   color: #{{ colors.light-one }};
+   background-color: @transparent;
    expand: true;
    vertical-align: 0.5;
 }
@@ -94,6 +95,7 @@ element.normal.urgent {
 
 element.normal.active {
    text-color: #{{ colors.dark-three }};
+   border-color: #{{ colors.light-green }};
 }
 
 
@@ -129,6 +131,7 @@ element.alternate.urgent {
 
 element.alternate.active {
    text-color: #{{ colors.dark-three }};
+   border-color: #{{ colors.light-green }};
 }
 
 

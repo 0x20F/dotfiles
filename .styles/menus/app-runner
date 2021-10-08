@@ -12,7 +12,6 @@ configuration {
 
 @import "#{{ configs.rofi }}/themes/fullscreen"
 
-
 entry {
     placeholder: "Find an application...";
 }
