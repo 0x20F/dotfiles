@@ -3,3 +3,5 @@
 <p align="center">pretty, documented, understandable, configs</p>
 <br/><br/>
 
+## TODO:
+- Everything
