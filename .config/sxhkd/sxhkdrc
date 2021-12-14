@@ -2,11 +2,6 @@
 # bspwm hotkeys
 #
 
-#: ix-config
-#: prefix: &
-#: to: $HOME/.config/sxhkd
-
-
 
 
 # Open terminal

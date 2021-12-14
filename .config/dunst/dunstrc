@@ -1,8 +1,3 @@
-#: ix-config
-#: prefix: &
-#: to: $HOME/.config/dunst
-
-
 [colors]
 background = "&{{ colors.dark-one-faded }}"
 frame = "#3b4252"

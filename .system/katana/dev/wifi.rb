@@ -98,7 +98,8 @@ module Wifi
   #
   def self.connect(ssid, pass = nil)
     password = pass ? "password \"#{pass}\"" : ''
-
+    
+    # FIXME: This thing will break if password is sent in empty like that
     `nmcli dev wifi con "#{ssid}" #{password}`
   end
 

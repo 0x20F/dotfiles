@@ -1,12 +1,6 @@
 #!/bin/sh
 
 
-#: ix-config
-#: to: $HOME/.config/bspwm
-#: prefix: &
-#: access: 777
-
-
 # [+] Workspaces
 # ---------------------
 export WS1="001"

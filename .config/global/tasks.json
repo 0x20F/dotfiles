@@ -1,6 +1,3 @@
-#: ix-config
-#: to: $HOME/.config/global
-
 [
     {
         "name": "power menu",

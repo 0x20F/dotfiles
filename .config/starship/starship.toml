@@ -1,6 +1,3 @@
-#: ix-config
-#: to: $HOME/.config
-
 add_newline = true
 
 format = "$git_status$git_branch$directory$env_var[](white) "

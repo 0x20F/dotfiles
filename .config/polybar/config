@@ -1,7 +1,3 @@
-#: ix-config
-#: to: $HOME/.config/polybar
-
-
 [constants]
 padding = 2
 

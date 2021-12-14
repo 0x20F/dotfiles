@@ -1,0 +1,52 @@
+{
+    "root": "$HOME/dots",
+    "vars_file": "$HOME/dots/.config/ix/ixrc",
+    "parse": [
+        {
+            "file": "./.config/bspwm/bspwmrc",
+            "out": "$HOME/.config/bspwm",
+            "access": "777",
+            "prefix": "&"
+        },
+        {
+            "file": "./.config/alacritty/alacritty.yml",
+            "out": "$HOME/.config/alacritty"
+        },
+        {
+            "file": "./.config/dunst/dunstrc",
+            "out": "$HOME/.config/dunst",
+            "prefix": "&"
+        },
+        {
+            "file": "./.config/global/tasks.json",
+            "out": "$HOME/.config/global"
+        },
+        {
+            "file": "./.config/picom/picom.conf",
+            "out": "$HOME/.config/picom"
+        },
+        {
+            "file": "./.config/polybar/config",
+            "out": "$HOME/.config/polybar"
+        },
+        {
+            "file": "./.config/rofi/config.rasi",
+            "out": "$HOME/.config/rofi"
+        },
+        {
+            "file": "./.config/starship/starship.toml",
+            "out": "$HOME/.config"
+        },
+        {
+            "file": "./.config/sxhkd/sxhkdrc",
+            "out": "$HOME/.config/sxhkd",
+            "access": "777",
+            "prefix": "&"
+        },
+        {
+            "file": "./.config/tmux/tmux.conf",
+            "out": "$HOME",
+            "as": ".tmux.conf"
+        }
+    ]
+}

@@ -1,7 +1,3 @@
-//: ix-config
-//: to: $HOME/.config/rofi 
-
-
 configuration {
     modi: "window,run,drun,ssh";
 }

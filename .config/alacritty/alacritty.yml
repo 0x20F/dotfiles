@@ -1,6 +1,3 @@
-#: ix-config
-#: to: $HOME/.config/alacritty
-
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
 # Import additional configuration files
