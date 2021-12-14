@@ -42,5 +42,10 @@
     {
         "name": "toggle volume",
         "command": "#{{ paths.scripts }}/control/volume toggle"
+    },
+
+    {
+        "name": "rebuild configuration files (palace.json)",
+        "command": "ix -r ~/dots/.config/rules/palace.json"
     }
 ]
