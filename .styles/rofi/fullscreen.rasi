@@ -3,7 +3,7 @@
 
 
 
-@import "#{{ configs.rofi }}/themes/simple"
+@theme "#{{ configs.rofi }}/themes/simple"
 
 
 window {

@@ -4,14 +4,18 @@
 
 configuration {
     lines: 3;
-    columns: 3;
     show-icons: true;
     display-drun: "run";
 }
 
 
-@import "#{{ configs.rofi }}/themes/fullscreen"
+@theme "#{{ configs.rofi }}/themes/fullscreen"
 
 entry {
     placeholder: "Find an application...";
+}
+
+listview {
+    lines: 5;
+    columns: 3;
 }

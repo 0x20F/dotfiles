@@ -2,22 +2,13 @@
 #: to: #{{ configs.menus }}
 
 
-configuration {
+@theme "#{{ configs.rofi }}/themes/fullscreen"
+
+
+listview {
+    lines: 5;
     columns: 2;
 }
-
-@import "#{{ configs.rofi }}/themes/fullscreen"
-
-/*
-window {
-    width: 30%;
-    height: 70%;
-    anchor: north west;
-    location: north west;
-    y-offset: 8;
-    x-offset: 8;
-}
-*/
 
 
 entry {
