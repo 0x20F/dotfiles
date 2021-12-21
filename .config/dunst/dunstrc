@@ -5,11 +5,10 @@ frame = "#3b4252"
 
 [global]
 ### Display ###
-
-
 follow = keyboard
-
-geometry = "500x4-7+60"    
+width = 300
+height = 120
+offset = "7x60"
 indicate_hidden = yes
 transparency = 0
 notification_height = 0
@@ -51,7 +50,7 @@ show_indicators = false
 
 ### Icons ###
 icon_position = left
-max_icon_size = 128
+max_icon_size = 64
 icon_path = /usr/share/icons/Nord-Icon/48x48/status/:/usr/share/icons/Nord-Icon/48x48/devices/:/usr/share/icons/Nord-Icon/48x48/apps
 
 ### History ###
