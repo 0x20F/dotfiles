@@ -30,7 +30,7 @@ width = 25%
 offset-x = 37.5%
 modules-center = xwindow
 background = #00000000
-foreground = #{{ colors.dark-two }}
+foreground = #{{ colors.light-two }}
 
 [bar/right]
 inherit = section/base
