@@ -114,6 +114,11 @@ super + shift + e
 	bspc wm -r
 
 
+# Open flameshot and select an area to capture
+super + shift + s
+	flameshot gui
+
+
 # Show help
 super + shift + i
 	&{{ paths.menus }}/help
