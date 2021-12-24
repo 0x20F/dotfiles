@@ -1,6 +1,6 @@
 add_newline = true
 
-format = "$git_status$git_branch$directory$env_var[](white) "
+format = "$python$git_status$git_branch$directory[](white) "
 
 
 [git_branch]
@@ -14,8 +14,5 @@ truncation_symbol = "..."
 style = "black"
 
 
-[env_var]
-variable = "CURRENT_ENVIRONMENT"
-format = "[$env_value ]($style)"
-style = "bold green"
-
+[python]
+format = "($virtualenv) "
