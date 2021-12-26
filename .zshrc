@@ -64,3 +64,8 @@ function banner {
 
 # Enable the starship prompt
 source <("/usr/local/bin/starship" init zsh --print-full-init)
+
+
+
+# For using all installed cargo packages
+export PATH="$PATH:$HOME/.cargo/bin"
